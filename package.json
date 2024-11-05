@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "db-hafas": "^6.0.0"
+  },
+  "devDependencies": {
+    "@derhuerst/query-overpass": "^2.0.1"
   }
 }
