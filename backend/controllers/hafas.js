@@ -43,10 +43,8 @@ export const getAllNonStopStations = async (stationId  = "8000191", dateAndTime)
         const stopovers = await getStopovers(trip.tripId, trip.plannedWhen)
         stopovers.forEach(stopover => {
             if (nonStopStations[stopover.id]) {
-                console.log("known")
                 nonStopStations[stopover.id].count += 1;
             } else {
-                console.log("unknown")
                 nonStopStations[stopover.id] = {
                     id: stopover.id,
                     name: stopover.name,
@@ -58,6 +56,5 @@ export const getAllNonStopStations = async (stationId  = "8000191", dateAndTime)
         });
     };
     return nonStopStations
-    // return Object.values(nonStopStations)
 }
   
