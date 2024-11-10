@@ -5,7 +5,7 @@ export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) =
     const productFilter = ["nationalExpress", "bus"]
     try {
       const departures = await dbHafas.departures(stationId, { 
-        results: 2000, // Anzahl der Ergebnisse
+        results: 20, // Anzahl der Ergebnisse
         duration: 60, // Zeitraum in Minuten
         when: dateAndTime
       });
