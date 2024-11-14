@@ -54,6 +54,39 @@ export const batchFindPlaces = async (coordinates, radius) => {
     // Implementieren Sie hier die Overpass-Abfrage mit dem zusammengefassten Query
 }
 
+export const findPlacesBoundingBox = async () => {
+    const query = `
+        [out:json]
+        [bbox:47.376620,6.536865,49.543594,10.101929];
+        (
+        node["tourism"~"zoo|theme_park|museum|attraction|castle"];
+        node["leisure"~"park|playground|swimming_pool"];
+        node["amenity"="playground"];
+        node["shop"="farm"];
+        );
+        out body;
+    `;
+    let result = {}
+    try {
+        result = await queryOverpass(query)
+    } catch(error) {
+    //    result = error.reponseBody
+        console.log(error)
+    }
+    
+    return result
+}
+
+export const batchEnhanceStopovers = async (stopovers, radius, batchSize=25) => {
+    // get osm batch query
+    const coordinates = stopovers.map(d=>[d.latitude, d.longitude])
+    for (let i = 0; i < coordinates.length; i += batchSize) {
+        const batch = coordinates.slice(i, i+batchSize)
+        const places = await batchFindPlaces(batch, radius)
+        console.log(places)
+    }
+}
+
 export const enhancedStopovers = async (stopovers, radius) => {
     const limit = pLimit(10); // Maximal gleichzeitige Anfragen
     // const enhanced = await Promise.all(stopovers.map(async d => {

@@ -1,6 +1,6 @@
 import express from 'express';
 import {getAllNonStopStations, getDeparturesTripIds} from './controllers/hafas.js'
-import { enhancedStopovers, findPlaces, batchFindPlaces } from './controllers/osm.js';
+import { enhancedStopovers, findPlaces, batchFindPlaces, batchEnhanceStopovers, findPlacesBoundingBox} from './controllers/osm.js';
 const app = express();
 const port = 3000;
 
@@ -16,12 +16,14 @@ app.get('/departures/:stationId', async (req, res) => {
 });
 
 app.get('/destinations', async (req, res) => {
+  //http://localhost:3000/destinations?station=8000191&radius=2000
   const stationId = req.query.station
   const radius = req.query.radius
   const time = "2024-11-09 08:00"
   const nonStopStations = await getAllNonStopStations(stationId,time)
-  const enhancedStations = await enhancedStopovers(Object.values(nonStopStations), radius)
-  res.send(enhancedStations)
+  const enhancedStations = await batchEnhanceStopovers(Object.values(nonStopStations), radius)
+  // const enhancedStations = await enhancedStopovers(Object.values(nonStopStations), radius)
+  res.send(nonStopStations)
 })
 
 app.get('/osm', async (req, res) => {
@@ -47,6 +49,12 @@ app.get('/osm', async (req, res) => {
     
     const places = await batchFindPlaces(coordinates, 500)
     res.send(places)
+})
+
+app.get("/boundingbox", async(req,res) => {
+    console.log("bbox")
+    const result = await findPlacesBoundingBox()
+    res.send(result)
 })
 
 app.listen(port, () => {
