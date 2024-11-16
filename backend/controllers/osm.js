@@ -15,10 +15,10 @@ export const findPlaces = async (latitude, longitude, radius = 1000) => {
     let result = {}
     try {
         result = await queryOverpass(query)
-    } catch(error) {
+    } catch (error) {
         console.log(error)
     }
-    
+
     return result
 }
 // todo: implement distance computing after batch query
@@ -29,10 +29,10 @@ export const batchFindPlaces = async (coordinates, radius) => {
         '["tourism"~"zoo|theme_park|museum|attraction|castle"]',
         '["shop"="farm"]'
     ]
-    const nodes = coordinates.map(([lat, lon]) => 
-      filters.map(d => 
-        `node(around:${radius},${lat},${lon})${d};`
-      ).join('')
+    const nodes = coordinates.map(([lat, lon]) =>
+        filters.map(d =>
+            `node(around:${radius},${lat},${lon})${d};`
+        ).join('')
     ).join('');
 
     const query = `
@@ -44,17 +44,18 @@ export const batchFindPlaces = async (coordinates, radius) => {
     let result = {}
     try {
         result = await queryOverpass(query)
-    } catch(error) {
+    } catch (error) {
         console.log(error)
     }
-    
+
     return result
-    
+
     // return query
     // Implementieren Sie hier die Overpass-Abfrage mit dem zusammengefassten Query
 }
 
-export const findPlacesBoundingBox = async () => {
+export const findPlacesBoundingBox = async (bboxArray) => {
+    console.log(bboxArray)
     const query = `
         [out:json]
         [bbox:47.376620,6.536865,49.543594,10.101929];
@@ -69,19 +70,19 @@ export const findPlacesBoundingBox = async () => {
     let result = {}
     try {
         result = await queryOverpass(query)
-    } catch(error) {
-    //    result = error.reponseBody
+    } catch (error) {
+        //    result = error.reponseBody
         console.log(error)
     }
-    
+
     return result
 }
 
-export const batchEnhanceStopovers = async (stopovers, radius, batchSize=25) => {
+export const batchEnhanceStopovers = async (stopovers, radius, batchSize = 25) => {
     // get osm batch query
-    const coordinates = stopovers.map(d=>[d.latitude, d.longitude])
+    const coordinates = stopovers.map(d => [d.latitude, d.longitude])
     for (let i = 0; i < coordinates.length; i += batchSize) {
-        const batch = coordinates.slice(i, i+batchSize)
+        const batch = coordinates.slice(i, i + batchSize)
         const places = await batchFindPlaces(batch, radius)
         console.log(places)
     }
@@ -90,16 +91,16 @@ export const batchEnhanceStopovers = async (stopovers, radius, batchSize=25) => 
 export const enhancedStopovers = async (stopovers, radius) => {
     const limit = pLimit(10); // Maximal gleichzeitige Anfragen
     // const enhanced = await Promise.all(stopovers.map(async d => {
-        // return {
-        // ...d,
-        // "destinations": await findPlaces(d.latitude, d.longitude, radius)
-        // }
-        const enhanced = await Promise.all(stopovers.map(async (d) => {
-          const destinations = await limit(async () => {
+    // return {
+    // ...d,
+    // "destinations": await findPlaces(d.latitude, d.longitude, radius)
+    // }
+    const enhanced = await Promise.all(stopovers.map(async (d) => {
+        const destinations = await limit(async () => {
             return await findPlaces(d.latitude, d.longitude, radius);
-          });
-      
-          return { ...d, destinations };
-        }));
+        });
+
+        return { ...d, destinations };
+    }));
     return enhanced
 }
