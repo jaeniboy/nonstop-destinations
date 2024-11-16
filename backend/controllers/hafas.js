@@ -1,6 +1,7 @@
 import {createDbHafas} from 'db-hafas';
 
 export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) => {
+    console.log("Ermittle TripIds")
     const dbHafas = createDbHafas('janfseipel@gmail.com')
     const productFilter = ["nationalExpress", "bus"]
     try {
@@ -19,6 +20,7 @@ export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) =
   }
 
 export const getStopovers = async (tripId, cutByTime=null) => {
+    console.log("Ermittle Zwischenhalte")
     const dbHafas = createDbHafas('janfseipel@gmail.com')
     try {
         const trip = await dbHafas.trip(tripId, { stopovers: true });
@@ -37,6 +39,7 @@ export const getStopovers = async (tripId, cutByTime=null) => {
 }
 
 export const getAllNonStopStations = async (stationId  = "8000191", dateAndTime) => {
+    console.log("Ermittle alle direkt angefahrenen Haltestellen")
     const trips = await getDeparturesTripIds(stationId, dateAndTime)
     const nonStopStations = {}
     for (const trip of trips) {

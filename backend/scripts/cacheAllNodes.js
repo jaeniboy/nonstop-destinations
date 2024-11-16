@@ -11,10 +11,10 @@ export const cacheAllNodes = async () => {
     [out:json]
     [bbox:47.3024876979,5.98865807458,54.983104153,15.0169958839];
     (
-      node["tourism"~"zoo|theme_park|museum|attraction|castle"];
-      node["leisure"~"park|playground|swimming_pool"];
-      node["amenity"="playground"];
-      node["shop"="farm"];
+        node["tourism"~"zoo|theme_park|museum|attraction|castle"]["access"!="private"];
+        node["leisure"~"park|playground|swimming_pool"]["access"!="private"];
+        node["amenity"="playground"]["access"!="private"];
+        node["shop"="farm"]["access"!="private"];
     );
     out body;
   `;
@@ -23,7 +23,7 @@ export const cacheAllNodes = async () => {
         const data = await queryOverpass(query);
 
         const timestamp = new Date().toISOString().split('T')[0];
-        const dataDir = path.join(__dirname, '..', 'data');
+        const dataDir = path.join(__dirname, '..', 'data', 'osm');
         const fileName = path.join(dataDir, `osm_data_${timestamp}.json`);
 
         // Make sure that data folder exists
