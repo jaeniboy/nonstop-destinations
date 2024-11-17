@@ -1,8 +1,22 @@
 {
+  "name": "mein-monorepo",
+  "version": "1.0.0",
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "preview:frontend": "cd frontend && npm run preview",
+    "dev:backend": "cd backend && npm run dev",
+    "build:backend": "cd backend && npm run build",
+    "start:backend": "cd backend && npm run start"
+  },
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "dependencies": {
-    "db-hafas": "^6.0.0"
+    
   },
   "devDependencies": {
-    "@derhuerst/query-overpass": "^2.0.1"
+
   }
 }
