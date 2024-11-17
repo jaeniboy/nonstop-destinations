@@ -1,25 +1,25 @@
-import {createDbHafas} from 'db-hafas';
+import { createDbHafas } from 'db-hafas';
 
 export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) => {
     console.log("Ermittle TripIds")
     const dbHafas = createDbHafas('janfseipel@gmail.com')
     const productFilter = ["nationalExpress", "bus"]
     try {
-      const departures = await dbHafas.departures(stationId, { 
-        results: 20, // Anzahl der Ergebnisse
-        duration: 60, // Zeitraum in Minuten
-        when: dateAndTime
-      });
-      const departuresFilterd = departures.departures.filter(d=>!productFilter.includes(d.line.product))
-      const tripIds = departuresFilterd
-        .map(dep => {return {"tripId": dep.tripId, "plannedWhen": dep.plannedWhen}});
+        const departures = await dbHafas.departures(stationId, {
+            results: 20, // Anzahl der Ergebnisse
+            duration: 60, // Zeitraum in Minuten
+            when: dateAndTime
+        });
+        const departuresFilterd = departures.departures.filter(d => !productFilter.includes(d.line.product))
+        const tripIds = departuresFilterd
+            .map(dep => { return { "tripId": dep.tripId, "plannedWhen": dep.plannedWhen } });
         return tripIds
     } catch (error) {
         return `Fehler beim Abrufen der Abfahrten: ${error}`
     }
-  }
+}
 
-export const getStopovers = async (tripId, cutByTime=null) => {
+export const getStopovers = async (tripId, cutByTime = null) => {
     console.log("Ermittle Zwischenhalte")
     const dbHafas = createDbHafas('janfseipel@gmail.com')
     try {
@@ -32,13 +32,13 @@ export const getStopovers = async (tripId, cutByTime=null) => {
             plannedArrival: stopover.plannedArrival,
         }));
         // remove startpoint and stops before
-        return cutByTime ? stations.filter(d=>d.plannedArrival > cutByTime) : stations;
+        return cutByTime ? stations.filter(d => d.plannedArrival > cutByTime) : stations;
     } catch (error) {
         return `Error fetching trip data: ${error}`;
     }
 }
 
-export const getAllNonStopStations = async (stationId  = "8000191", dateAndTime) => {
+export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) => {
     console.log("Ermittle alle direkt angefahrenen Haltestellen")
     const trips = await getDeparturesTripIds(stationId, dateAndTime)
     const nonStopStations = {}
@@ -60,4 +60,3 @@ export const getAllNonStopStations = async (stationId  = "8000191", dateAndTime)
     };
     return nonStopStations
 }
-  
