@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "build": "docker build -t backend-app -f Dockerfile .",
-    "run": "docker run -p 3000:3000 backend-app",
+    "build": "docker build -t backend-app -f ../Dockerfile ..",
+    "dockerStop":  "(for /f \"tokens=*\" %i in ('docker ps -q --filter \"ancestor=backend-app\"') do docker stop %i) || exit 0",
+    "dockerRemove": "for /f \"tokens=*\" %i in ('docker ps -aq --filter \"ancestor=backend-app\"') do docker rm %i",
+    "docker": "npm run dockerStop && npm run dockerRemove && docker run -d -p 3000:3000 backend-app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,11 +17,12 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@turf/turf": "^7.1.0",
-    "rbush": "^4.0.1",
-    "db-hafas": "^6.0.0",
     "@derhuerst/query-overpass": "^2.0.1",
-    "express": "^4.21.1"
+    "@turf/turf": "^7.1.0",
+    "cors": "^2.8.5",
+    "db-hafas": "^6.0.0",
+    "express": "^4.21.1",
+    "rbush": "^4.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
