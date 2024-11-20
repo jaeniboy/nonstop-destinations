@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { stations } from '../data/stations';
 
-const StationSearch = () => {
+const StationSearch = ({sendDestinations}) => {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
@@ -19,7 +19,18 @@ const StationSearch = () => {
     setInputValue(station.name);
     setSuggestions([]);
     console.log(`Selected station ID: ${station.id}`);
+    fetchStationData(station.id)
   };
+
+  const fetchStationData = async (stationId) => {
+    try {
+        const response = await fetch(`http://localhost:3000/destinations?station=${stationId}&radius=1000`)
+        const data = await response.json();
+        sendDestinations(data)
+    } catch(error) {
+        console.log(error)
+    }
+  }
 
   return (
     <div className="relative w-64">
@@ -28,15 +39,43 @@ const StationSearch = () => {
         value={inputValue}
         onChange={handleInputChange}
         placeholder="Bahnhof suchen"
-        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        className="
+            w-full 
+            px-4 
+            py-2 
+            border 
+            border-gray-300 
+            rounded-md 
+            focus:outline-none 
+            focus:ring-2 
+            focus:ring-blue-500 
+            focus:border-transparent
+        "
       />
       {suggestions.length > 0 && (
-        <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
+        <ul className="
+            absolute 
+            z-10 
+            w-full 
+            mt-1 
+            bg-white 
+            border 
+            border-gray-300 
+            rounded-md 
+            shadow-lg 
+            max-h-60 
+            overflow-auto
+        ">
           {suggestions.map(station => (
             <li 
               key={station.id} 
               onClick={() => handleSelectStation(station)}
-              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              className="
+                px-4 
+                py-2 
+                hover:bg-gray-100 
+                cursor-pointer
+              "
             >
               {station.name}
             </li>
