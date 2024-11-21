@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 
-const Destinations = ({destinations}) => {
+const Destinations = ({stations}) => {
 
     // sort
-    destinations = destinations.sort((a,b)=> b.destinations.length - a.destinations.length)
+    stations = stations.sort((a,b)=> b.destinations.length - a.destinations.length)
 
-    const displayDestinations = destinations.map(d=>{
-        return <li>{d.name} ({d.destinations.length})</li>
+    const displayStations = stations.map(d=>{
+        return <li key={d.id}>{d.name} ({d.destinations.length})</li>
     })
 
     return (
         <div>
             <ul>
-                {displayDestinations}
+                {displayStations}
             </ul>
         </div>
     )

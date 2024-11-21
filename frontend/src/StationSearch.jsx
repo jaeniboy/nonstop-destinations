@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { stations } from '../data/stations';
 
-const StationSearch = ({sendDestinations}) => {
+const StationSearch = ({sendStations}) => {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
@@ -18,7 +18,6 @@ const StationSearch = ({sendDestinations}) => {
   const handleSelectStation = (station) => {
     setInputValue(station.name);
     setSuggestions([]);
-    console.log(`Selected station ID: ${station.id}`);
     fetchStationData(station.id)
   };
 
@@ -26,7 +25,8 @@ const StationSearch = ({sendDestinations}) => {
     try {
         const response = await fetch(`http://localhost:3000/destinations?station=${stationId}&radius=1000`)
         const data = await response.json();
-        sendDestinations(data)
+        const dataSorted = data.sort((a,b) => b.destinations.length - a.destinations.length)
+        sendStations(dataSorted)
     } catch(error) {
         console.log(error)
     }
