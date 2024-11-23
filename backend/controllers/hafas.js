@@ -44,20 +44,17 @@ export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) =
 
 export const getStopovers = async (tripId, departureTime = null) => {
     console.log("Ermittle Zwischenhalte")
-    console.log(departureTime)
     const dbHafas = createDbHafas('janfseipel@gmail.com')
     try {
         const trip = await dbHafas.trip(tripId, { stopovers: true });
         const stations = trip.trip.stopovers.map((stopover) => {
-            console.log("stopoverArrival", stopover.plannedArrival)
             return {
                 id: stopover.stop.id,
                 name: stopover.stop.name,
                 latitude: stopover.stop.location.latitude,
                 longitude: stopover.stop.location.longitude,
                 plannedArrival: stopover.plannedArrival,
-                travelTime: timeDelta(stopover.plannedArrival,departureTime)
-
+                travelTime: timeDelta(stopover.plannedArrival, departureTime)
             }
         });
         // remove startpoint and stops before departure time
