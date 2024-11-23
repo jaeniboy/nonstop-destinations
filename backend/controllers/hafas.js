@@ -1,4 +1,27 @@
 import { createDbHafas } from 'db-hafas';
+import fs from 'fs/promises';
+import * as turf from '@turf/turf';
+
+export const getStationCoords = async (stationId = "8000191") => {
+    try {
+        const filePath = "./data/stations/stations.json";
+        const data = await fs.readFile(filePath, 'utf8');
+        const stations = JSON.parse(data);
+        const station = stations.find(s => s.id === stationId);
+
+        if (station && station.location) {
+            return [
+                station.location.longitude,
+                station.location.latitude
+            ];
+        } else {
+            throw new Error(`Keine Koordinaten gefunden für Station ID: ${stationId}`);
+        }
+    } catch (error) {
+        console.error('Fehler beim Abrufen der Stationskoordinaten:', error);
+        throw error;
+    }
+};
 
 export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) => {
     console.log("Ermittle TripIds")
@@ -40,6 +63,7 @@ export const getStopovers = async (tripId, cutByTime = null) => {
 
 export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) => {
     console.log("Ermittle alle direkt angefahrenen Haltestellen")
+    const initStationCoords = await getStationCoords(stationId)
     const trips = await getDeparturesTripIds(stationId, dateAndTime)
     const nonStopStations = {}
     for (const trip of trips) {
@@ -53,10 +77,19 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
                     name: stopover.name,
                     latitude: stopover.latitude,
                     longitude: stopover.longitude,
-                    count: 1
+                    count: 1,
+                    distance: getDistance(initStationCoords, [stopover.longitude,stopover.latitude])
                 };
             }
         });
     };
     return nonStopStations
+}
+
+export const getDistance = (firstPoint, secondPoint) => {
+    return turf.distance(
+        turf.point(firstPoint), 
+        turf.point(secondPoint), 
+        { units: 'meters' }
+    );
 }
