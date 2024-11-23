@@ -1,4 +1,27 @@
 import { createDbHafas } from 'db-hafas';
+import fs from 'fs/promises';
+import * as turf from '@turf/turf';
+
+export const getStationCoords = async (stationId = "8000191") => {
+    try {
+        const filePath = "./data/stations/stations.json";
+        const data = await fs.readFile(filePath, 'utf8');
+        const stations = JSON.parse(data);
+        const station = stations.find(s => s.id === stationId);
+
+        if (station && station.location) {
+            return [
+                station.location.longitude,
+                station.location.latitude
+            ];
+        } else {
+            throw new Error(`Keine Koordinaten gefunden für Station ID: ${stationId}`);
+        }
+    } catch (error) {
+        console.error('Fehler beim Abrufen der Stationskoordinaten:', error);
+        throw error;
+    }
+};
 
 export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) => {
     console.log("Ermittle TripIds")
@@ -19,20 +42,23 @@ export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) =
     }
 }
 
-export const getStopovers = async (tripId, cutByTime = null) => {
+export const getStopovers = async (tripId, departureTime = null) => {
     console.log("Ermittle Zwischenhalte")
     const dbHafas = createDbHafas('janfseipel@gmail.com')
     try {
         const trip = await dbHafas.trip(tripId, { stopovers: true });
-        const stations = trip.trip.stopovers.map(stopover => ({
-            id: stopover.stop.id,
-            name: stopover.stop.name,
-            latitude: stopover.stop.location.latitude,
-            longitude: stopover.stop.location.longitude,
-            plannedArrival: stopover.plannedArrival,
-        }));
-        // remove startpoint and stops before
-        return cutByTime ? stations.filter(d => d.plannedArrival > cutByTime) : stations;
+        const stations = trip.trip.stopovers.map((stopover) => {
+            return {
+                id: stopover.stop.id,
+                name: stopover.stop.name,
+                latitude: stopover.stop.location.latitude,
+                longitude: stopover.stop.location.longitude,
+                plannedArrival: stopover.plannedArrival,
+                travelTime: timeDelta(stopover.plannedArrival, departureTime)
+            }
+        });
+        // remove startpoint and stops before departure time
+        return departureTime ? stations.filter(d => d.plannedArrival > departureTime) : stations;
     } catch (error) {
         return `Error fetching trip data: ${error}`;
     }
@@ -40,6 +66,7 @@ export const getStopovers = async (tripId, cutByTime = null) => {
 
 export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) => {
     console.log("Ermittle alle direkt angefahrenen Haltestellen")
+    const initStationCoords = await getStationCoords(stationId)
     const trips = await getDeparturesTripIds(stationId, dateAndTime)
     const nonStopStations = {}
     for (const trip of trips) {
@@ -47,16 +74,39 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
         stopovers.forEach(stopover => {
             if (nonStopStations[stopover.id]) {
                 nonStopStations[stopover.id].count += 1;
+                !nonStopStations[stopover.id].travelTime.includes(stopover.travelTime) && nonStopStations[stopover.id].travelTime.push(stopover.travelTime);
             } else {
                 nonStopStations[stopover.id] = {
                     id: stopover.id,
                     name: stopover.name,
                     latitude: stopover.latitude,
                     longitude: stopover.longitude,
-                    count: 1
+                    count: 1,
+                    distance: getDistance(initStationCoords, [stopover.longitude, stopover.latitude]),
+                    travelTime: [stopover.travelTime]
                 };
             }
         });
     };
     return nonStopStations
+}
+
+export const getDistance = (firstPoint, secondPoint) => {
+    return turf.distance(
+        turf.point(firstPoint),
+        turf.point(secondPoint),
+        { units: 'meters' }
+    );
+}
+
+const timeDelta = (dateString1, dateString2) => {
+
+    const date1 = new Date(dateString1);
+    const date2 = new Date(dateString2);
+
+    const differenceInMilliseconds = Math.abs(date2 - date1);
+    const differenceInMinutes = Math.floor(differenceInMilliseconds / (1000 * 60));
+
+    return differenceInMinutes;
+
 }

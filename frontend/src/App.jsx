@@ -2,27 +2,35 @@ import { useState } from 'react'
 // import './App.css'
 import StationSearch from './StationSearch';
 import Destinations from './Destinations';
+import Map from "./Map";
+import logo from './assets/nsd_logo.svg'
 
 function App() {
 
-  const [destinations, setDestinations] = useState([])
+  const [stations, setStations] = useState([])
+  const [stationDisplayIndex, setStationDisplayIndex] = useState(0)
 
-  const sendDestinations = (destinations) => {
-    console.log(destinations)
-    setDestinations(destinations)
-  } 
+  const sendStations = (stations) => {
+    setStations(stations)
+  }
+
+  const nextStation = () => {
+    setStationDisplayIndex(stationDisplayIndex + 1)
+  }
 
   return (
     <>
-      <div className="flex flex-col justify-center ">
-        <div className="w-full justify-center text-center">
-          <h1 className="text-2xl">Nonstop Destinations</h1>
+      <div className="flex flex-col justify-center">
+        <div className="w-full flex justify-center text-center mt-5">
+          <img src={logo} />
         </div>
+        <button onClick={nextStation}>next</button>
         <div className="w-full flex justify-center mt-8">
-          <StationSearch sendDestinations={sendDestinations}/>
+          <StationSearch sendStations={sendStations} />
         </div>
+        {stations.length != 0 && <Map station={stations[stationDisplayIndex]}/>}
         <div className="w-full flex justify-center mt-5 text-center">
-          <Destinations destinations={destinations}/>
+          <Destinations stations={stations} />
         </div>
       </div>
     </>
