@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/destinations', async (req, res) => {
-  //http://localhost:3000/destinations?station=8000191&radius=2000
+  //http://localhost:3000/destinations?station=8000191&radius=2000&distmin=15000
   const stationId = req.query.station
   const radius = req.query.radius
   const mindist = req.query.distmin || 10000

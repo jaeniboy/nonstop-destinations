@@ -42,20 +42,26 @@ export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) =
     }
 }
 
-export const getStopovers = async (tripId, cutByTime = null) => {
+export const getStopovers = async (tripId, departureTime = null) => {
     console.log("Ermittle Zwischenhalte")
+    console.log(departureTime)
     const dbHafas = createDbHafas('janfseipel@gmail.com')
     try {
         const trip = await dbHafas.trip(tripId, { stopovers: true });
-        const stations = trip.trip.stopovers.map(stopover => ({
-            id: stopover.stop.id,
-            name: stopover.stop.name,
-            latitude: stopover.stop.location.latitude,
-            longitude: stopover.stop.location.longitude,
-            plannedArrival: stopover.plannedArrival,
-        }));
-        // remove startpoint and stops before
-        return cutByTime ? stations.filter(d => d.plannedArrival > cutByTime) : stations;
+        const stations = trip.trip.stopovers.map((stopover) => {
+            console.log("stopoverArrival", stopover.plannedArrival)
+            return {
+                id: stopover.stop.id,
+                name: stopover.stop.name,
+                latitude: stopover.stop.location.latitude,
+                longitude: stopover.stop.location.longitude,
+                plannedArrival: stopover.plannedArrival,
+                travelTime: timeDelta(stopover.plannedArrival,departureTime)
+
+            }
+        });
+        // remove startpoint and stops before departure time
+        return departureTime ? stations.filter(d => d.plannedArrival > departureTime) : stations;
     } catch (error) {
         return `Error fetching trip data: ${error}`;
     }
@@ -71,6 +77,7 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
         stopovers.forEach(stopover => {
             if (nonStopStations[stopover.id]) {
                 nonStopStations[stopover.id].count += 1;
+                !nonStopStations[stopover.id].travelTime.includes(stopover.travelTime) && nonStopStations[stopover.id].travelTime.push(stopover.travelTime);
             } else {
                 nonStopStations[stopover.id] = {
                     id: stopover.id,
@@ -78,7 +85,8 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
                     latitude: stopover.latitude,
                     longitude: stopover.longitude,
                     count: 1,
-                    distance: getDistance(initStationCoords, [stopover.longitude,stopover.latitude])
+                    distance: getDistance(initStationCoords, [stopover.longitude, stopover.latitude]),
+                    travelTime: [stopover.travelTime]
                 };
             }
         });
@@ -88,8 +96,20 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
 
 export const getDistance = (firstPoint, secondPoint) => {
     return turf.distance(
-        turf.point(firstPoint), 
-        turf.point(secondPoint), 
+        turf.point(firstPoint),
+        turf.point(secondPoint),
         { units: 'meters' }
     );
+}
+
+const timeDelta = (dateString1, dateString2) => {
+
+    const date1 = new Date(dateString1);
+    const date2 = new Date(dateString2);
+
+    const differenceInMilliseconds = Math.abs(date2 - date1);
+    const differenceInMinutes = Math.floor(differenceInMilliseconds / (1000 * 60));
+
+    return differenceInMinutes;
+
 }
