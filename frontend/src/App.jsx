@@ -4,12 +4,14 @@ import StationSearch from './StationSearch';
 import Destinations from './Destinations';
 import Map from "./Map";
 import SuggestionTitleBox from './SuggestionTitleBox';
+import SuggestionInfoBox from './SuggestionInfoBox';
 import logo from './assets/nsd_logo.svg'
 
 function App() {
 
   const [stations, setStations] = useState([])
   const [stationDisplayIndex, setStationDisplayIndex] = useState(0)
+  const station = stations[stationDisplayIndex]
 
   const sendStations = (stations) => {
     setStations(stations)
@@ -37,20 +39,23 @@ function App() {
         {stations.length != 0 &&
           <>
             <SuggestionTitleBox 
-              stationName={stations[stationDisplayIndex].name} 
+              stationName={station.name} 
               index={stationDisplayIndex}
               nextStation={nextStation}
               previousStation={previousStation}
               lastSuggestion={stations.length}/>
             <div class="w-full aspect-square md:w-1/2 lg:w-3/10 p-4">
-              <Map station={stations[stationDisplayIndex]}/>
+              <Map station={station}/>
+            </div>
+            <div>
+              <SuggestionInfoBox data={station}/>
             </div>
           </>
         }
 
-        <div className="w-full flex justify-center mt-5 text-center">
+        {/* <div className="w-full flex justify-center mt-5 text-center">
           <Destinations stations={stations} />
-        </div>
+        </div> */}
       </div>
     </>
   )
