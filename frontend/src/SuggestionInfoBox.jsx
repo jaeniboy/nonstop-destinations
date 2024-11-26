@@ -62,7 +62,7 @@ const SuggestionInfoBox = ({ data }) => {
     const displaySummary = summary.map(d => {
         return (
             d.data.length > 0 &&
-            <div key={d.id} className="items-center flex w-full p-2 pl-5 pr-5 justify-between">
+            <div key={d.id} className="items-center flex w-full py-2 px-1 justify-between border-t">
                 <div className="flex items-center">
                     <div className="w-10">
                         <img src={d.icon} className=""></img>
@@ -79,8 +79,7 @@ const SuggestionInfoBox = ({ data }) => {
     })
 
     return (
-        <div className="flex flex-col">
-            {/* <div className="flex justify-around flex-wrap"> */}
+        <div className="flex flex-col px-5">
             {displaySummary}
         </div>
     )
