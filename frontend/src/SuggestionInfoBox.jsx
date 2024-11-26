@@ -5,52 +5,53 @@ import swimming from './assets/Swimming.svg'
 import castle from './assets/Castle.svg'
 import farmshop from './assets/Farmshop.svg'
 import zoo from './assets/Zoo.svg'
-import { BsBalloon } from "react-icons/bs";
-import { BsStars } from "react-icons/bs";
+import themepark from './assets/Themepark.svg'
+import park from './assets/Park.svg'
+import attractions from './assets/Attractions.svg'
 
 const SuggestionInfoBox = ({ data }) => {
 
     const summary = [
         {
             id: "playgrounds",
-            name: "playgrounds",
+            name: "Playgrounds",
             data: data.destinations.filter(d => d.tags.leisure == "playground" || d.tags.amenity == "playground"),
             icon: playground
         }, {
             id: "swimmingPools",
-            name: "swimmingpools",
+            name: "Swimmingpools",
             data: data.destinations.filter(d => d.tags.leisure == "swimming_pool"),
             icon: swimming
         }, {
             id: "parks",
-            name: "parks",
+            name: "Parks",
             data: data.destinations.filter(d => d.tags.leisure == "parks"),
-            icon: ""
+            icon: park
         }, {
             id: "museums",
-            name: "museums",
+            name: "Museums",
             data: data.destinations.filter(d => d.tags.tourism == "museum"),
             icon: museum
         }, {
             id: "themeParks",
-            name: "theme parks",
+            name: "Theme Parks",
             data: data.destinations.filter(d => d.tags.tourism == "theme_park"),
-            icon: <BsBalloon />
+            icon: themepark
         }, {
             id: "zoos",
-            name: "zoos",
+            name: "Zoos",
             data: data.destinations.filter(d => d.tags.tourism == "zoo"),
             icon: zoo
         }, {
             id: "castles",
-            name: "castles",
+            name: "Castles",
             data: data.destinations.filter(d => d.tags.tourism == "castle"),
             icon: castle
         }, {
             id: "attractions",
-            name: "other attractions",
+            name: "Other Attractions",
             data: data.destinations.filter(d => d.tags.tourism == "attraction"),
-            icon: <BsStars />
+            icon: attractions
         }, {
             id: "farmShops",
             name: "farm shops",
@@ -61,19 +62,25 @@ const SuggestionInfoBox = ({ data }) => {
     const displaySummary = summary.map(d => {
         return (
             d.data.length > 0 &&
-            <div key={d.id} className="w-1/4 text-center content-center flex flex-col">
-                <div className="flex justify-center">
-                    {typeof(d.icon) === "string" ? <img src={d.icon} className="h-10"></img> : d.icon}
+            <div key={d.id} className="items-center flex w-full p-2 pl-5 pr-5 justify-between">
+                <div className="flex items-center">
+                    <div className="w-10">
+                        <img src={d.icon} className=""></img>
+                    </div>
+                    <div className="text-lg ml-5">
+                        {d.name}
+                    </div>
                 </div>
-                <div>
-                    {d.data.length} {d.name}
+                <div className="px-4 font-bold rounded-full bg-gray-900/10">
+                    {d.data.length}
                 </div>
             </div>
         )
     })
 
     return (
-        <div className="flex justify-around flex-wrap">
+        <div className="flex flex-col">
+            {/* <div className="flex justify-around flex-wrap"> */}
             {displaySummary}
         </div>
     )
