@@ -47,8 +47,11 @@ function App() {
               nextStation={nextStation}
               previousStation={previousStation}
               lastSuggestion={stations.length} />
-            <div class="w-full aspect-square md:w-1/2 lg:w-3/10 p-4">
-              <Map station={station} radius={1000}/>
+            <div className="w-full aspect-square md:w-1/2 lg:w-3/10 p-4">
+              <Map 
+              station={station} 
+              radius={1000}
+              />
             </div>
             <div>
               <SuggestionInfoBox data={station} />
