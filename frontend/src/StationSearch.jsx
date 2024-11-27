@@ -45,10 +45,12 @@ const StationSearch = ({sendStations}) => {
             py-2 
             border 
             border-gray-300 
+            border-primary
             rounded-md 
             focus:outline-none 
             focus:ring-2 
             focus:ring-blue-500 
+            focus:ring-primary
             focus:border-transparent
         "
       />

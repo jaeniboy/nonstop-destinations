@@ -30,7 +30,7 @@ function App() {
     <>
       <div className="flex flex-col justify-center h-full">
         <div>
-          <div className="w-full flex justify-center text-center pt-5 pb-10 bg-indigo-700 rounded-b-3xl">
+          <div className="w-full flex justify-center text-center pt-5 pb-10 bg-primary rounded-b-3xl">
             <img src={logo} className="h-16" />
           </div>
         </div>
@@ -48,17 +48,12 @@ function App() {
               previousStation={previousStation}
               lastSuggestion={stations.length} />
             <div class="w-full aspect-square md:w-1/2 lg:w-3/10 p-4">
-              <Map station={station} />
+              <Map station={station} radius={1000}/>
             </div>
             <div>
               <SuggestionInfoBox data={station} />
             </div>
-          </>
-        }
-
-        {/* <div className="w-full flex justify-center mt-5 text-center">
-          <Destinations stations={stations} />
-        </div> */}
+          </>}
       </div>
     </>
   )
