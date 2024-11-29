@@ -70,6 +70,7 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
     const trips = await getDeparturesTripIds(stationId, dateAndTime)
     const nonStopStations = {}
     for (const trip of trips) {
+        console.log(trip)
         const stopovers = await getStopovers(trip.tripId, trip.plannedWhen)
         stopovers.forEach(stopover => {
             if (nonStopStations[stopover.id]) {

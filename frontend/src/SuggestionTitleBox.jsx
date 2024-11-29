@@ -15,7 +15,7 @@ const SuggestionTitleBox = ({ stationName, index, nextStation, previousStation, 
                     <div className="text-xs">{suggestionNumber}. Vorschlag</div>
                     <h3 className="text-xl mt-1">{stationName}</h3>
                 </div>
-                <button onClick={nextStation} className={index >= lastSuggestion && "invisible"}>
+                <button onClick={nextStation} className={index >= lastSuggestion ? "invisible" : undefined}>
                     <BsChevronRight />
                 </button>
             </div>

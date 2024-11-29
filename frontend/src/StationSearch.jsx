@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { stations } from '../data/stations';
 
-const StationSearch = ({sendStations}) => {
+const StationSearch = ({sendStations, startLoading}) => {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
@@ -22,6 +22,7 @@ const StationSearch = ({sendStations}) => {
   };
 
   const fetchStationData = async (stationId) => {
+    startLoading()
     try {
         const response = await fetch(`http://localhost:3000/destinations?station=${stationId}&radius=1000`)
         const data = await response.json();
