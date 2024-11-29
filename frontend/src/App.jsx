@@ -1,6 +1,7 @@
 import { useState } from 'react'
 // import './App.css'
 import StationSearch from './StationSearch';
+import LoadingSpinner from './LoadingSpinner';
 import Destinations from './Destinations';
 import Map from "./Map";
 import SuggestionTitleBox from './SuggestionTitleBox';
@@ -12,10 +13,16 @@ function App() {
 
   const [stations, setStations] = useState([])
   const [stationDisplayIndex, setStationDisplayIndex] = useState(0)
+  const [loading, setLoading] = useState(false)
   const station = stations[stationDisplayIndex]
 
   const sendStations = (stations) => {
+    setLoading(false)
     setStations(stations)
+  }
+
+  const startLoading = () => {
+    setLoading(true)
   }
 
   const nextStation = () => {
@@ -35,11 +42,11 @@ function App() {
           </div>
         </div>
           <div className="w-full flex justify-center relative -translate-y-1/4">
-            <StationSearch sendStations={sendStations} />
+            <StationSearch sendStations={sendStations} startLoading={startLoading} />
           </div>
+        {loading && <LoadingSpinner />}
 
-
-        {stations.length != 0 &&
+        {stations.length != 0 && !loading &&
           <>
             <SuggestionTitleBox
               stationName={station.name}
