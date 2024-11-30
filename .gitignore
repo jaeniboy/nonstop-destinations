@@ -132,3 +132,4 @@ package-lock.json
 package-lock.json
 frontend/src/assets/bak/
 
+frontend/.env.development

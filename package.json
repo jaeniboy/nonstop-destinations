@@ -2,7 +2,7 @@
   "name": "mein-monorepo",
   "version": "1.0.0",
   "scripts": {
-    "dev:frontend": "cd frontend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev -- --host",
     "build:frontend": "cd frontend && npm run build",
     "preview:frontend": "cd frontend && npm run preview",
     "dev:backend": "cd backend && npm run dev",
