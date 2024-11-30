@@ -38,7 +38,7 @@ export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) =
             .map(dep => { return { "tripId": dep.tripId, "plannedWhen": dep.plannedWhen } });
         return tripIds
     } catch (error) {
-        return `Fehler beim Abrufen der Abfahrten: ${error}`
+        console.log(`Fehler beim Abrufen der Abfahrten: ${error}`)
     }
 }
 
@@ -60,36 +60,73 @@ export const getStopovers = async (tripId, departureTime = null) => {
         // remove startpoint and stops before departure time
         return departureTime ? stations.filter(d => d.plannedArrival > departureTime) : stations;
     } catch (error) {
-        return `Error fetching trip data: ${error}`;
+        console.log(`Error fetching trip data: ${error}`);
     }
 }
 
 export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) => {
     console.log("Ermittle alle direkt angefahrenen Haltestellen")
-    const initStationCoords = await getStationCoords(stationId)
-    const trips = await getDeparturesTripIds(stationId, dateAndTime)
-    const nonStopStations = {}
-    for (const trip of trips) {
-        console.log(trip)
-        const stopovers = await getStopovers(trip.tripId, trip.plannedWhen)
-        stopovers.forEach(stopover => {
-            if (nonStopStations[stopover.id]) {
-                nonStopStations[stopover.id].count += 1;
-                !nonStopStations[stopover.id].travelTime.includes(stopover.travelTime) && nonStopStations[stopover.id].travelTime.push(stopover.travelTime);
-            } else {
-                nonStopStations[stopover.id] = {
-                    id: stopover.id,
-                    name: stopover.name,
-                    latitude: stopover.latitude,
-                    longitude: stopover.longitude,
-                    count: 1,
-                    distance: getDistance(initStationCoords, [stopover.longitude, stopover.latitude]),
-                    travelTime: [stopover.travelTime]
-                };
+
+    let initStationCoords
+    let trips;
+    let errorCount = 0;
+
+    try { 
+        initStationCoords = await getStationCoords(stationId);
+        trips = await getDeparturesTripIds(stationId, dateAndTime)
+        
+        if (!trips || trips.length === 0) {
+            throw new Error(`Keine Trips gefunden für Station ID: ${stationId}`);
+        }
+
+        const nonStopStations = {}
+
+        for (const trip of trips) {
+            try {
+                const stopovers = await getStopovers(trip.tripId, trip.plannedWhen)
+                if (!stopovers) continue;
+
+                stopovers.forEach(stopover => {
+                    if (nonStopStations[stopover.id]) {
+                        nonStopStations[stopover.id].count += 1;
+                        if (!nonStopStations[stopover.id].travelTime.includes(stopover.travelTime)) {
+                            nonStopStations[stopover.id].travelTime.push(stopover.travelTime);
+                        }
+                    } else {
+                        nonStopStations[stopover.id] = {
+                            id: stopover.id,
+                            name: stopover.name,
+                            latitude: stopover.latitude,
+                            longitude: stopover.longitude,
+                            count: 1,
+                            distance: getDistance(initStationCoords, [stopover.longitude, stopover.latitude]),
+                            travelTime: [stopover.travelTime]
+                        };
+                    }
+                });
+            } catch (error) {
+                console.log(`Error fetching stopovers: ${error}`, error.message);
+                errorCount++;
+                continue;
             }
-        });
-    };
-    return nonStopStations
+        };
+        return {
+            stations: nonStopStations,
+            metadata: {
+                total: trips.length,
+                errors: errorCount,
+                isComplete: errorCount === 0,
+                message: errorCount > 0 ? `${errorCount} Verbindungen konnten nicht geladen werden` : null
+            }
+        };
+    } catch (error) {
+        throw {
+            type: 'StationSearchError',
+            message: error.message,
+            stationId,
+            originalError: error
+        }
+    }
 }
 
 export const getDistance = (firstPoint, secondPoint) => {
