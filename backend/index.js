@@ -7,7 +7,13 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: '*',
+  // origin: [
+  //   // 'http://localhost:5173',
+  //   // 'http://192.168.0.23:5173/',
+  //   // 'http://172.21.160.1:5173/'
+  //   '*'
+  // ],
   methods: ['GET'],
   allowedHeaders: ['Content-Type']
 }));

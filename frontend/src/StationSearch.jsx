@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { stations } from '../data/stations';
 
-const StationSearch = ({sendStations, startLoading}) => {
+const StationSearch = ({ sendStations, startLoading }) => {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
@@ -24,12 +24,14 @@ const StationSearch = ({sendStations, startLoading}) => {
   const fetchStationData = async (stationId) => {
     startLoading()
     try {
-        const response = await fetch(`http://localhost:3000/destinations?station=${stationId}&radius=1000`)
-        const data = await response.json();
-        const dataSorted = data.sort((a,b) => b.destinations.length - a.destinations.length)
-        sendStations(dataSorted)
-    } catch(error) {
-        console.log(error)
+      const API_URL = import.meta.env.VITE_API_URL;
+      console.log(API_URL)
+      const response = await fetch(`${API_URL}/destinations?station=${stationId}&radius=1000`)
+      const data = await response.json();
+      const dataSorted = data.sort((a, b) => b.destinations.length - a.destinations.length)
+      sendStations(dataSorted)
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -70,8 +72,8 @@ const StationSearch = ({sendStations, startLoading}) => {
             overflow-auto
         ">
           {suggestions.map(station => (
-            <li 
-              key={station.id} 
+            <li
+              key={station.id}
               onClick={() => handleSelectStation(station)}
               className="
                 px-4 
