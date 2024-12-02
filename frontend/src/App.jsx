@@ -19,14 +19,9 @@ function App() {
 
   const station = stations[stationDisplayIndex]
 
-  const sendStations = (stations) => {
-    setLoading(false)
-    setRetry(false)
-    setStations(stations)
-  }
-
   const sendDepartureStation = (stationId) => {
     setDepartureStation(stationId)
+    fetchStationData(stationId)
   }
 
   const sendAlert = (message, type) => {
@@ -37,11 +32,8 @@ function App() {
 
   const retryLoading = () => {
     setAlert({ show: false, message: '', type: '' });
-    setRetry(!retry)
-  }
-
-  const startLoading = () => {
-    setLoading(true)
+    setRetry(true)
+    fetchStationData(departureStation)
   }
 
   const nextStation = () => {
@@ -50,6 +42,43 @@ function App() {
 
   const previousStation = () => {
     setStationDisplayIndex(stationDisplayIndex - 1)
+  }
+
+  const fetchStationData = async (stationId) => {
+
+    setLoading(true)
+    setAlert({ show: false, message: '', type: '' });
+    try {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/destinations?station=${stationId}&radius=1000`)
+      const data = await response.json();
+      // console.log("data:", data)
+
+      if (!data.stations || data.stations.length === 0) {
+        sendAlert('No data found', 'error')
+        return;
+      }
+
+      if (!data.metadata.isComplete) {
+        sendAlert(data.metadata.message, 'warning');
+      }
+
+      const dataSorted = data.stations.sort((a, b) => b.destinations.length - a.destinations.length)
+      
+      if (alert.show && !alert.type === "warning") {
+        setAlert({ show: false, message: '', type: '' });
+      }
+      setLoading(false)
+      setRetry(false)
+      setStations(dataSorted)
+      setStationDisplayIndex(0)
+
+    } catch (error) {
+
+      sendAlert('Error loading data', 'error')
+      console.log(error)
+
+    }
   }
 
   return (
@@ -62,26 +91,22 @@ function App() {
         </div>
         <div className="w-full flex justify-center relative -translate-y-1/4">
           <StationSearch
-            sendStations={sendStations}
             sendDepartureStation={sendDepartureStation}
-            startLoading={startLoading}
-            sendAlert={sendAlert}
-            retryLoading={retry}
-            currentDepartureStation={departureStation}
           />
         </div>
         {loading && <LoadingSpinner />}
-        {alert.show && <Alert message={alert.message} type={alert.type} retry={retryLoading}/>}
+        {alert.show && <Alert message={alert.message} type={alert.type} retry={retryLoading} />}
 
-        {stations.length != 0 && !loading &&
-          <>
+        {stations.length != 0 && !loading && !alert.show &&
+          <div className="w-full sm:w-full md:w-4/5 lg:w-1/2 mx-auto">
             <SuggestionTitleBox
               stationName={station.name}
               index={stationDisplayIndex}
               nextStation={nextStation}
               previousStation={previousStation}
               lastSuggestion={stations.length} />
-            <div className="w-full aspect-square md:w-1/2 lg:w-3/10 p-4">
+            <div className="w-full sm:w-full md:w-4/5 lg:w-1/2 mx-auto h-[400px]">
+            {/* <div className="w-full aspect-square md:w-1/2 lg:w-3/10 p-4"> */}
               <Map
                 station={station}
                 radius={1000}
@@ -90,7 +115,7 @@ function App() {
             <div>
               <SuggestionInfoBox data={station} />
             </div>
-          </>}
+          </div>}
       </div>
     </>
   )
