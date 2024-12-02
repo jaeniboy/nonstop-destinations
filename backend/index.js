@@ -43,10 +43,11 @@ app.get('/destinations', async (req, res) => {
       stations: await enhancedStopovers(Object.values(nonStopStationsFiltered.stations), radius)
     }
 
-    res.json({
-      stations: enhancedStations,
-      metadata: enhancedStations.metadata
-    })
+    // res.json({
+    //   stations: enhancedStations,
+    //   metadata: enhancedStations.metadata
+    // })
+    res.json(enhancedStations)
     
   } catch (error) {
     res.status(500).json({
