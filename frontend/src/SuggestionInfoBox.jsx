@@ -54,7 +54,7 @@ const SuggestionInfoBox = ({ data }) => {
     })
 
     return (
-        <div className="flex flex-col px-5">
+        <div className="relative flex flex-col px-5}" style={{"zIndex": 1000, "boxShadow": "0px -20px 15px -4px rgba(0,0,0,0.1)"}}>
             {displaySummary}
         </div>
     )
