@@ -78,7 +78,7 @@ const SuggestionInfoBox = ({ data }) => {
                                         <div className="flex flex-col ml-5">
                                             <div className="flex">
                                                 {d.tags.name ? d.tags.name : <div className="text-gray-400">no name provided</div>}
-                                                {d.tags.website && <a href={d.tags.website} className="text-blue-500 ml-3 flex pt-1">
+                                                {d.tags.website && <a href={d.tags.website} className="text-blue-500 ml-3 flex pt-1" target="_blank">
                                                     <span className="pt-1 text-sm"><BsGlobe /></span>
                                                     <span className="text-sm ml-1">website</span>
                                                 </a>}

@@ -7,7 +7,7 @@ const SuggestionTitleBox = ({ stationName, index, nextStation, previousStation, 
     const suggestionNumber = index + 1
     return (
         <IconContext.Provider value={{ className: "text-2xl text-gray-400" }}>
-            <div className="flex justify-between px-5 py-3 shadow-lg items-center" style={{"z-index": 1000}}>
+            <div className="flex justify-between px-5 py-3 shadow-lg items-center" style={{"zIndex": 1000}}>
                 <button onClick={previousStation} className={index <= 0 && "invisible"} >
                     <BsChevronLeft value={{ color: "blue" }} />
                 </button>
