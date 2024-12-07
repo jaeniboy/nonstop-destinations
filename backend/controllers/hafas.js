@@ -2,6 +2,29 @@ import { createDbHafas } from 'db-hafas';
 import fs from 'fs/promises';
 import * as turf from '@turf/turf';
 
+// Utility function for retry logic
+const withRetry = async (operation, operationName) => {
+    const MAX_RETRIES = 3;
+    const DELAY_MS = 1000;
+    let lastError;
+
+    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+        try {
+            console.log(`${operationName} (Versuch ${attempt}/${MAX_RETRIES})`);
+            return await operation();
+        } catch (error) {
+            lastError = error;
+            console.log(`Fehler bei ${operationName} (Versuch ${attempt}): ${error}`);
+
+            if (attempt < MAX_RETRIES) {
+                await delay(DELAY_MS);
+                continue;
+            }
+        }
+    }
+    throw new Error(`${operationName} nach ${MAX_RETRIES} Versuchen fehlgeschlagen: ${lastError}`);
+};
+
 export const getStationCoords = async (stationId = "8000191") => {
     try {
         const filePath = "./data/stations/stations.json";
@@ -23,45 +46,51 @@ export const getStationCoords = async (stationId = "8000191") => {
     }
 };
 
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) => {
     console.log("Ermittle TripIds")
     const dbHafas = createDbHafas('janfseipel@gmail.com')
     const productFilter = ["nationalExpress", "bus"]
-    try {
+
+    const result = await withRetry(async () => {
         const departures = await dbHafas.departures(stationId, {
             results: 20, // Anzahl der Ergebnisse
             duration: 60, // Zeitraum in Minuten
             when: dateAndTime
-        });
-        const departuresFilterd = departures.departures.filter(d => !productFilter.includes(d.line.product))
-        const tripIds = departuresFilterd
-            .map(dep => { return { "tripId": dep.tripId, "plannedWhen": dep.plannedWhen } });
-        return tripIds
-    } catch (error) {
-        console.log(`Fehler beim Abrufen der Abfahrten: ${error}`)
-    }
+        })
+        return departures;
+    }, `Abrufen der Abfahrten`);
+    const departuresFilterd = result.departures.filter(d => !productFilter.includes(d.line.product))
+    const tripIds = departuresFilterd
+        .map(dep => { return { "tripId": dep.tripId, "plannedWhen": dep.plannedWhen } });
+    return tripIds
 }
 
 export const getStopovers = async (tripId, departureTime = null) => {
     console.log("Ermittle Zwischenhalte")
     const dbHafas = createDbHafas('janfseipel@gmail.com')
-    try {
+    // try {
+    const result = await withRetry(async () => {
         const trip = await dbHafas.trip(tripId, { stopovers: true });
-        const stations = trip.trip.stopovers.map((stopover) => {
-            return {
-                id: stopover.stop.id,
-                name: stopover.stop.name,
-                latitude: stopover.stop.location.latitude,
-                longitude: stopover.stop.location.longitude,
-                plannedArrival: stopover.plannedArrival,
-                travelTime: timeDelta(stopover.plannedArrival, departureTime)
-            }
-        });
-        // remove startpoint and stops before departure time
-        return departureTime ? stations.filter(d => d.plannedArrival > departureTime) : stations;
-    } catch (error) {
-        console.log(`Error fetching trip data: ${error}`);
-    }
+        return trip;
+    }, `Abrufen der Zwischenhalte`);
+
+    const stations = result.trip.stopovers.map((stopover) => {
+        return {
+            id: stopover.stop.id,
+            name: stopover.stop.name,
+            latitude: stopover.stop.location.latitude,
+            longitude: stopover.stop.location.longitude,
+            plannedArrival: stopover.plannedArrival,
+            travelTime: timeDelta(stopover.plannedArrival, departureTime)
+        }
+    });
+    // remove startpoint and stops before departure time
+    return departureTime ? stations.filter(d => d.plannedArrival > departureTime) : stations;
+    // } catch (error) {
+    //     console.log(`Error fetching trip data: ${error}`);
+    // }
 }
 
 export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) => {
@@ -71,10 +100,10 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
     let trips;
     let errorCount = 0;
 
-    try { 
+    try {
         initStationCoords = await getStationCoords(stationId);
         trips = await getDeparturesTripIds(stationId, dateAndTime)
-        
+
         if (!trips || trips.length === 0) {
             throw new Error(`Keine Trips gefunden für Station ID: ${stationId}`);
         }
