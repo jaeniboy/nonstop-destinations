@@ -1,47 +1,109 @@
 import RBush from "rbush";
-// import data from '../data/osm/osm_data_2024-11-16.json' assert { type: 'json' };    
-import * as fs from 'fs'
+import * as fs from 'fs';
 import { readFile } from 'fs/promises';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import * as turf from '@turf/turf';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-console.log("lade File")
+console.log("lade File");
 
 try {
-    const jsonPath = path.join(__dirname, '../data/osm/osm_data_2024-11-16.json');
+    const jsonPath = "./../data/osm/osm_data_2024-12-08.json";
     const jsonData = await readFile(jsonPath, 'utf8');
-    const data = JSON.parse(jsonData);
-    // Verwenden Sie data hier
+    const data = JSON.parse(jsonData).elements;
 
-    console.log("erstelle räumlichen index")
+    const spatialIndex = new RBush();
 
-    // Erstellen Sie einen neuen RBush-Index
-    const tree = new RBush();
+    // Prüfen Sie die Struktur der Daten
+    console.log("Datenstruktur:", data.length);
 
-    // Laden Sie Ihre JSON-Daten
-    // const data = require('./path/to/your/json/file.json');
+    // Fügen Sie Nodes, Ways und Relations zum Index hinzu
+    data.forEach(item => {
+        // remove all items without a name
+        if (item.tags.name) {
+            if (item.type === 'node') {
+                spatialIndex.insert({
+                    minX: item.lon,
+                    minY: item.lat,
+                    maxX: item.lon,
+                    maxY: item.lat,
+                    node: item
+                }); //} })
+            } else if (item.type === 'way') {
+                try {
+                    // compute center of ways
+                    const center = turf.center(turf.lineString(item.geometry.map(node => [node.lon, node.lat])));
+                    const [lon, lat] = center.geometry.coordinates;
 
-    // Fügen Sie die Daten zum Index hinzu
-    const items = data.map(item => ({
-        minX: item.lon,
-        minY: item.lat,
-        maxX: item.lon,
-        maxY: item.lat,
-        node: item // Speichern Sie das gesamte Node-Objekt
-    }));
+                    spatialIndex.insert({
+                        minX: lon,
+                        minY: lat,
+                        maxX: lon,
+                        maxY: lat,
+                        node: {
+                            ...item,
+                            lat: lat,
+                            lon: lon,
+                            // remove unnecessary properties
+                            geometry: undefined,
+                            nodes: undefined,
+                            bounds: undefined
+                        }
+                    });
+                } catch (error) {
+                    console.error(`Fehler beim Hinzufügen von Way ${item.id}:`, error.message);
+                }
+            }
+        }
+    });
+    //     } else if (item.type === 'relation') {
+    //         try {
+    //             const members = item.members.map(member => {
+    //                 if (member.type === 'node') {
+    //                     return data.find(n => n.id === member.ref && n.type === 'node');
+    //                 } else if (member.type === 'way') {
+    //                     return data.find(w => w.id === member.ref && w.type === 'way');
+    //                 }
+    //                 return null;
+    //             }).filter(Boolean);
 
-    tree.load(items);
+    //             const bbox = turf.bbox(turf.featureCollection(members.map(member => {
+    //                 if (member.type === 'node') {
+    //                     return turf.point([member.lon, member.lat]);
+    //                 } else if (member.type === 'way') {
+    //                     return turf.lineString(member.nodes.map(nodeId => {
+    //                         const node = data.find(n => n.id === nodeId && n.type === 'node');
+    //                         if (!node) throw new Error(`Node ${nodeId} nicht gefunden`);
+    //                         return [node.lon, node.lat];
+    //                     }));
+    //                 }
+    //                 return null;
+    //             }).filter(Boolean)));
+
+    //             spatialIndex.insert({
+    //                 minX: bbox[0],
+    //                 minY: bbox[1],
+    //                 maxX: bbox[2],
+    //                 maxY: bbox[3],
+    //                 ...item
+    //             });
+    //         } catch (error) {
+    //             console.error(`Fehler beim Hinzufügen von Relation ${item.id}:`, error.message);
+    //         }
+    //     }
+    // });
 
     // Serialisieren des Index
-    const serializedTree = JSON.stringify(tree.toJSON());
+    const serializedTree = JSON.stringify(spatialIndex.toJSON());
 
     // Speichern in einer Datei
-    fs.writeFileSync('./data/index/spatial_index.json', serializedTree);
+    fs.writeFileSync('../data/index/spatial_index.json', serializedTree);
 
-    console.log("fertig")
+
+    console.log("Index erstellt");
 } catch (error) {
-    console.error('Fehler beim Lesen der JSON-Datei:', error);
+    console.error('Fehler beim Laden der OSM-Daten:', error);
 }

@@ -133,3 +133,10 @@ package-lock.json
 frontend/src/assets/bak/
 
 frontend/.env.development
+
+# large datasets
+backend/data/osm/osm_data_*.json
+backend/data/index/spatial_index.json
+
+# backup files
+*.bak

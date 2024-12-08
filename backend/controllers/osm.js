@@ -34,6 +34,7 @@ export const getNearbyFromLocalIndex = async (coords, radius, tree) => {
 
     // Suche nach Punkten im definierten Bereich
     const results = tree.search(searchBounds);
+    console.log("results: ", results.length)
 
     // Erstelle ein Turf Point aus den Eingabekoordinaten
     // longitude latitude
