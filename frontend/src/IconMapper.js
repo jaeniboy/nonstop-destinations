@@ -1,12 +1,13 @@
-import museum from './assets/Museum.svg'
-import playground from './assets/Playground.svg'
+import museum from './assets/Museum-sw.svg'
+import playground from './assets/Playground-sw.svg'
 import swimming from './assets/Swimming.svg'
 import castle from './assets/Castle.svg'
 import farmshop from './assets/Farmshop.svg'
 import zoo from './assets/Zoo.svg'
 import themepark from './assets/Themepark.svg'
 import park from './assets/Park.svg'
-import attraction from './assets/Attractions.svg'
+import attraction from './assets/Attractions-sw.svg'
+import {colors} from '../colors'
 
 export const iconMapping = (obj) => {
     if (obj.leisure === "playground" || obj.amenity === "playground") {
@@ -30,7 +31,7 @@ export const iconMapping = (obj) => {
             color: 'rgb(14 165 233)' // sky-500
         };
     }
-    if (obj.leisure === "parks") {
+    if (obj.leisure === "park") {
         return {
             name: "parks",
             image: park,
@@ -62,7 +63,8 @@ export const iconMapping = (obj) => {
         return {
             name: "other attractions",
             image: attraction,
-            color: 'rgb(236 72 153)' // pink-500
+            // color: 'rgb(236 72 153)' // pink-500
+            color: colors.secondary
         };
     }
     if (obj.shop === "farm") {
