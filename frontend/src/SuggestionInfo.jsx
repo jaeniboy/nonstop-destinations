@@ -23,8 +23,8 @@ const formatTimes = (times) => {
 
 const IconWithText = ({ children, icontext, value }) => {
     return (
-        <div className="flex items-center  mt-4 w-1/3 border border-gray rounded-md p-1 m-1">
-            <div className="flex flex-col items-center justify-center bg-gray-400 rounded-md w-10 h-10">
+        <div className="flex items-center  mt-4 w-1/3 border border-gray-400 rounded-md p-1 m-1">
+            <div className="flex flex-col items-center justify-center bg-secondary rounded-md w-10 h-10">
                 <div className="text-lg text-white font-bold">
                     {children}
                 </div>
@@ -33,7 +33,7 @@ const IconWithText = ({ children, icontext, value }) => {
                 </div> */}
 
             </div>
-            <div className="text-sm text-lg ml-2">
+            <div className="text-sm text-lg ml-2 text-gray-400">
                 {value}
             </div>
         </div>
