@@ -19,9 +19,6 @@ const SuggestionPlaces = ({ data }) => {
             id: "swimmingPools",
             data: data.destinations.filter(d => d.tags.leisure == "swimming_pool"),
         }, {
-            id: "parks",
-            data: data.destinations.filter(d => d.tags.leisure == "parks"),
-        }, {
             id: "museums",
             data: data.destinations.filter(d => d.tags.tourism == "museum"),
         }, {
@@ -30,6 +27,9 @@ const SuggestionPlaces = ({ data }) => {
         }, {
             id: "zoos",
             data: data.destinations.filter(d => d.tags.tourism == "zoo"),
+        }, {
+            id: "parks",
+            data: data.destinations.filter(d => d.tags.leisure == "park"),
         }, {
             id: "castles",
             data: data.destinations.filter(d => d.tags.tourism == "castle"),
