@@ -4,7 +4,8 @@ import LoadingSpinner from './LoadingSpinner';
 import Destinations from './Destinations';
 import Map from "./Map";
 import SuggestionTitleBox from './SuggestionTitleBox';
-import SuggestionInfoBox from './SuggestionInfoBox';
+import SuggestionInfo from './SuggestionInfo';
+import SuggestionPlaces from './SuggestionPlaces';
 import logo from './assets/nsd_logo_all_path_white.svg';
 import Alert from './Alert';
 
@@ -104,16 +105,19 @@ function App() {
               index={stationDisplayIndex}
               nextStation={nextStation}
               previousStation={previousStation}
-              lastSuggestion={stations.length} />
+              lastSuggestion={stations.length} 
+              station={station}
+              />
+              
+            {/* <SuggestionInfo data={station} /> */}
             <div className="w-full sm:w-full md:w-4/5 lg:w-1/2 mx-auto h-[400px]">
-            {/* <div className="w-full aspect-square md:w-1/2 lg:w-3/10 p-4"> */}
               <Map
                 station={station}
                 radius={1000}
               />
             </div>
             <div>
-              <SuggestionInfoBox data={station} />
+              <SuggestionPlaces data={station} />
             </div>
           </div>}
       </div>
