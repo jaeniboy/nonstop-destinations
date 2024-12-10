@@ -3,7 +3,7 @@ import { useState } from "react";
 import { iconMapping } from "./IconMapper";
 import { BsGlobe } from "react-icons/bs";
 
-const SuggestionInfoBox = ({ data }) => {
+const SuggestionPlaces = ({ data }) => {
 
     const [isOpen, setIsOpen] = useState([])
 
@@ -111,4 +111,4 @@ const SuggestionInfoBox = ({ data }) => {
 }
 
 
-export default SuggestionInfoBox
+export default SuggestionPlaces
