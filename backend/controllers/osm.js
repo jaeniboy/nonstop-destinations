@@ -40,11 +40,16 @@ export const getNearbyFromLocalIndex = async (coords, radius, tree) => {
     // longitude latitude
     const point = turf.point(coords);
 
-    // Filtere die Ergebnisse basierend auf der genauen Entfernung mit Turf
-    const filteredResults = results.filter(item => {
+    // add distance to each point
+    results.map(item => {
         const itemPoint = turf.point([item.node.lon, item.node.lat]);
         const distance = turf.distance(point, itemPoint, { units: 'meters' });
-        return distance <= radius;
+        item.node.distance = distance
+    })
+
+    // Filtere die Ergebnisse basierend auf der genauen Entfernung mit Turf
+    const filteredResults = results.filter(item => {
+        return item.node.distance <= radius;
     });
 
     // Extrahiere die vollständigen Node-Objekte aus den gefilterten Ergebnissen

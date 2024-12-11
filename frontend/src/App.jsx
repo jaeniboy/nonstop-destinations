@@ -1,22 +1,27 @@
 import { useState } from 'react'
 import StationSearch from './StationSearch';
+import Settings from './Settings';
 import LoadingSpinner from './LoadingSpinner';
 import Destinations from './Destinations';
 import Map from "./Map";
 import SuggestionTitleBox from './SuggestionTitleBox';
-import SuggestionInfo from './SuggestionInfo';
 import SuggestionPlaces from './SuggestionPlaces';
 import logo from './assets/nsd_logo_all_path_white.svg';
 import Alert from './Alert';
 
 function App() {
 
+  const [originalStations, setOriginalStations] = useState([])
   const [stations, setStations] = useState([])
   const [stationDisplayIndex, setStationDisplayIndex] = useState(0)
   const [loading, setLoading] = useState(false)
   const [alert, setAlert] = useState({ show: false, message: '', type: '' });
   const [retry, setRetry] = useState(false)
   const [departureStation, setDepartureStation] = useState('')
+  const [mindist, setMindist] = useState(20)
+  const [maxtime, setMaxtime] = useState(90)
+  const [maxwalk, setMaxwalk] = useState(1000)
+  const [radius, setRadius] = useState(1000)
 
   const station = stations[stationDisplayIndex]
 
@@ -51,9 +56,8 @@ function App() {
     setAlert({ show: false, message: '', type: '' });
     try {
       const API_URL = import.meta.env.VITE_API_URL;
-      const response = await fetch(`${API_URL}/destinations?station=${stationId}&radius=1000`)
+      const response = await fetch(`${API_URL}/destinations?station=${stationId}&radius=3000`)
       const data = await response.json();
-      // console.log("data:", data)
 
       if (!data.stations || data.stations.length === 0) {
         sendAlert('No data found', 'error')
@@ -64,15 +68,13 @@ function App() {
         sendAlert(data.metadata.message, 'warning');
       }
 
-      const dataSorted = data.stations.sort((a, b) => b.destinations.length - a.destinations.length)
-      
       if (alert.show && !alert.type === "warning") {
         setAlert({ show: false, message: '', type: '' });
       }
       setLoading(false)
       setRetry(false)
-      setStations(dataSorted)
-      setStationDisplayIndex(0)
+      setOriginalStations(data)
+      showStations() // call filter and sorting logic
 
     } catch (error) {
 
@@ -80,6 +82,51 @@ function App() {
       console.log(error)
 
     }
+  }
+
+  const showStations = () => {
+    const dataFiltered = filterStationData(originalStations)
+    const dataSorted = sortStationData(dataFiltered)
+    setStations(dataSorted)
+    setRadius(maxwalk)
+    setStationDisplayIndex(0)
+  }
+
+  const filterStationData = (data) => {
+    console.log(data)
+    const stationsFiltered = {
+      ...data,
+      stations: data.stations.filter(d => d.travelTime[0] <= maxtime && d.distance >= mindist*1000)
+    }
+    const destinationsFiltered = {
+      ...stationsFiltered,
+      stations: stationsFiltered.stations.map(d => {
+        return {
+          ...d,
+          destinations: d.destinations.filter(e => e.distance <= maxwalk)
+        }
+    })}
+    return destinationsFiltered
+  }
+
+  const sortStationData = (data) => {
+    return data.stations.sort((a, b) => b.destinations.length - a.destinations.length)
+  }
+
+  const mindistChange = (event) => {
+    const newValue = event.target.value
+    setMindist(newValue)
+    console.log("mindist:", mindist)
+  }
+
+  const maxtimeChange = (event) => {
+    const newValue = event.target.value
+    setMaxtime(newValue)
+  }
+
+  const maxwalkChange = (event) => {
+    const newValue = event.target.value
+    setMaxwalk(newValue)
   }
 
   return (
@@ -90,35 +137,50 @@ function App() {
             <img src={logo} className="h-16" />
           </div>
         </div>
+
         <div className="w-full flex justify-center relative -translate-y-1/4">
           <StationSearch
             sendDepartureStation={sendDepartureStation}
           />
         </div>
+
+        <Settings 
+          mindistChange={mindistChange} 
+          maxtimeChange={maxtimeChange}
+          maxwalkChange={maxwalkChange}
+          mindist={mindist}
+          maxtime={maxtime} 
+          maxwalk={maxwalk}
+          handleSaveSettings={showStations}
+        />
+
         {loading && <LoadingSpinner />}
+        
         {alert.show && <Alert message={alert.message} type={alert.type} retry={retryLoading} />}
 
         {stations.length != 0 && !loading && !alert.show &&
           <div className="w-full sm:w-full md:w-4/5 lg:w-1/2 mx-auto">
+
             <SuggestionTitleBox
               stationName={station.name}
               index={stationDisplayIndex}
               nextStation={nextStation}
               previousStation={previousStation}
-              lastSuggestion={stations.length} 
+              lastSuggestion={stations.length}
               station={station}
-              />
-              
-            {/* <SuggestionInfo data={station} /> */}
+            />
+
             <div className="w-full sm:w-full md:w-4/5 lg:w-1/2 mx-auto h-[400px]">
               <Map
                 station={station}
-                radius={1000}
+                radius={radius}
               />
             </div>
+
             <div>
               <SuggestionPlaces data={station} />
             </div>
+
           </div>}
       </div>
     </>

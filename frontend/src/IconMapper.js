@@ -1,12 +1,12 @@
-import museum from './assets/Museum-sw.svg'
-import playground from './assets/Playground-sw.svg'
+import museum from './assets/Museum.svg'
+import playground from './assets/Playground.svg'
 import swimming from './assets/Swimming.svg'
 import castle from './assets/Castle.svg'
 import farmshop from './assets/Farmshop.svg'
 import zoo from './assets/Zoo.svg'
 import themepark from './assets/Themepark.svg'
 import park from './assets/Park.svg'
-import attraction from './assets/Attractions-sw.svg'
+import attraction from './assets/Attractions.svg'
 import {colors} from '../colors'
 
 export const iconMapping = (obj) => {
