@@ -4,8 +4,8 @@ import React from "react";
 const Settings = ({mindistChange, maxtimeChange, maxwalkChange, mindist, maxtime, maxwalk, handleSaveSettings}) => {
 
     return (
-        <div className="flex justify-center">
-            <div className="flex flex-col w-1/2">
+        <div className="flex justify-center mt-3">
+            <div className="flex flex-col px-5 sm:px-0 w-full sm:w-3/4 lg:w-1/2">
                 <div className="flex">
                     <div className="flex-1">
                         <label for="mindist">Minimum Distance</label>

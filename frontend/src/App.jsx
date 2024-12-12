@@ -8,6 +8,7 @@ import SuggestionTitleBox from './SuggestionTitleBox';
 import SuggestionPlaces from './SuggestionPlaces';
 import logo from './assets/nsd_logo_all_path_white.svg';
 import Alert from './Alert';
+import { BsGear } from "react-icons/bs";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
   const [maxtime, setMaxtime] = useState(90)
   const [maxwalk, setMaxwalk] = useState(1000)
   const [radius, setRadius] = useState(1000)
+  const [showSettings, setShowSettings] = useState(false)
 
   const station = stations[stationDisplayIndex]
 
@@ -96,7 +98,7 @@ function App() {
     console.log(data)
     const stationsFiltered = {
       ...data,
-      stations: data.stations.filter(d => d.travelTime[0] <= maxtime && d.distance >= mindist*1000)
+      stations: data.stations.filter(d => d.travelTime[0] <= maxtime && d.distance >= mindist * 1000)
     }
     const destinationsFiltered = {
       ...stationsFiltered,
@@ -105,12 +107,17 @@ function App() {
           ...d,
           destinations: d.destinations.filter(e => e.distance <= maxwalk)
         }
-    })}
+      })
+    }
     return destinationsFiltered
   }
 
   const sortStationData = (data) => {
     return data.stations.sort((a, b) => b.destinations.length - a.destinations.length)
+  }
+
+  const toggleSettings = () => {
+    setShowSettings(!showSettings)
   }
 
   const mindistChange = (event) => {
@@ -129,33 +136,45 @@ function App() {
     setMaxwalk(newValue)
   }
 
+  const handleSaveSettings = () => {
+    stations.length > 0 && showStations()
+    setShowSettings(false)
+  }
+
   return (
     <>
       <div className="flex flex-col justify-center h-full">
         <div>
-          <div className="w-full flex justify-center text-center pt-5 pb-10 bg-primary rounded-b-3xl">
-            <img src={logo} className="h-16" />
+          <div className="w-full flex items-center pt-3 pb-3 bg-primary rounded-b-2xl px-5">
+            <img src={logo} className="h-14 hidden sm:block" />
+            <div className="w-full flex justify-center">
+              {/* <div className="w-full flex justify-center relative -translate-y-1/4"> */}
+              <StationSearch
+                sendDepartureStation={sendDepartureStation}
+              />
+            </div>
+            <div onClick={toggleSettings} className="flex ml-3 cursor-pointer items-center text-white">
+              <span className="text-xl">
+                <BsGear />
+              </span><div className="h-full ml-2 content-center hidden sm:block">Settings</div>
+            </div>
           </div>
         </div>
 
-        <div className="w-full flex justify-center relative -translate-y-1/4">
-          <StationSearch
-            sendDepartureStation={sendDepartureStation}
+        {showSettings &&
+          <Settings
+            mindistChange={mindistChange}
+            maxtimeChange={maxtimeChange}
+            maxwalkChange={maxwalkChange}
+            mindist={mindist}
+            maxtime={maxtime}
+            maxwalk={maxwalk}
+            handleSaveSettings={handleSaveSettings}
           />
-        </div>
-
-        <Settings 
-          mindistChange={mindistChange} 
-          maxtimeChange={maxtimeChange}
-          maxwalkChange={maxwalkChange}
-          mindist={mindist}
-          maxtime={maxtime} 
-          maxwalk={maxwalk}
-          handleSaveSettings={showStations}
-        />
+        }
 
         {loading && <LoadingSpinner />}
-        
+
         {alert.show && <Alert message={alert.message} type={alert.type} retry={retryLoading} />}
 
         {stations.length != 0 && !loading && !alert.show &&
