@@ -141,3 +141,4 @@ backend/data/index/spatial_index.json
 # backup files
 *.bak
 backend/data/index/spatial_index.json
+backend/controllers/timetables.js
