@@ -1,6 +1,13 @@
 import { createDbHafas } from 'db-hafas';
 import fs from 'fs/promises';
 import * as turf from '@turf/turf';
+import { createClient } from 'db-vendo-client'
+import {profile as dbProfile} from 'db-vendo-client/p/dbnav/index.js'
+
+const vendo = createClient(
+    dbProfile,
+    'janfseipel@gmail.com'
+  );
 
 // Utility function for retry logic
 const withRetry = async (operation, operationName) => {
@@ -50,11 +57,11 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) => {
     console.log("Ermittle TripIds")
-    const dbHafas = createDbHafas('janfseipel@gmail.com')
+
     const productFilter = ["nationalExpress", "bus"]
 
     const result = await withRetry(async () => {
-        const departures = await dbHafas.departures(stationId, {
+        const departures = await vendo.departures(stationId, {
             results: 20, // Anzahl der Ergebnisse
             duration: 60, // Zeitraum in Minuten
             when: dateAndTime
@@ -69,10 +76,9 @@ export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) =
 
 export const getStopovers = async (tripId, departureTime = null) => {
     console.log("Ermittle Zwischenhalte")
-    const dbHafas = createDbHafas('janfseipel@gmail.com')
-    // try {
+
     const result = await withRetry(async () => {
-        const trip = await dbHafas.trip(tripId, { stopovers: true });
+        const trip = await vendo.trip(tripId, { stopovers: true });
         return trip;
     }, `Abrufen der Zwischenhalte`);
 
@@ -88,9 +94,6 @@ export const getStopovers = async (tripId, departureTime = null) => {
     });
     // remove startpoint and stops before departure time
     return departureTime ? stations.filter(d => d.plannedArrival > departureTime) : stations;
-    // } catch (error) {
-    //     console.log(`Error fetching trip data: ${error}`);
-    // }
 }
 
 export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) => {
@@ -110,7 +113,7 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
 
         const nonStopStations = {}
 
-        for (const trip of trips) {
+        for (const trip of trips.slice(0,20)) {
             try {
                 const stopovers = await getStopovers(trip.tripId, trip.plannedWhen)
                 if (!stopovers) continue;

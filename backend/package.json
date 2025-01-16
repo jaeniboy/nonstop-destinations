@@ -19,9 +19,11 @@
   "dependencies": {
     "@derhuerst/query-overpass": "^2.0.1",
     "@turf/turf": "^7.1.0",
+    "axios": "^1.7.9",
     "cors": "^2.8.5",
     "db-hafas": "^6.0.0",
     "db-stations": "^5.0.2",
+    "db-vendo-client": "^6.3.2",
     "express": "^4.21.1",
     "rbush": "^4.0.1"
   },
