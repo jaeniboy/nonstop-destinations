@@ -58,7 +58,7 @@ function App() {
     setAlert({ show: false, message: '', type: '' });
     try {
       const API_URL = import.meta.env.VITE_API_URL;
-      const response = await fetch(`${API_URL}/destinations?station=${stationId}&radius=3000`)
+      const response = await fetch(`${API_URL}/destinations?station=${stationId}&radius=${radius}`)
       const data = await response.json();
 
       if (!data.stations || data.stations.length === 0) {
@@ -137,8 +137,9 @@ function App() {
   }
 
   const handleSaveSettings = () => {
-    stations.length > 0 && showStations()
+    // stations.length > 0 && showStations()
     setShowSettings(false)
+    fetchStationData(departureStation)
   }
 
   return (
