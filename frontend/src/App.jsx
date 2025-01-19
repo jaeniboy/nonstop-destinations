@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import StationSearch from './StationSearch';
 import Settings from './Settings';
 import LoadingSpinner from './LoadingSpinner';
@@ -76,7 +76,7 @@ function App() {
       setLoading(false)
       setRetry(false)
       setOriginalStations(data)
-      showStations() // call filter and sorting logic
+      // showStations(data) // call filter and sorting logic
 
     } catch (error) {
 
@@ -86,8 +86,14 @@ function App() {
     }
   }
 
-  const showStations = () => {
-    const dataFiltered = filterStationData(originalStations)
+  useEffect(()=>{
+    originalStations.length !== 0 && showStations(originalStations)
+  }, [originalStations])
+
+  const showStations = (data) => {
+    // console.log(originalStations)
+    // const dataFiltered = filterStationData(originalStations)
+    const dataFiltered = filterStationData(data)
     const dataSorted = sortStationData(dataFiltered)
     setStations(dataSorted)
     setRadius(maxwalk)
