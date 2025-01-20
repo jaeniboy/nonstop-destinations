@@ -38,15 +38,12 @@ app.get('/destinations', async (req, res) => {
         .filter(d => d.distance > mindist)
     }
 
+    const foo = await enhancedStopovers(Object.values(nonStopStationsFiltered.stations), radius)
     const enhancedStations = {
       ...nonStopStationsFiltered,
-      stations: await enhancedStopovers(Object.values(nonStopStationsFiltered.stations), radius)
+      stations: foo
     }
-
-    // res.json({
-    //   stations: enhancedStations,
-    //   metadata: enhancedStations.metadata
-    // })
+   
     res.json(enhancedStations)
     
   } catch (error) {
