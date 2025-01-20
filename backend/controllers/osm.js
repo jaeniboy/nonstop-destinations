@@ -8,18 +8,18 @@ export const enhancedStopovers = async (stopovers, radius) => {
     const serializedTree = fs.readFileSync('./data/index/spatial_index.json', 'utf8');
     const rb = new RBush()
     const tree = rb.fromJSON(JSON.parse(serializedTree));
-    const enhanced = await Promise.all(stopovers.map(async d => {
-        return {
-            ...d,
-            "destinations": await getNearbyFromLocalIndex([d.longitude, d.latitude], radius, tree)
-        }
-    }))
+    let enhanced = []
+    for (const stop of stopovers) {
+        const result = getNearbyFromLocalIndex([stop.longitude, stop.latitude], radius, tree, stop.name)
+        // make deep copy of object to prevent overwriting by following objects due to same reference
+        stop.destinations = JSON.parse(JSON.stringify(result));
+        enhanced.push(stop)
+    }
 
     return enhanced
 }
 
-export const getNearbyFromLocalIndex = async (coords, radius, tree) => {
-    // console.log(`Rufe Ziele in der Nähe der Koordinate ${coords[0]}, ${coords[1]} ab`)
+export const getNearbyFromLocalIndex = (coords, radius, tree, name) => {
 
     // Konvertiere den Radius von Metern zu Grad (ungefähre Umrechnung)
     const radiusInDegrees = radius / 111000; // 1 Grad ≈ 111 km
@@ -34,19 +34,25 @@ export const getNearbyFromLocalIndex = async (coords, radius, tree) => {
 
     // Suche nach Punkten im definierten Bereich
     const results = tree.search(searchBounds);
-    console.log("results: ", results.length)
 
     // Erstelle ein Turf Point aus den Eingabekoordinaten
     // longitude latitude
     const point = turf.point(coords);
 
+    // add distance to each point
+    results.map(item => {
+        const itemPoint = turf.point([item.node.lon, item.node.lat]);
+        const distance = turf.distance(point, itemPoint, { units: 'meters'});
+        item.node.distance = distance
+    })
+
     // Filtere die Ergebnisse basierend auf der genauen Entfernung mit Turf
     const filteredResults = results.filter(item => {
-        const itemPoint = turf.point([item.node.lon, item.node.lat]);
-        const distance = turf.distance(point, itemPoint, { units: 'meters' });
-        return distance <= radius;
+        return item.node.distance <= radius;
     });
 
     // Extrahiere die vollständigen Node-Objekte aus den gefilterten Ergebnissen
-    return filteredResults.map(item => item.node);
+    const foo = filteredResults.map(item => item.node);
+
+    return foo
 }

@@ -49,7 +49,7 @@ app.get('/destinations', async (req, res) => {
       ...nonStopStationsFiltered,
       stations: await enhancedStopovers(Object.values(nonStopStationsFiltered.stations), radius)
     }
-
+   
     res.json(enhancedStations)
     
   } catch (error) {
