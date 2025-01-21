@@ -12,12 +12,21 @@ const NavigationIcon = ({children}) => {
     )
 }
 
-const SuggestionTitleBox = ({ stationName, index, nextStation, previousStation, lastSuggestion, station }) => {
+const SuggestionTitleBox = ({ 
+        stationName, 
+        index, 
+        nextStation, 
+        previousStation, 
+        lastSuggestion, 
+        station,
+    }) => {
+    console.log("lastSuggestion",lastSuggestion)
     const suggestionNumber = index + 1
+    console.log("suggestionNumer",suggestionNumber)
     return (
         // <IconContext.Provider value={{ className: "text-2xl text-gray-400" }}>
             <div className="flex justify-around px-5 py-3 items-center" style={{"zIndex": 1000}}>
-                <button onClick={previousStation} className={index <= 0 && "invisible"} >
+                <button onClick={previousStation} className={suggestionNumber === 1 && "invisible"} >
                     <NavigationIcon>
                         <BsChevronLeft />
                     </NavigationIcon>
@@ -27,7 +36,7 @@ const SuggestionTitleBox = ({ stationName, index, nextStation, previousStation, 
                     <h3 className="text-center text-xl mt-1">{stationName}</h3>
                     <SuggestionInfo data={station} />
                 </div>
-                <button onClick={nextStation} className={index >= lastSuggestion ? "invisible" : undefined}>
+                <button onClick={nextStation} className={suggestionNumber === lastSuggestion ? "invisible" : undefined}>
                     <NavigationIcon>
                         <BsChevronRight />
                     </NavigationIcon>
