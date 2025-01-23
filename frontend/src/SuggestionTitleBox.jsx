@@ -20,9 +20,7 @@ const SuggestionTitleBox = ({
         lastSuggestion, 
         station,
     }) => {
-    console.log("lastSuggestion",lastSuggestion)
     const suggestionNumber = index + 1
-    console.log("suggestionNumer",suggestionNumber)
     return (
         // <IconContext.Provider value={{ className: "text-2xl text-gray-400" }}>
             <div className="flex justify-around px-5 py-3 items-center" style={{"zIndex": 1000}}>
