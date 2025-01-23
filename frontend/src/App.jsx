@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import StationSearch from './StationSearch';
-import Settings from './Settings';
+import Options from './Options';
 import LoadingSpinner from './LoadingSpinner';
 import Destinations from './Destinations';
 import Map from "./Map";
@@ -23,7 +23,7 @@ function App() {
   const [maxtime, setMaxtime] = useState(90)
   const [maxwalk, setMaxwalk] = useState(1000)
   const [radius, setRadius] = useState(1000)
-  const [showSettings, setShowSettings] = useState(false)
+  const [showOptions, setShowOptions] = useState(false)
 
   const station = stations[stationDisplayIndex]
 
@@ -91,23 +91,22 @@ function App() {
     originalStations.length !== 0 && showStations()
   }, [originalStations])
 
-  const showStations = (data) => {
-    // console.log(originalStations)
+  const showStations = () => {
     const dataFiltered = filterStationData(originalStations)
-    // const dataFiltered = filterStationData(data)
     const dataSorted = sortStationData(dataFiltered)
+    console.log("originalStations",originalStations.stations.length)
+    console.log("filteredStations",dataFiltered.stations.length)
     setStations(dataSorted)
     setRadius(maxwalk)
     setStationDisplayIndex(0)
   }
 
   const filterStationData = (data) => {
-    console.log(data)
     const stationsFiltered = {
       ...data,
       stations: data.stations.filter(d => d.travelTime[0] <= maxtime && d.distance >= mindist * 1000)
     }
-    const destinationsFiltered = {
+    const filterdByMaxwalk = {
       ...stationsFiltered,
       stations: stationsFiltered.stations.map(d => {
         return {
@@ -116,21 +115,26 @@ function App() {
         }
       })
     }
+    // remove all stations without any destination
+    const destinationsFiltered = {
+      ...filterdByMaxwalk,
+      stations: filterdByMaxwalk.stations.filter(d=>d.destinations.length > 0)
+    }
     return destinationsFiltered
   }
 
   const sortStationData = (data) => {
+    console.log(data)
     return data.stations.sort((a, b) => b.destinations.length - a.destinations.length)
   }
 
-  const toggleSettings = () => {
-    setShowSettings(!showSettings)
+  const toggleOptions = () => {
+    setShowOptions(!showOptions)
   }
 
   const mindistChange = (event) => {
     const newValue = event.target.value
     setMindist(newValue)
-    console.log("mindist:", mindist)
   }
 
   const maxtimeChange = (event) => {
@@ -143,11 +147,9 @@ function App() {
     setMaxwalk(newValue)
   }
 
-  const handleSaveSettings = () => {
-    stations.length > 0 && showStations()
-    setShowSettings(false)
-    // fetchStationData(departureStation)
-
+  const handleSaveOptions = () => {
+    showStations()
+    setShowOptions(false)
   }
 
   return (
@@ -162,29 +164,39 @@ function App() {
                 sendDepartureStation={sendDepartureStation}
               />
             </div>
-            <div onClick={toggleSettings} className="flex ml-3 cursor-pointer items-center text-white">
+            <div onClick={toggleOptions} className="flex ml-3 cursor-pointer items-center text-white">
               <span className="text-xl">
                 <BsGear />
-              </span><div className="h-full ml-2 content-center hidden sm:block">Settings</div>
+              </span><div className="h-full ml-2 content-center hidden sm:block">Options</div>
             </div>
           </div>
         </div>
 
-        {showSettings &&
-          <Settings
+        {showOptions &&
+          <Options
             mindistChange={mindistChange}
             maxtimeChange={maxtimeChange}
             maxwalkChange={maxwalkChange}
             mindist={mindist}
             maxtime={maxtime}
             maxwalk={maxwalk}
-            handleSaveSettings={handleSaveSettings}
+            handleSaveOptions={handleSaveOptions}
           />
         }
 
         {loading && <LoadingSpinner />}
 
         {alert.show && <Alert message={alert.message} type={alert.type} retry={retryLoading} />}
+
+        {originalStations.length === 0 &&
+         <div className="w-full flex justify-center items-center mt-7">
+          <div className="w-3/4 text-center">Find interesting places in your area that are accessible by public transport without transfers. Please select your starting point ... </div>
+         </div>
+        }
+
+        {stations.length === 0 && !loading && originalStations.length != 0 &&
+         <div className="w-full text-center mt-7"><div>No suggestions.</div><div> Please choose different options or try another station.</div></div>
+        }
 
         {stations.length != 0 && !loading && !alert.show &&
           <div className="w-full sm:w-full md:w-4/5 lg:w-1/2 mx-auto">

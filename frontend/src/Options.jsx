@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Settings = ({mindistChange, maxtimeChange, maxwalkChange, mindist, maxtime, maxwalk, handleSaveSettings}) => {
+const Options = ({mindistChange, maxtimeChange, maxwalkChange, mindist, maxtime, maxwalk, handleSaveOptions}) => {
 
     return (
         <div className="flex justify-center mt-3">
@@ -28,11 +28,11 @@ const Settings = ({mindistChange, maxtimeChange, maxwalkChange, mindist, maxtime
                     <div className="w-20 flex pl-5 items-center">{maxwalk} m</div>
                 </div>
                 <div className="flex justify-center">
-                    <button onClick={handleSaveSettings} className="w-auto mt-5 bg-primary px-4 py-2 rounded-lg items-center text-white pointer">save settings</button>
+                    <button onClick={handleSaveOptions} className="w-auto mt-5 bg-primary px-4 py-2 rounded-lg items-center text-white pointer">save</button>
                 </div>
             </div>
         </div>
     );
 }
 
-export default Settings;
+export default Options;

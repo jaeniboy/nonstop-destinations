@@ -38,7 +38,6 @@ const MapUpdater = ({ position, fixedZoom }) => {
 };
 
 const Map = ({ station, radius }) => {
-    console.log(station)
     const position = [station.latitude, station.longitude]
     const fixedZoom = calculateZoom(radius)
     const fillBlueOptions = { fillColor: colors.primary, color: colors.primary }
