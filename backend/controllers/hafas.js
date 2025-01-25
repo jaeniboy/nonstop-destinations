@@ -81,7 +81,7 @@ export const getStopovers = async (tripId, departureTime = null) => {
         const trip = await vendo.trip(tripId, { stopovers: true });
         return trip;
     }, `Abrufen der Zwischenhalte`);
-
+    console.log(result.trip.stopovers[0])
     const stations = result.trip.stopovers.map((stopover) => {
         return {
             id: stopover.stop.id,
@@ -116,9 +116,7 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
         const stopoversOfTrips = await Promise.all(trips.slice(0,50).map(trip => getStopovers(trip.tripId, trip.plannedWhen)));
 
         for (const stopovers of stopoversOfTrips) {
-        // for (const trip of trips.slice(0,20)) {
             try {
-                // const stopovers = await getStopovers(trip.tripId, trip.plannedWhen)
                 if (!stopovers) continue;
 
                 stopovers.forEach(stopover => {
