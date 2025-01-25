@@ -10,13 +10,6 @@ import attraction from './assets/Attractions.svg'
 import {colors} from '../colors'
 
 export const iconMapping = (obj) => {
-    if (obj.leisure === "playground" || obj.amenity === "playground") {
-        return {
-            name: "playgrounds",
-            image: playground,
-            color: 'rgb(22 163 74)' // green-600
-        };
-    }
     if (obj.tourism === "museum") {
         return {
             name: "museums",
@@ -31,13 +24,6 @@ export const iconMapping = (obj) => {
             color: 'rgb(14 165 233)' // sky-500
         };
     }
-    if (obj.leisure === "park") {
-        return {
-            name: "parks",
-            image: park,
-            color: 'rgb(34 197 94)' // green-500
-        };
-    }
     if (obj.tourism === "theme_park") {
         return {
             name: "theme parks",
@@ -50,6 +36,20 @@ export const iconMapping = (obj) => {
             name: "zoos",
             image: zoo,
             color: 'rgb(168 85 247)' // purple-500
+        };
+    }
+    if (obj.leisure === "playground" || obj.amenity === "playground") {
+        return {
+            name: "playgrounds",
+            image: playground,
+            color: 'rgb(22 163 74)' // green-600
+        };
+    }
+    if (obj.leisure === "park") {
+        return {
+            name: "parks",
+            image: park,
+            color: 'rgb(34 197 94)' // green-500
         };
     }
     if (obj.tourism === "castle") {
