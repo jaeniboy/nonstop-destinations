@@ -2,6 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { iconMapping } from "./IconMapper";
 import { BsGlobe } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
+
+function extractCityName(input) {
+    const match = input.match(/^[^ (]+/);
+    return match ? match[0] : '';
+}
 
 const SuggestionPlaces = ({ data }) => {
 
@@ -78,15 +84,14 @@ const SuggestionPlaces = ({ data }) => {
                                         <div className="flex flex-col ml-5">
                                             <div className="flex">
                                                 {d.tags.name ? d.tags.name : <div className="text-gray-400">no name provided</div>}
-                                                {d.tags.website && <a href={d.tags.website} className="text-blue-500 ml-3 flex pt-1" target="_blank">
-                                                    <span className="pt-1 text-sm"><BsGlobe /></span>
-                                                    <span className="text-sm ml-1">website</span>
-                                                </a>}
+                                                {d.tags.website ?
+                                                    <Weblink text="website" url={d.tags.website} Icon={BsGlobe} /> :
+                                                    <Weblink text="web search" url={"https://duckduckgo.com/?q=" + d.tags.name + "+" + extractCityName(data.name)} Icon={BsSearch} />
+                                                }
                                             </div>
                                             <div className="text-gray-500 text-xs">
                                                 {
                                                     addressGiven ?
-                                                        // d.tags["addr:city"] && d.tags["addr:street"] && d.tags["addr:housenumber"] ?
                                                         `${d.tags["addr:street"]} ${d.tags["addr:housenumber"]}, ${d.tags["addr:city"]}` :
                                                         "no address provided"
                                                 }
@@ -109,6 +114,15 @@ const SuggestionPlaces = ({ data }) => {
         </div>
     )
 }
+
+const Weblink = ({ text, url, Icon }) => {
+    return (
+        <a href={url} className="text-blue-500 ml-3 flex pt-1" target="_blank" rel="noopener noreferrer">
+            <span className="pt-1 text-sm"><Icon /></span>
+            <span className="text-sm ml-1">{text}</span>
+        </a>
+    );
+};
 
 
 export default SuggestionPlaces
