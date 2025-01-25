@@ -14,8 +14,11 @@ const formatTime = (time) => {
 }
 
 const formatTimes = (times) => {
-    if (times.length >= 1) {
-        return times.map(time => formatTime(time)).join(" -");
+    if (times.length > 1) {
+        const timesFormatted = times.map(time => formatTime(time));
+        // show only the longest and the shortest travel time
+        const timesString = [timesFormatted[0],timesFormatted.slice(-1)[0]].join(" - ")
+        return timesString;
     } else {
         return formatTime(times[0]);
     }
