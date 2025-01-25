@@ -113,9 +113,12 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
 
         const nonStopStations = {}
 
-        for (const trip of trips.slice(0,20)) {
+        const stopoversOfTrips = await Promise.all(trips.slice(0,50).map(trip => getStopovers(trip.tripId, trip.plannedWhen)));
+
+        for (const stopovers of stopoversOfTrips) {
+        // for (const trip of trips.slice(0,20)) {
             try {
-                const stopovers = await getStopovers(trip.tripId, trip.plannedWhen)
+                // const stopovers = await getStopovers(trip.tripId, trip.plannedWhen)
                 if (!stopovers) continue;
 
                 stopovers.forEach(stopover => {
