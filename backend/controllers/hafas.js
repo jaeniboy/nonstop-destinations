@@ -1,13 +1,12 @@
-import { createDbHafas } from 'db-hafas';
-import fs from 'fs/promises';
 import * as turf from '@turf/turf';
 import { createClient } from 'db-vendo-client'
-import {profile as dbProfile} from 'db-vendo-client/p/dbnav/index.js'
+import { profile as dbProfile } from 'db-vendo-client/p/dbnav/index.js'
+import { readStations } from 'db-stations'
 
 const vendo = createClient(
     dbProfile,
     'janfseipel@gmail.com'
-  );
+);
 
 // Utility function for retry logic
 const withRetry = async (operation, operationName) => {
@@ -32,12 +31,19 @@ const withRetry = async (operation, operationName) => {
     throw new Error(`${operationName} nach ${MAX_RETRIES} Versuchen fehlgeschlagen: ${lastError}`);
 };
 
+async function findStationById(targetId) {
+    for await (const station of readStations()) {
+        if (station.id === targetId) {
+            return station;
+        }
+    }
+    return null; // station not found
+}
+
 export const getStationCoords = async (stationId = "8000191") => {
     try {
-        const filePath = "./data/stations/stations.json";
-        const data = await fs.readFile(filePath, 'utf8');
-        const stations = JSON.parse(data);
-        const station = stations.find(s => s.id === stationId);
+
+        const station = await findStationById(stationId)
 
         if (station && station.location) {
             return [
@@ -81,7 +87,6 @@ export const getStopovers = async (tripId, departureTime = null) => {
         const trip = await vendo.trip(tripId, { stopovers: true });
         return trip;
     }, `Abrufen der Zwischenhalte`);
-    console.log(result.trip.stopovers[0])
     const stations = result.trip.stopovers.map((stopover) => {
         return {
             id: stopover.stop.id,
@@ -113,7 +118,7 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
 
         const nonStopStations = {}
 
-        const stopoversOfTrips = await Promise.all(trips.slice(0,50).map(trip => getStopovers(trip.tripId, trip.plannedWhen)));
+        const stopoversOfTrips = await Promise.all(trips.slice(0, 50).map(trip => getStopovers(trip.tripId, trip.plannedWhen)));
 
         for (const stopovers of stopoversOfTrips) {
             try {
