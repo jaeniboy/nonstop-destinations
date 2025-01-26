@@ -188,7 +188,7 @@ function App() {
 
         {alert.show && <Alert message={alert.message} type={alert.type} retry={retryLoading} />}
 
-        {originalStations.length === 0 &&
+        {originalStations.length === 0 && !loading &&
          <div className="w-full flex justify-center items-center mt-7">
           <div className="w-3/4 text-center">Find interesting places in your area that are accessible by public transport without transfers. Please select your starting point ... </div>
          </div>

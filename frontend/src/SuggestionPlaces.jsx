@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { iconMapping } from "./IconMapper";
 import { BsGlobe } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
@@ -11,10 +11,15 @@ function extractCityName(input) {
 
 const SuggestionPlaces = ({ data }) => {
 
-    const [isOpen, setIsOpen] = useState([])
+    const [isOpen, setIsOpen] = useState("")
+
+    // collapse accordeon when user skips suggestion
+    useEffect(()=>{
+        setIsOpen("")
+    }, [data])
 
     const toggleAccordion = (id) => {
-        isOpen.includes(id) ? setIsOpen(isOpen.filter(d => d !== id)) : setIsOpen([...isOpen, id])
+        isOpen === id ? setIsOpen("") : setIsOpen(id)
     }
 
     const summary = [
@@ -53,7 +58,7 @@ const SuggestionPlaces = ({ data }) => {
             d.data.length > 0 &&
             <div key={d.id} >
                 <div className="items-center flex w-full py-2 px-1 justify-between border-t cursor-pointer"
-                    onClick={toggleAccordion.bind(this, d.id)}
+                    onClick={()=>toggleAccordion(d.id)}
                 >
                     <div className="flex items-center">
                         <div className="w-10">
@@ -69,7 +74,7 @@ const SuggestionPlaces = ({ data }) => {
                 </div>
                 <div className={`
                     grid transition-[grid-template-rows] duration-500 ease-in-out
-                        ${isOpen.includes(d.id)
+                        ${isOpen === d.id
                         ? 'grid-rows-[1fr]'
                         : 'grid-rows-[0fr]'
                     }
