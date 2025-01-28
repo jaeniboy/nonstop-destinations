@@ -10,12 +10,14 @@ const formatDistance = (distance) => {
 const formatTime = (time) => {
     const hours = Math.floor(time / 60);
     const minutes = time % 60;
-    return time < 60 ? `${time} min` : `${hours}h ${minutes}min`
+    return time + " min"
+    // return time < 60 ? `${time} min` : `${hours}h ${minutes} min`
 }
 
 const formatTimes = (times) => {
     if (times.length > 1) {
-        const timesFormatted = times.map(time => formatTime(time));
+        const timesSorted = times.sort((a,b) => a - b)
+        const timesFormatted = timesSorted.map(time => formatTime(time));
         // show only the longest and the shortest travel time
         const timesString = [timesFormatted[0],timesFormatted.slice(-1)[0]].join(" - ")
         return timesString;
