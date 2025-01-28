@@ -19,13 +19,20 @@ function App() {
   const [alert, setAlert] = useState({ show: false, message: '', type: '' });
   const [retry, setRetry] = useState(false)
   const [departureStation, setDepartureStation] = useState('')
-  const [mindist, setMindist] = useState(20)
-  const [maxtime, setMaxtime] = useState(90)
-  const [maxwalk, setMaxwalk] = useState(1000)
   const [radius, setRadius] = useState(1000)
   const [showOptions, setShowOptions] = useState(false)
+  const [options, setOptions] = useState({
+    mindist: 20,
+    maxtime: 90,
+    maxwalk: 1000
+  })
+
+  useEffect(() => {
+    originalStations.length !== 0 && showStations()
+  }, [originalStations])
 
   const station = stations[stationDisplayIndex]
+
 
   const sendDepartureStation = (stationId) => {
     setDepartureStation(stationId)
@@ -87,38 +94,34 @@ function App() {
     }
   }
 
-  useEffect(()=>{
-    originalStations.length !== 0 && showStations()
-  }, [originalStations])
-
   const showStations = () => {
     const dataFiltered = filterStationData(originalStations)
     const dataSorted = sortStationData(dataFiltered)
-    console.log("originalStations",originalStations.stations.length)
-    console.log("filteredStations",dataFiltered.stations.length)
+    console.log("originalStations", originalStations.stations.length)
+    console.log("filteredStations", dataFiltered.stations.length)
     setStations(dataSorted)
-    setRadius(maxwalk)
+    setRadius(options.maxwalk)
     setStationDisplayIndex(0)
   }
 
   const filterStationData = (data) => {
     const stationsFiltered = {
       ...data,
-      stations: data.stations.filter(d => d.travelTime[0] <= maxtime && d.distance >= mindist * 1000)
+      stations: data.stations.filter(d => d.travelTime[0] <= options.maxtime && d.distance >= options.mindist * 1000)
     }
     const filterdByMaxwalk = {
       ...stationsFiltered,
       stations: stationsFiltered.stations.map(d => {
         return {
           ...d,
-          destinations: d.destinations.filter(e => e.distance <= maxwalk)
+          destinations: d.destinations.filter(e => e.distance <= options.maxwalk)
         }
       })
     }
     // remove all stations without any destination
     const destinationsFiltered = {
       ...filterdByMaxwalk,
-      stations: filterdByMaxwalk.stations.filter(d=>d.destinations.length > 0)
+      stations: filterdByMaxwalk.stations.filter(d => d.destinations.length > 0)
     }
     return destinationsFiltered
   }
@@ -132,24 +135,13 @@ function App() {
     setShowOptions(!showOptions)
   }
 
-  const mindistChange = (event) => {
-    const newValue = event.target.value
-    setMindist(newValue)
-  }
-
-  const maxtimeChange = (event) => {
-    const newValue = event.target.value
-    setMaxtime(newValue)
-  }
-
-  const maxwalkChange = (event) => {
-    const newValue = event.target.value
-    setMaxwalk(newValue)
-  }
-
   const handleSaveOptions = () => {
-    showStations()
+    originalStations.length !== 0 && showStations()
     setShowOptions(false)
+  }
+
+  const handleOptionsChange = (options) => {
+    setOptions(options)
   }
 
   return (
@@ -174,13 +166,9 @@ function App() {
 
         {showOptions &&
           <Options
-            mindistChange={mindistChange}
-            maxtimeChange={maxtimeChange}
-            maxwalkChange={maxwalkChange}
-            mindist={mindist}
-            maxtime={maxtime}
-            maxwalk={maxwalk}
-            handleSaveOptions={handleSaveOptions}
+            options={options}
+            optionsChange={handleOptionsChange}
+            onSave={handleSaveOptions}
           />
         }
 
@@ -189,13 +177,13 @@ function App() {
         {alert.show && <Alert message={alert.message} type={alert.type} retry={retryLoading} />}
 
         {originalStations.length === 0 && !loading &&
-         <div className="w-full flex justify-center items-center mt-7">
-          <div className="w-3/4 text-center">Find interesting places in your area that are accessible by public transport without transfers. Please select your starting point ... </div>
-         </div>
+          <div className="w-full flex justify-center items-center mt-7">
+            <div className="w-3/4 text-center">Find interesting places in your area that are accessible by public transport without transfers. Please select your starting point ... </div>
+          </div>
         }
 
         {stations.length === 0 && !loading && originalStations.length != 0 &&
-         <div className="w-full text-center mt-7"><div>No suggestions.</div><div> Please choose different options or try another station.</div></div>
+          <div className="w-full text-center mt-7"><div>No suggestions.</div><div> Please choose different options or try another station.</div></div>
         }
 
         {stations.length != 0 && !loading && !alert.show &&
