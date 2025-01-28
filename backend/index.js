@@ -4,6 +4,9 @@ import { getAllNonStopStations, getStationCoords, getDeparturesTripIds } from '.
 import { enhancedStopovers } from './controllers/osm.js';
 import { createClient } from 'db-vendo-client'
 import {profile as dbProfile} from 'db-vendo-client/p/dbnav/index.js'
+import { autocomplete } from 'db-stations-autocomplete';
+import { findStationById } from './controllers/hafas.js'
+
 const app = express();
 // const port = 3000;
 const port = process.env.PORT || 3000;
@@ -60,6 +63,26 @@ app.get('/destinations', async (req, res) => {
         message: "Fehler bei der Verarbeitung der Anfrage"
       }
     }) 
+  }
+})
+
+app.get("/autocomplete", async (req, res) => {
+  //http://localhost:3000/autocomplete?input=kar
+  try {
+    const input = req.query.input
+    const suggestions = autocomplete(input,10)
+
+    const withStations = await Promise.all(suggestions.map(async d=>{
+      const station = await findStationById(d.id)
+      return {
+        ...d,
+        name: station.name
+      }
+    }))
+    res.json(withStations)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ error: "autocomplete error" });
   }
 })
 

@@ -31,7 +31,7 @@ const withRetry = async (operation, operationName) => {
     throw new Error(`${operationName} nach ${MAX_RETRIES} Versuchen fehlgeschlagen: ${lastError}`);
 };
 
-async function findStationById(targetId) {
+export async function findStationById(targetId) {
     for await (const station of readStations()) {
         if (station.id === targetId) {
             return station;
