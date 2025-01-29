@@ -187,29 +187,33 @@ function App() {
         }
 
         {stations.length != 0 && !loading && !alert.show &&
-          <div className="w-full sm:w-full md:w-4/5 lg:w-1/2 mx-auto">
-
-            <SuggestionTitleBox
-              stationName={station.name}
-              index={stationDisplayIndex}
-              nextStation={nextStation}
-              previousStation={previousStation}
-              lastSuggestion={stations.length}
-              station={station}
-            />
-
-            <div className="w-full sm:w-full md:w-4/5 lg:w-1/2 mx-auto h-[400px]">
-              <Map
+          <div className="w-full sm:w-full md:w-4/5 xl:w-3/5 mx-auto ">
+            {/* <div className="w-full sm:w-full md:w-4/5 lg:w-1/2 mx-auto"> */}
+            <div className="w-full lg:w-4/5 mx-auto lg:pb-5">
+              <SuggestionTitleBox
+                stationName={station.name}
+                index={stationDisplayIndex}
+                nextStation={nextStation}
+                previousStation={previousStation}
+                lastSuggestion={stations.length}
                 station={station}
-                radius={radius}
               />
             </div>
 
-            <div>
-              <SuggestionPlaces data={station} />
-            </div>
+            <div className="w-full flex flex-col lg:flex-row">
+              <div className="w-full lg:w-1/2 h-[400px]">
+                <Map
+                  station={station}
+                  radius={radius}
+                />
+              </div>
 
+              <div className="w-full lg:w-1/2">
+                <SuggestionPlaces data={station} />
+              </div>
+            </div>
           </div>}
+
       </div>
     </>
   )

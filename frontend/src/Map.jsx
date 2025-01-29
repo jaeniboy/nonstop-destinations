@@ -40,7 +40,7 @@ const MapUpdater = ({ position, fixedZoom }) => {
 const Map = ({ station, radius }) => {
     const position = [station.latitude, station.longitude]
     const fixedZoom = calculateZoom(radius)
-    const fillBlueOptions = { fillColor: colors.primary, color: colors.primary }
+    const fillBlueOptions = { fillColor: colors.primary, color: colors.primary, fillOpacity: 0.1 }
     const markers = station.destinations.map(d => {
         const iconMap = iconMapping(d.tags) // return values based on destination type
         return (
@@ -54,8 +54,13 @@ const Map = ({ station, radius }) => {
 
         <MapContainer center={position} zoom={fixedZoom} style={{ height: '100%', width: '100%' }} >
             <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+               url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
+            //    url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}" // noch etwas aufgeräumter
+            //    url="https://sgx.geodatenzentrum.de/wmts_basemapde/tile/1.0.0/de_basemapde_web_raster_grau/default/GLOBAL_WEBMERCATOR/{z}/{y}/{x}.png" // schwart-weiß
+            //    url="https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png" // etwas aufgeräumter
+                // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+                // attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
             <Circle center={position} radius={radius} pathOptions={fillBlueOptions} />
             {markers}

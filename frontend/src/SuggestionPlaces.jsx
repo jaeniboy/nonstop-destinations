@@ -114,7 +114,8 @@ const SuggestionPlaces = ({ data }) => {
     })
 
     return (
-        <div className="relative flex flex-col px-5}" style={{ "zIndex": 1000, "boxShadow": "0px -20px 15px -4px rgba(0,0,0,0.1)" }}>
+        <div className="relative flex flex-col px-5 z-[1000]}">
+            <div className="pb-3 pt-5 lg:pt-0 text-lg font-semibold text-center">Places of Interest</div>
             {displaySummary}
         </div>
     )
