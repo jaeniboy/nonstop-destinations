@@ -14,7 +14,7 @@ const SuggestionPlaces = ({ data }) => {
     const [isOpen, setIsOpen] = useState("")
 
     // collapse accordeon when user skips suggestion
-    useEffect(()=>{
+    useEffect(() => {
         setIsOpen("")
     }, [data])
 
@@ -58,11 +58,16 @@ const SuggestionPlaces = ({ data }) => {
             d.data.length > 0 &&
             <div key={d.id} >
                 <div className="items-center flex w-full py-2 px-1 justify-between border-t cursor-pointer"
-                    onClick={()=>toggleAccordion(d.id)}
+                    onClick={() => toggleAccordion(d.id)}
                 >
                     <div className="flex items-center">
-                        <div className="w-10">
-                            <img src={iconMap.image}></img>
+                        <div className="p-1.5 rounded-full" style={{background: iconMap.color}}>
+                            <div className="w-12 h-12 flex justify-center items-center bg-black rounded-full">
+                                <p className="text-3xl font-noto-emoji text-white">
+                                    {iconMap.emoji}
+                                </p>
+                                {/* <img src={iconMap.image}></img> */}
+                            </div>
                         </div>
                         <div className="text-lg ml-5">
                             {iconMap.name}

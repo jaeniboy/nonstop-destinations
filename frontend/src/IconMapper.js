@@ -14,6 +14,7 @@ export const iconMapping = (obj) => {
         return {
             name: "museums",
             image: museum,
+            emoji: "🏛︎",
             color: 'rgb(59 130 246)' // blue-500
         };
     }
@@ -21,6 +22,7 @@ export const iconMapping = (obj) => {
         return {
             name: "swimming pools",
             image: swimming,
+            emoji: "🩱",
             color: 'rgb(14 165 233)' // sky-500
         };
     }
@@ -28,6 +30,7 @@ export const iconMapping = (obj) => {
         return {
             name: "theme parks",
             image: themepark,
+            emoji: "🎡",
             color: 'rgb(249 115 22)' // orange-500
         };
     }
@@ -35,6 +38,7 @@ export const iconMapping = (obj) => {
         return {
             name: "zoos",
             image: zoo,
+            emoji: "🐘",
             color: 'rgb(168 85 247)' // purple-500
         };
     }
@@ -42,6 +46,7 @@ export const iconMapping = (obj) => {
         return {
             name: "playgrounds",
             image: playground,
+            emoji: "🛝",
             color: 'rgb(22 163 74)' // green-600
         };
     }
@@ -49,6 +54,7 @@ export const iconMapping = (obj) => {
         return {
             name: "parks",
             image: park,
+            emoji: "🌳",
             color: 'rgb(34 197 94)' // green-500
         };
     }
@@ -56,6 +62,7 @@ export const iconMapping = (obj) => {
         return {
             name: "castles",
             image: castle,
+            emoji: "🏰",
             color: 'rgb(99 102 241)' // indigo-500
         };
     }
@@ -63,6 +70,7 @@ export const iconMapping = (obj) => {
         return {
             name: "other attractions",
             image: attraction,
+            emoji: "🌟",
             // color: 'rgb(236 72 153)' // pink-500
             color: colors.secondary
         };
@@ -71,12 +79,14 @@ export const iconMapping = (obj) => {
         return {
             name: "farm shops",
             image: farmshop,
+            emoji: "🍏",
             color: 'rgb(234 179 8)' // yellow-500
         };
     }
     return {
         name: "other places",
         image: attraction,
+        emoji: "🌟",
         color: 'rgb(107 114 128)' // gray-500
     };
 };
