@@ -8,6 +8,9 @@ module.exports = {
   theme: {
     extend: {
       colors: colors,
+      fontFamily: {
+        'noto-emoji': ['"Noto Emoji"', 'sans-serif'],
+      },
     },
   },
   plugins: [],
