@@ -62,8 +62,8 @@ const SuggestionPlaces = ({ data }) => {
                 >
                     <div className="flex items-center">
                         <div className="p-1.5 rounded-full" style={{background: iconMap.color}}>
-                            <div className="w-12 h-12 flex justify-center items-center bg-black rounded-full">
-                                <p className="text-3xl font-noto-emoji text-white">
+                            <div className="w-12 h-12 flex justify-center items-center bg-white rounded-full">
+                                <p className="text-3xl font-noto-emoji text-black">
                                     {iconMap.emoji}
                                 </p>
                                 {/* <img src={iconMap.image}></img> */}
