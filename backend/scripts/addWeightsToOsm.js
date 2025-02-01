@@ -44,14 +44,39 @@ function calculateAreaAndSave(filename) {
 
     // Berechne den Flächeninhalt für alle Objekte mit "geometry"
     console.log("Berechne Flächeninhalte...")
-    data.elements.forEach((feature) => {
-        // prüfe, ob erste geo-koordinate identisch mit letzter geo-koordinate
-        if (feature.geometry && feature.geometry.length > 2 && feature.geometry[0].lat === feature.geometry[feature.geometry.length - 1].lat && feature.geometry[0].lon === feature.geometry[feature.geometry.length - 1].lon) {
-            // Erstelle ein Polygon aus den Koordinaten
-            const polygon = turf.polygon([feature.geometry.map((point) => [point.lon, point.lat])]);
 
-            // Berechne den Flächeninhalt in Quadratmetern
-            feature.size = turf.area(polygon);
+    // debugging 
+    let errors = 0
+    let relations = 0
+
+
+    data.elements.forEach((feature) => {
+
+        if (feature.type === "way") {
+            // prüfe, ob erste geo-koordinate identisch mit letzter geo-koordinate
+            if (feature.geometry && feature.geometry.length > 2 && feature.geometry[0].lat === feature.geometry[feature.geometry.length - 1].lat && feature.geometry[0].lon === feature.geometry[feature.geometry.length - 1].lon) {
+                // Erstelle ein Polygon aus den Koordinaten
+                const polygon = turf.polygon([feature.geometry.map((point) => [point.lon, point.lat])]);
+    
+                // Berechne den Flächeninhalt in Quadratmetern
+                feature.size = turf.area(polygon);
+            }
+        } else if (feature.type === "relation") {
+            relations++
+            // Identische Berechnungen für die Umrisse einer Relation
+            try {
+                const outerGeometrys = feature.members.filter(d=>d.role ==="outer")
+                const outerGeometry = outerGeometrys.map(item=>item.geometry).flat();
+                const relationPolygon = turf.polygon([outerGeometry.map((point)=>[point.lon,point.lat])]);
+                feature.size = turf.area(relationPolygon)
+                if (!feature.size) {
+                    console.log(outerGeometry)
+                }
+            } catch (e) {
+                console.log(`Probleme bei der Berechnung von ID ${feature.id}: ${e}`)
+                errors++
+            }
+            
         }
 
     });
@@ -67,8 +92,9 @@ function calculateAreaAndSave(filename) {
 
     // Ausgabe der Werte fürs debugging
 
+    console.log(`Fehler bei ${errors} von ${relations} Relations`)
     const playgrounds = data.elements
-        .filter(d => d.tags.leisure === "playground" && d.type === "way")
+        .filter(d => d.tags.leisure === "playground" && d.type === "relation" && d.size)
         .sort((a, b) => a.size - b.size)
 
     console.log("Drei kleinste Spielplätze:");
@@ -81,12 +107,10 @@ function calculateAreaAndSave(filename) {
         console.log(`ID: ${feature.id}, Größe: ${feature.size}`);
     });
 
-
-
     // Schreibe die aktualisierten Daten in eine neue Datei
     console.log("Speichere Datei...")
     const newFilename = filename.replace('.json', '_enhanced.json');
-    writeJsonFile(newFilename, data);
+    // writeJsonFile(newFilename, data);
 }
 
 // Ausführen der Hauptfunktion
