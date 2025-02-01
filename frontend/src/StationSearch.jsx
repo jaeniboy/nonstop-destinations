@@ -10,7 +10,8 @@ const StationSearch = ({ sendDepartureStation }) => {
     setInputValue(value);
     if (value.length > 1) {
       try {
-        const response = await axios.get(`http://localhost:3000/autocomplete?input=${value}`);
+        const API_URL = import.meta.env.VITE_API_URL;
+        const response = await axios.get(`${API_URL}/autocomplete?input=${value}`);
         setSuggestions(response.data);
       } catch (error) {
         console.error('Error fetching suggestions:', error);
