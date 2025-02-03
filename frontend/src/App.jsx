@@ -127,8 +127,14 @@ function App() {
   }
 
   const sortStationData = (data) => {
+    // compute cummulative rankingValues
+    data.stations.forEach(station=>{
+      station.rankingValue = station.destinations.reduce((acc, curr)=>{
+        return acc + curr.rankingValue}, 0)
+    })
     console.log(data)
-    return data.stations.sort((a, b) => b.destinations.length - a.destinations.length)
+
+    return data.stations.sort((a, b) => b.rankingValue - a.rankingValue)
   }
 
   const toggleOptions = () => {
