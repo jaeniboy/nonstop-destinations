@@ -7,7 +7,6 @@ function median(arr) {
     return sorted.length % 2 !== 0 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
 }
 
-// Funktion zum Lesen der JSON-Datei
 function readJsonFile(filename) {
     try {
         return JSON.parse(fs.readFileSync(filename, 'utf8'));
@@ -17,23 +16,21 @@ function readJsonFile(filename) {
     }
 }
 
-// Funktion zum Schreiben der JSON-Datei
 function writeJsonFile(filename, data) {
     try {
         fs.writeFileSync(filename, JSON.stringify(data, null, 2));
-        console.log(`Daten erfolgreich in ${filename} geschrieben.`);
+        console.log(`Wrote data successfully to ${filename}.`);
     } catch (err) {
         console.error(err);
     }
 }
 
-// Funktion zur Min-Max-Normalisierung
+// min-max-normalization for playground and park area sizes
 function minMaxNormalize(features, sizeProperty, normalizedProperty, filterFunction) {
     const filteredFeatures = features.filter(filterFunction);
     if (filteredFeatures.length === 0) return;
 
     const sizes = filteredFeatures.map((feature) => {
-        // feature[sizeProperty] && feature[sizeProperty]
         if (feature[sizeProperty]) {
             return feature[sizeProperty]
         }
@@ -47,48 +44,35 @@ function minMaxNormalize(features, sizeProperty, normalizedProperty, filterFunct
     });
 }
 
-// Hauptfunktion
+// main function
 function calculateAreaAndSave(filename) {
     console.log("Lese Daten...")
     const data = readJsonFile(filename);
     if (!data) return;
 
-    // Berechne den Flächeninhalt für alle Objekte mit "geometry"
-    console.log("Berechne Flächeninhalte...")
-
-    // debugging 
-    let errors = 0
-    let relations = 0
-
-
+    // compute area size for all features with geometry
     data.elements.forEach((feature) => {
 
         if (feature.type === "way") {
-            // prüfe, ob erste geo-koordinate identisch mit letzter geo-koordinate
+            // check if first and last coordinate are the same
             if (feature.geometry && feature.geometry.length > 2 && feature.geometry[0].lat === feature.geometry[feature.geometry.length - 1].lat && feature.geometry[0].lon === feature.geometry[feature.geometry.length - 1].lon) {
-                // Erstelle ein Polygon aus den Koordinaten
+                // create polygon from coordinates
                 const polygon = turf.polygon([feature.geometry.map((point) => [point.lon, point.lat])]);
-
-                // Berechne den Flächeninhalt in Quadratmetern
+                // compute area size
                 feature.size = turf.area(polygon);
             }
         } else if (feature.type === "relation") {
-            relations++
-            // Identische Berechnungen für die Umrisse einer Relation
+            // same presedure for "outer"-ways of relations . todo: problems with multiple "outer"-types
             try {
                 const outerGeometrys = feature.members.filter(d => d.role === "outer")
                 const outerGeometry = outerGeometrys.map(item => item.geometry).flat();
                 const relationPolygon = turf.polygon([outerGeometry.map((point) => [point.lon, point.lat])]);
                 feature.size = turf.area(relationPolygon)
-                if (!feature.size) {
-                    console.log(outerGeometry)
-                }
             } catch (e) {
-                console.log(`Probleme bei der Berechnung von ID ${feature.id}: ${e}`)
-                // todo: ignored them for the moment but should find better solution
+                console.log(`Problems with ID ${feature.id}: ${e}`)
+                // todo: ignore them for the moment but should find better solution
                 feature.size = undefined
                 feature.sizeNormalized = undefined
-                errors++
             }
         
         // add zero size to all playgrounds and parks that are nodes (assuming they're less important)
@@ -101,9 +85,8 @@ function calculateAreaAndSave(filename) {
 
     });
 
-    console.log("Normalisiere Flächeninhalte")
-
-    // Min-Max-Normalisierung der Spielplätze
+    // for playgrounds
+    console.log("Normalize playground sizes...")
     minMaxNormalize(
         data.elements,
         'size',
@@ -111,7 +94,8 @@ function calculateAreaAndSave(filename) {
         (feature) => feature.tags && feature.tags.leisure === "playground" && feature.size !== undefined
     );
 
-    // Min-Max-Normalisierung der Parks
+    // for parks
+    console.log("Normalize park sizes...")
     minMaxNormalize(
         data.elements,
         'size',
@@ -119,72 +103,22 @@ function calculateAreaAndSave(filename) {
         (feature) => feature.tags && feature.tags.leisure !== "playground" && feature.tags.leisure === "park" && feature.size !== undefined
     );
 
-    // Ausgabe der Werte fürs debugging
-
-    // console.log(`Fehler bei ${errors} von ${relations} Relations`)
-    console.log("")
-    const playgrounds = data.elements
-        .filter(d => d.tags.leisure === "playground" && d.type !== "node" && d.size)
-        .sort((a, b) => a.size - b.size)
-
-    console.log("Drei kleinste Spielplätze:");
-    playgrounds.slice(0, 3).forEach((feature) => {
-        console.log(`ID: ${feature.id}, Größe: ${feature.size}, Normalisiert: ${feature.sizeNormalized}`);
-    });
-
-    console.log("Drei größte Spielplätze:");
-    playgrounds.slice(-3).forEach((feature) => {
-        console.log(`ID: ${feature.id}, Größe: ${feature.size}, Normalisiert: ${feature.sizeNormalized}`);
-    });
-
-    console.log("")
-    const parks = data.elements
-        .filter(d => d.tags.leisure === "park" && d.tags.leisure !== "playground" && d.type !== "node" && d.size)
-        .sort((a, b) => a.size - b.size)
-
-    console.log("Drei kleinste Parks:");
-    parks.slice(0, 3).forEach((feature) => {
-        console.log(`ID: ${feature.id}, Größe: ${feature.size}, Normalisiert: ${feature.sizeNormalized}`);
-    });
-
-    console.log("Drei größte Parks:");
-    parks.slice(-3).forEach((feature) => {
-        console.log(`ID: ${feature.id}, Größe: ${feature.size}, Normalisiert: ${feature.sizeNormalized}`);
-    });
-
-    console.log("")
-    const parksAndPlaygrounds = data.elements.filter((feature)=>feature.tags.leisure==="playground"||feature.tags.leisure==="park")
-    const nodeTypes = parksAndPlaygrounds.filter(feature=>feature.type==="node")
-    const normalized = parksAndPlaygrounds.filter(feature=>feature.sizeNormalized === 0)
-
-    console.log(`Parks und Spielplätze gesamt: ${parksAndPlaygrounds.length}`)
-    console.log(`Parks und Spielplätze nodes: ${nodeTypes.length}`)
-    console.log(`Parks und Spielplätze size zero: ${normalized.length}`)
-
     // add median size value to all objects without size-property
     // since they are not important for them and shouldn't lead
     // to disadvantages in ranking. 
+    console.log("Add median...")
+
     let normalizedSizeValues = data.elements.filter(feature => feature.sizeNormalized).map(feature=>feature.sizeNormalized)
-    // const normalizedSizeValues = data.elements.filter(feature => feature.sizeNormalized)
-    console.log(`Anzahl Elemente gesamt: ${data.elements.length}`)
-    console.log(`Anzahl normalisierter Werte: ${normalizedSizeValues.length}`)
     const medianValue = median(normalizedSizeValues)
-    console.log(medianValue)
     
-    console.log("Füge Median hinzu")
     data.elements.forEach((element)=> {
         if (!element.sizeNormalized) {
             element.sizeNormalized = medianValue
         }
     })
 
-    normalizedSizeValues = data.elements.filter(feature => feature.sizeNormalized).map(feature=>feature.sizeNormalized)
-    console.log(`Anzahl normalisierter Werte: ${normalizedSizeValues.length}`)
-    console.log(data.elements.slice(-20).map(feature=>feature.sizeNormalized))
-
     // add ranking value for elements
     // todo: re-write to multiply with weights if necessary
-
     data.elements.forEach((element)=>{
         let rank = 0
         if (element.tags.name) {
@@ -193,7 +127,7 @@ function calculateAreaAndSave(filename) {
         if (element.tags.website || element.tags["contact:website"]) {
             rank++
         }
-        if (element.tags.description) {
+        if (element.tags.description || element.tags["description:de"]) {
             rank++
         }
         if (element.tags.wikipedia) {
@@ -203,14 +137,12 @@ function calculateAreaAndSave(filename) {
         element.rankingValue = rank
     })
 
-    console.log(data.elements.slice(0,3))
-
-    // Schreibe die aktualisierten Daten in eine neue Datei
-    console.log("Speichere Datei...")
+    // write enhanced data to file
+    console.log("Safe file...")
     const newFilename = filename.replace('.json', '_enhanced.json');
     writeJsonFile(newFilename, data);
 }
 
-// Ausführen der Hauptfunktion
+// run main function
 const filename = '../data/osm/osm_data_2024-12-08.json';
 calculateAreaAndSave(filename);

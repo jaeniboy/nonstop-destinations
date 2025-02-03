@@ -3,7 +3,7 @@ import fs from "fs";
 import * as turf from '@turf/turf';
 
 export const enhancedStopovers = async (stopovers, radius) => {
-    console.log("Ermittle Ziele in der Nähe der Haltestellen")
+    console.log("Get destinations next to stations")
 
     const serializedTree = fs.readFileSync('./data/index/spatial_index.json', 'utf8');
     const rb = new RBush()
@@ -21,10 +21,10 @@ export const enhancedStopovers = async (stopovers, radius) => {
 
 export const getNearbyFromLocalIndex = (coords, radius, tree, name) => {
 
-    // Konvertiere den Radius von Metern zu Grad (ungefähre Umrechnung)
+    // convert radius to degree (approximately)
     const radiusInDegrees = radius / 111000; // 1 Grad ≈ 111 km
 
-    // Definiere den Suchbereich
+    // define search area
     const searchBounds = {
         minX: Number(coords[0]) - radiusInDegrees,
         minY: Number(coords[1]) - radiusInDegrees,
@@ -32,10 +32,10 @@ export const getNearbyFromLocalIndex = (coords, radius, tree, name) => {
         maxY: Number(coords[1]) + radiusInDegrees
     };
 
-    // Suche nach Punkten im definierten Bereich
+    // looking for points in defined area
     const results = tree.search(searchBounds);
 
-    // Erstelle ein Turf Point aus den Eingabekoordinaten
+    // create turf point from station location
     // longitude latitude
     const point = turf.point(coords);
 
@@ -46,13 +46,16 @@ export const getNearbyFromLocalIndex = (coords, radius, tree, name) => {
         item.node.distance = distance
     })
 
-    // Filtere die Ergebnisse basierend auf der genauen Entfernung mit Turf
+    // filter results based on distance from station
     const filteredResults = results.filter(item => {
         return item.node.distance <= radius;
     });
 
-    // Extrahiere die vollständigen Node-Objekte aus den gefilterten Ergebnissen
-    const foo = filteredResults.map(item => item.node);
+    // extrackt all node objects from filterd results
+    const nodeObjects = filteredResults.map(item => item.node);
 
-    return foo
+    // sort node objects based on rankingValue
+    const nodesSorted = nodeObjects.sort((a,b) => b.rankingValue - a.rankingValue)
+
+    return nodesSorted
 }

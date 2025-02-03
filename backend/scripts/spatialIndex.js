@@ -53,7 +53,7 @@ function calculateRelationCenter(relationMembers) {
 console.log("lade File");
 
 try {
-    const jsonPath = "./../data/osm/osm_data_2024-12-08.json";
+    const jsonPath = "./../data/osm/osm_data_2024-12-08_enhanced.json";
     const jsonData = await readFile(jsonPath, 'utf8');
     const data = JSON.parse(jsonData).elements;
 
