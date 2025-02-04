@@ -5,7 +5,8 @@ import { enhancedStopovers } from './controllers/osm.js';
 import { createClient } from 'db-vendo-client'
 import {profile as dbProfile} from 'db-vendo-client/p/dbnav/index.js'
 import { autocomplete } from 'db-stations-autocomplete';
-import { findStationById } from './controllers/hafas.js'
+import { findStationById } from './controllers/hafas.js';
+import { getDescription } from './controllers/openai.js';
 
 const app = express();
 // const port = 3000;
@@ -84,6 +85,11 @@ app.get("/autocomplete", async (req, res) => {
     console.log(error)
     res.status(500).json({ error: "autocomplete error" });
   }
+})
+
+app.get("/description", async (req, res) => { 
+  const desc = await getDescription()
+  res.json(desc)
 })
 
 app.listen(port, () => {

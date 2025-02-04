@@ -24,7 +24,9 @@
     "db-hafas": "^6.0.0",
     "db-stations": "^5.0.2",
     "db-vendo-client": "^6.3.2",
+    "dotenv": "^16.4.7",
     "express": "^4.21.1",
+    "openai": "^4.82.0",
     "rbush": "^4.0.1"
   },
   "devDependencies": {
