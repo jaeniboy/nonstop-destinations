@@ -12,6 +12,8 @@ const app = express();
 // const port = 3000;
 const port = process.env.PORT || 3000;
 
+app.use(express.json()); // Middleware für JSON-Daten
+
 app.use(cors({
   origin: '*',
   // origin: [
@@ -20,7 +22,7 @@ app.use(cors({
   //   // 'http://172.21.160.1:5173/'
   //   '*'
   // ],
-  methods: ['GET'],
+  methods: ['GET','POST'],
   allowedHeaders: ['Content-Type']
 }));
 
@@ -87,9 +89,12 @@ app.get("/autocomplete", async (req, res) => {
   }
 })
 
-app.get("/description", async (req, res) => { 
-  const desc = await getDescription()
+app.post("/description", async (req, res) => { 
+  const {cityName, destinations} = req.body
+  console.log(cityName, destinations)
+  const desc = await getDescription(cityName, destinations)
   res.json(desc)
+  console.log(desc)
 })
 
 app.listen(port, () => {
