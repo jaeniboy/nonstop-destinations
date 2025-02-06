@@ -132,6 +132,7 @@ package-lock.json
 package-lock.json
 frontend/src/assets/bak/
 
+backend/.env.development
 frontend/.env.development
 
 # large datasets

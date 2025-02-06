@@ -9,12 +9,13 @@ import SuggestionPlaces from './SuggestionPlaces';
 import logo from './assets/nsd_logo_all_path_white.svg';
 import Alert from './Alert';
 import { BsGear } from "react-icons/bs";
+import { extractCityName } from './SuggestionPlaces';
 
 function App() {
 
   const [originalStations, setOriginalStations] = useState([])
   const [stations, setStations] = useState([])
-  const [stationDisplayIndex, setStationDisplayIndex] = useState(0)
+  const [stationDisplayIndex, setStationDisplayIndex] = useState(null)
   const [loading, setLoading] = useState(false)
   const [alert, setAlert] = useState({ show: false, message: '', type: '' });
   const [retry, setRetry] = useState(false)
@@ -26,12 +27,16 @@ function App() {
     maxtime: 90,
     maxwalk: 1000
   })
-
+  const [description, setDescription] = useState("Description")
+  const station = stations[stationDisplayIndex]
+  
   useEffect(() => {
     originalStations.length !== 0 && showStations()
   }, [originalStations])
 
-  const station = stations[stationDisplayIndex]
+  useEffect(() => {
+    generateDescriptions()
+  }, [stationDisplayIndex])
 
 
   const sendDepartureStation = (stationId) => {
@@ -52,6 +57,7 @@ function App() {
   }
 
   const nextStation = () => {
+    setDescription("")
     setStationDisplayIndex(stationDisplayIndex + 1)
   }
 
@@ -97,8 +103,6 @@ function App() {
   const showStations = () => {
     const dataFiltered = filterStationData(originalStations)
     const dataSorted = sortStationData(dataFiltered)
-    console.log("originalStations", originalStations.stations.length)
-    console.log("filteredStations", dataFiltered.stations.length)
     setStations(dataSorted)
     setRadius(options.maxwalk)
     setStationDisplayIndex(0)
@@ -128,13 +132,38 @@ function App() {
 
   const sortStationData = (data) => {
     // compute cummulative rankingValues
-    data.stations.forEach(station=>{
-      station.rankingValue = station.destinations.reduce((acc, curr)=>{
-        return acc + curr.rankingValue}, 0)
+    data.stations.forEach(station => {
+      station.rankingValue = station.destinations.reduce((acc, curr) => {
+        return acc + curr.rankingValue
+      }, 0)
     })
     console.log(data)
 
     return data.stations.sort((a, b) => b.rankingValue - a.rankingValue)
+  }
+
+  const generateDescriptions = async () => {
+
+    const payload = {
+      cityName: extractCityName(station.name),
+      destinations: station.destinations,
+      language: "german"
+    };
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    };
+
+    const API_URL = import.meta.env.VITE_API_URL;
+    const response = await fetch(`${API_URL}/description`, options)
+    const data = await response.json();
+    setDescription(data.choices[0].message.content)
+    console.log(data.choices[0].message)
+    // console.log(data.choices.message)
   }
 
   const toggleOptions = () => {
@@ -206,13 +235,20 @@ function App() {
               />
             </div>
 
+            <div className="mb-5 px-5 md:px-0">
+              {description}
+            </div>
+
             <div className="w-full flex flex-col lg:flex-row">
+
+
               <div className="w-full lg:w-1/2 h-[400px]">
                 <Map
                   station={station}
                   radius={radius}
                 />
               </div>
+
 
               <div className="w-full lg:w-1/2">
                 <SuggestionPlaces data={station} />
