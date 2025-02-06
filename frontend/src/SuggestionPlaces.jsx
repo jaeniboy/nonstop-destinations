@@ -4,7 +4,7 @@ import { iconMapping } from "./IconMapper";
 import { BsGlobe } from "react-icons/bs";
 import { BsSearch } from "react-icons/bs";
 
-function extractCityName(input) {
+export function extractCityName(input) {
     const match = input.match(/^[^ (]+/);
     return match ? match[0] : '';
 }

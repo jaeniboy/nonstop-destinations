@@ -9,12 +9,13 @@ import SuggestionPlaces from './SuggestionPlaces';
 import logo from './assets/nsd_logo_all_path_white.svg';
 import Alert from './Alert';
 import { BsGear } from "react-icons/bs";
+import { extractCityName } from './SuggestionPlaces';
 
 function App() {
 
   const [originalStations, setOriginalStations] = useState([])
   const [stations, setStations] = useState([])
-  const [stationDisplayIndex, setStationDisplayIndex] = useState(0)
+  const [stationDisplayIndex, setStationDisplayIndex] = useState(null)
   const [loading, setLoading] = useState(false)
   const [alert, setAlert] = useState({ show: false, message: '', type: '' });
   const [retry, setRetry] = useState(false)
@@ -26,7 +27,9 @@ function App() {
     maxtime: 90,
     maxwalk: 1000
   })
-
+  const [description, setDescription] = useState("Description")
+  const station = stations[stationDisplayIndex]
+  
   useEffect(() => {
     originalStations.length !== 0 && showStations()
   }, [originalStations])
@@ -35,7 +38,6 @@ function App() {
     generateDescriptions()
   }, [stationDisplayIndex])
 
-  const station = stations[stationDisplayIndex]
 
   const sendDepartureStation = (stationId) => {
     setDepartureStation(stationId)
@@ -55,6 +57,7 @@ function App() {
   }
 
   const nextStation = () => {
+    setDescription("")
     setStationDisplayIndex(stationDisplayIndex + 1)
   }
 
@@ -142,11 +145,10 @@ function App() {
   const generateDescriptions = async () => {
 
     const payload = {
-      cityName: station.name,
-      destinations: station.destinations
+      cityName: extractCityName(station.name),
+      destinations: station.destinations,
+      language: "german"
     };
-
-    console.log("payload",payload)
 
     const options = {
       method: 'POST',
@@ -159,6 +161,7 @@ function App() {
     const API_URL = import.meta.env.VITE_API_URL;
     const response = await fetch(`${API_URL}/description`, options)
     const data = await response.json();
+    setDescription(data.choices[0].message.content)
     console.log(data.choices[0].message)
     // console.log(data.choices.message)
   }
@@ -232,13 +235,20 @@ function App() {
               />
             </div>
 
+            <div className="mb-5 px-5 md:px-0">
+              {description}
+            </div>
+
             <div className="w-full flex flex-col lg:flex-row">
+
+
               <div className="w-full lg:w-1/2 h-[400px]">
                 <Map
                   station={station}
                   radius={radius}
                 />
               </div>
+
 
               <div className="w-full lg:w-1/2">
                 <SuggestionPlaces data={station} />

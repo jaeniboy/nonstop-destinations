@@ -90,9 +90,10 @@ app.get("/autocomplete", async (req, res) => {
 })
 
 app.post("/description", async (req, res) => { 
-  const {cityName, destinations} = req.body
+  const {cityName, destinations, language} = req.body
   console.log(cityName, destinations)
-  const desc = await getDescription(cityName, destinations)
+  // const desc = await getDescription(cityName, destinations, language)
+  const desc = {"choices":[{"message":{"content":`${cityName} Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren`}}]}
   res.json(desc)
   console.log(desc)
 })
