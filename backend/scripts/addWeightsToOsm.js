@@ -1,5 +1,5 @@
 import * as turf from '@turf/turf';
-import { getLatestFile, readJsonFile, writeJsonFile } from './utils.js';
+import { getOsmFiles, readJsonFile, writeJsonFile } from './utils.js';
 
 function median(arr) {
     const sorted = [...arr].sort((a, b) => a - b);
@@ -137,5 +137,5 @@ function calculateAreaAndSave(filename) {
 }
 
 // run main function
-const filename = await getLatestFile("./../data/osm");
+const filename = await getOsmFiles("./../data/osm");
 calculateAreaAndSave(filename);

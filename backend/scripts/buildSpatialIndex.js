@@ -4,7 +4,7 @@ import { readFile } from 'fs/promises';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import * as turf from '@turf/turf';
-import { getLatestFile, readJsonFile } from "./utils.js";
+import { getOsmFiles, readJsonFile } from "./utils.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -54,7 +54,7 @@ function calculateRelationCenter(relationMembers) {
 console.log("Build spatial Index");
 
 try {
-    const jsonPath = await getLatestFile("./../data/osm")
+    const jsonPath = await getOsmFiles("./../data/osm")
     console.log(`Load data from ${jsonPath}`)
     const data = readJsonFile(jsonPath).elements;
 

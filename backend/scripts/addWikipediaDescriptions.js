@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getLatestFile, readJsonFile, writeJsonFile } from "./utils.js";
+import { getOsmFiles, readJsonFile, writeJsonFile } from "./utils.js";
 
 // Function to get summaries of wikipedia articles
 async function fetchWikipediaSummary(title) {
@@ -43,4 +43,4 @@ async function main(filepath) {
     }
 }
 
-main(await getLatestFile("./../data/osm"));
+main(await getOsmFiles("./../data/osm"));

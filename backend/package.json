@@ -11,7 +11,7 @@
     "dockerRemove": "for /f \"tokens=*\" %i in ('docker ps -aq --filter \"ancestor=backend-app\"') do docker rm %i",
     "docker": "npm run dockerStop && npm run dockerRemove && docker run -d -p 3000:3000 backend-app",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fetchData": "cd scripts && node getOsmData.js && node addWeightsToOsm.js && node --max-old-space-size=4096 addWikipediaDescriptions.js && node buildSpatialIndex.js"
+    "fetchData": "cd scripts && node getOsmData.js && node addWeightsToOsm.js && node --max-old-space-size=4096 addWikipediaDescriptions.js && node buildSpatialIndex.js && node cleanup.js"
   },
   "keywords": [],
   "author": "",

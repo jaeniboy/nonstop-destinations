@@ -2,7 +2,7 @@ import { readdir } from 'fs/promises';
 import { join } from 'path'
 import { readFileSync, writeFileSync } from 'fs';
 
-const getLatestFile = async (directory) => {
+const getOsmFiles = async (directory, latest=true, numOfFiles=1, inverted=false) => {
     const files = await readdir(directory)
     // const osmFiles = files.filter((file) => file.startsWith('osm_data_') && file.endsWith('.json') && !file.endsWith('enhanced.json'));
     const osmFiles = files.filter((file) => {
@@ -15,7 +15,13 @@ const getLatestFile = async (directory) => {
     })
 
     // return osmFiles
-    return join(directory, osmFiles[0])
+    if (latest && numOfFiles === 1) {
+        return join(directory, osmFiles[0])
+    }
+
+    if (inverted) {
+        return osmFiles.slice(numOfFiles).map(d=> join(directory, d))
+    }
 }
 
 function readJsonFile(filename) {
@@ -37,4 +43,4 @@ function writeJsonFile(filename, data) {
 }
 
 
-export { getLatestFile, readJsonFile, writeJsonFile }
+export { getOsmFiles, readJsonFile, writeJsonFile }
