@@ -7,11 +7,14 @@
     "dev": "nodemon index.js",
     "start": "node index.js",
     "build": "docker build -t backend-app -f ../Dockerfile ..",
-    "dockerStop": "(for /f \"tokens=*\" %i in ('docker ps -q --filter \"ancestor=backend-app\"') do docker stop %i) || exit 0",
-    "dockerRemove": "for /f \"tokens=*\" %i in ('docker ps -aq --filter \"ancestor=backend-app\"') do docker rm %i",
-    "docker": "npm run dockerStop && npm run dockerRemove && docker run -d -p 3000:3000 backend-app",
+    "dockerStop": "(for /f \"tokens=*\" %i in ('docker ps -q --filter \"ancestor=backend-app\"') do if not errorlevel 1 docker stop %i) || exit 0",
+    "dockerRemove": "powershell -Command \"$containerIds = docker ps -aq --filter \\\"ancestor=backend-app\\\"; if ($containerIds) { foreach ($containerId in $containerIds) { docker rm -f $containerId; if ($LastExitCode -ne 0) { Write-Host 'Unable to remove container' $containerId; } } } else { Write-Host 'No container found.' }\"",
+    "dockerRun": "docker run -d -p 8080:8080 backend-app",
+    "docker": "npm run dockerStop && npm run dockerRemove && docker run -d -p 8080:8080 backend-app",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fetchData": "cd scripts && node getOsmData.js && node addWeightsToOsm.js && node --max-old-space-size=4096 addWikipediaDescriptions.js && node buildSpatialIndex.js && node cleanup.js"
+    "fetchData": "cd scripts && node getOsmData.js && node addWeightsToOsm.js && node --max-old-space-size=4096 addWikipediaDescriptions.js && node buildSpatialIndex.js && node cleanup.js",
+    "buildCloudDocker": "docker build -t europe-west3-docker.pkg.dev/jani-projekt/nonstop-destinations-repository/backend-app -f ../Dockerfile --platform linux/x86_64 ..",
+    "pushCloudDocker": "docker push europe-west3-docker.pkg.dev/jani-projekt/nonstop-destinations-repository/backend-app"
   },
   "keywords": [],
   "author": "",

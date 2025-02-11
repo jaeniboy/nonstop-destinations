@@ -21,7 +21,8 @@ WORKDIR /app/backend
 # RUN npm run build
 
 # Port freigeben
-EXPOSE 3000
+EXPOSE 8080
 
 # Startbefehl
+ENV PORT=8080
 CMD ["npm", "start"]

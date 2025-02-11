@@ -9,7 +9,7 @@ import { findStationById } from './controllers/hafas.js';
 import { getDescription } from './controllers/openai.js';
 
 const app = express();
-// const port = 3000;
+// const port = 4000;
 const port = process.env.PORT || 3000;
 
 app.use(express.json()); // Middleware für JSON-Daten
