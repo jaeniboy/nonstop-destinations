@@ -27,7 +27,7 @@ app.use(cors({
 }));
 
 app.get('/', (req, res) => {
-  res.send('Hello from Backend! How are you, dude');
+  res.send('Hello from Backend! How are you, today?');
 });
 
 const vendo = createClient(
