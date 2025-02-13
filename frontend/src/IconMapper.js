@@ -10,7 +10,7 @@ import attraction from './assets/Attractions.svg'
 import {colors} from '../colors'
 
 export const iconMapping = (obj) => {
-    if (obj.tourism === "museum") {
+    if (obj === "museum" || obj.tourism === "museum") {
         return {
             name: "museums",
             image: museum,
@@ -18,7 +18,7 @@ export const iconMapping = (obj) => {
             color: 'rgb(59 130 246)' // blue-500
         };
     }
-    if (obj.leisure === "swimming_pool") {
+    if (obj === "swimming_pool" || obj.leisure === "swimming_pool") {
         return {
             name: "swimming pools",
             image: swimming,
@@ -26,7 +26,7 @@ export const iconMapping = (obj) => {
             color: 'rgb(14 165 233)' // sky-500
         };
     }
-    if (obj.tourism === "theme_park") {
+    if (obj === "theme_park" || obj.tourism === "theme_park") {
         return {
             name: "theme parks",
             image: themepark,
@@ -34,7 +34,7 @@ export const iconMapping = (obj) => {
             color: 'rgb(249 115 22)' // orange-500
         };
     }
-    if (obj.tourism === "zoo") {
+    if (obj === "zoo" || obj.tourism === "zoo") {
         return {
             name: "zoos",
             image: zoo,
@@ -42,7 +42,7 @@ export const iconMapping = (obj) => {
             color: 'rgb(168 85 247)' // purple-500
         };
     }
-    if (obj.leisure === "playground" || obj.amenity === "playground") {
+    if (obj === "playground" || obj.leisure === "playground" || obj.amenity === "playground") {
         return {
             name: "playgrounds",
             image: playground,
@@ -50,7 +50,7 @@ export const iconMapping = (obj) => {
             color: 'rgb(22 163 74)' // green-600
         };
     }
-    if (obj.leisure === "park") {
+    if (obj === "park" || obj.leisure === "park") {
         return {
             name: "parks",
             image: park,
@@ -58,7 +58,7 @@ export const iconMapping = (obj) => {
             color: 'rgb(34 197 94)' // green-500
         };
     }
-    if (obj.tourism === "castle") {
+    if (obj === "castle" || obj.tourism === "castle") {
         return {
             name: "castles",
             image: castle,
@@ -66,7 +66,7 @@ export const iconMapping = (obj) => {
             color: 'rgb(99 102 241)' // indigo-500
         };
     }
-    if (obj.tourism === "attraction") {
+    if (obj === "attraction" || obj.tourism === "attraction") {
         return {
             name: "other attractions",
             image: attraction,
@@ -75,7 +75,7 @@ export const iconMapping = (obj) => {
             color: colors.secondary
         };
     }
-    if (obj.shop === "farm") {
+    if (obj === "farm_shop" || obj.shop === "farm") {
         return {
             name: "farm shops",
             image: farmshop,

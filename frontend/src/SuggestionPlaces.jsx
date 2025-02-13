@@ -24,36 +24,37 @@ const SuggestionPlaces = ({ data }) => {
 
     const summary = [
         {
-            id: "playgrounds",
+            id: "playground",
             data: data.destinations.filter(d => d.tags.leisure == "playground" || d.tags.amenity == "playground"),
         }, {
-            id: "swimmingPools",
+            id: "swimming_pool",
             data: data.destinations.filter(d => d.tags.leisure == "swimming_pool"),
         }, {
-            id: "museums",
+            id: "museum",
             data: data.destinations.filter(d => d.tags.tourism == "museum"),
         }, {
-            id: "themeParks",
+            id: "theme_park",
             data: data.destinations.filter(d => d.tags.tourism == "theme_park"),
         }, {
-            id: "zoos",
+            id: "zoo",
             data: data.destinations.filter(d => d.tags.tourism == "zoo"),
         }, {
-            id: "parks",
+            id: "park",
             data: data.destinations.filter(d => d.tags.leisure == "park"),
         }, {
-            id: "castles",
+            id: "castle",
             data: data.destinations.filter(d => d.tags.tourism == "castle"),
         }, {
-            id: "attractions",
+            id: "attraction",
             data: data.destinations.filter(d => d.tags.tourism == "attraction"),
         }, {
-            id: "farmShops",
+            id: "farm_shop",
             data: data.destinations.filter(d => d.tags.shop == "farm"),
         }]
 
     const displaySummary = summary.map(d => {
-        const iconMap = d.data.length > 0 && iconMapping(d.data[0].tags)
+        const iconMap = d.data.length > 0 && iconMapping(d.id)
+        // const iconMap = d.data.length > 0 && iconMapping(d.data[0].tags)
         return (
             d.data.length > 0 &&
             <div key={d.id} >
