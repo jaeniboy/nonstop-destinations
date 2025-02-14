@@ -7,6 +7,7 @@ import {profile as dbProfile} from 'db-vendo-client/p/dbnav/index.js'
 import { autocomplete } from 'db-stations-autocomplete';
 import { findStationById } from './controllers/hafas.js';
 import { getDescription } from './controllers/openai.js';
+import { exec, spawn } from 'child_process';
 
 const app = express();
 // const port = 4000;
@@ -97,6 +98,98 @@ app.post("/description", async (req, res) => {
   res.json(desc)
   console.log(desc)
 })
+
+app.get('/updateData', (req, res) => {
+
+  console.log("Start updating data...")
+  const command = "npm run fetchData";
+
+  exec(command, {
+    maxBuffer: undefined // Keine Begrenzung
+}, (error, stdout, stderr) => {
+      if (error) {
+          console.error(`error: ${error.message}`);
+          res.status(500).send({ message: 'Unable to run command' });
+      } else if (stderr) {
+          console.error(`stderr: ${stderr}`);
+          res.status(500).send({ message: 'Unable to run command' });
+      } else {
+          console.log(`stdout:\n${stdout}`);
+          res.send({ message: 'Data updated successfully' });
+      }
+  });
+});
+
+// app.get('/updateData', (req, res) => {
+//   console.log("Start updating data...");
+
+//   const commands = [
+//       "node scripts/getOsmData.js",
+//       "node scripts/addWeightsToOsm.js",
+//       "node --max-old-space-size=4096 scripts/addWikipediaDescriptions.js",
+//       "node scripts/buildSpatialIndex.js",
+//       "node scripts/cleanup.js"
+//   ];
+
+//   let index = 0;
+
+//   function runNextCommand() {
+//       if (index >= commands.length) {
+//           res.send({ message: 'Data updated successfully' });
+//           return;
+//       }
+
+//       const command = commands[index];
+//       console.log(`Running command: ${command}`);
+
+//       exec(command, (error, stdout, stderr) => {
+//           if (error) {
+//               console.error(`error: ${error.message}`);
+//               res.status(500).send({ message: 'Unable to run command' });
+//               return;
+//           } else if (stderr) {
+//               console.error(`stderr: ${stderr}`);
+//               res.status(500).send({ message: 'Unable to run command' });
+//               return;
+//           } else {
+//               console.log(`stdout:\n${stdout}`);
+//               index++;
+//               runNextCommand();
+//           }
+//       });
+//   }
+
+//   runNextCommand();
+// });
+
+// app.get('/updateData', (req, res) => {
+//   const command = "npm.cmd";
+//   const args = ["run", "fetchData"];
+
+//   const child = spawn(command, args);
+
+//   child.stdout.on('data', (data) => {
+//       console.log(`stdout: ${data}`);
+//   });
+
+//   child.stderr.on('data', (data) => {
+//       console.error(`stderr: ${data}`);
+//   });
+
+//   child.on('close', (code) => {
+//       console.log(`child process exited with code ${code}`);
+//       if (code === 0) {
+//           res.send({ message: 'Daten erfolgreich aktualisiert' });
+//       } else {
+//           res.status(500).send({ message: 'Fehler beim Ausführen des Befehls' });
+//       }
+//   });
+
+//   child.on('error', (err) => {
+//       console.error(`error: ${err.message}`);
+//       res.status(500).send({ message: 'Fehler beim Ausführen des Befehls' });
+//   });
+// });
 
 app.listen(port, () => {
   console.log(`Backend server running on port ${port}`);
