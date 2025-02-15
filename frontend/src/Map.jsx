@@ -55,10 +55,10 @@ const Map = ({ station, radius }) => {
     //     url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
     //     attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
     // }
-    const tiles = { // clean
-        url: "https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png",
-        attribution: ""
-    }
+    // const tiles = { // clean
+    //     url: "https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png",
+    //     attribution: ""
+    // }
     // const tiles = { // bright
     //     url: 'https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
     //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
@@ -71,18 +71,17 @@ const Map = ({ station, radius }) => {
     //     url: "https://sgx.geodatenzentrum.de/wmts_basemapde/tile/1.0.0/de_basemapde_web_raster_grau/default/GLOBAL_WEBMERCATOR/{z}/{y}/{x}.png",
     //     attribution: ""
     // }
+    const tiles = { // original
+        url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        attribution: ""
+    }
 
     return (
 
         <MapContainer center={position} zoom={fixedZoom} style={{ height: '100%', width: '100%' }} >
             <TileLayer
-               url={tiles.url}
-            
-            //    url= // schwart-weiß
-            //    url="https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png" // etwas aufgeräumter
-                // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                url={tiles.url}
                 attribution={tiles.attribution}
-                // attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
             <Circle center={position} radius={radius} pathOptions={fillBlueOptions} />
             {markers}
