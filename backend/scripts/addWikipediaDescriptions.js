@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getOsmFiles, readJsonFile, writeJsonFile } from "./utils.js";
+import { getOsmFiles, readJsonFile, writeJsonFile, updateStatusFile } from "./utils.js";
 
 // Function to get summaries of wikipedia articles
 async function fetchMultipleArticles(titles) {
@@ -63,6 +63,7 @@ async function main(filepath) {
     updatedData.elements = await addDescriptions(data.elements);
     try {
         writeJsonFile(filepath, updatedData);
+        updateStatusFile("addedWikipediaDescriptions")
     } catch (error) {
         console.log(`Error on saving data: ${error}`);
     }

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node index.js",
+    "start": "set PORT=3001 && node index.js",
     "build": "docker build -t backend-app -f ../Dockerfile ..",
     "dockerStop": "(for /f \"tokens=*\" %i in ('docker ps -q --filter \"ancestor=backend-app\"') do if not errorlevel 1 docker stop %i) || exit 0",
     "dockerRemove": "powershell -Command \"$containerIds = docker ps -aq --filter \\\"ancestor=backend-app\\\"; if ($containerIds) { foreach ($containerId in $containerIds) { docker rm -f $containerId; if ($LastExitCode -ne 0) { Write-Host 'Unable to remove container' $containerId; } } } else { Write-Host 'No container found.' }\"",

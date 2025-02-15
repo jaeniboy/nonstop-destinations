@@ -42,5 +42,12 @@ function writeJsonFile(filename, data) {
     }
 }
 
+const updateStatusFile = (key) =>{
+    const filepath = "./../updateStatus.json"
+    const status = readJsonFile(filepath)
+    status[key] = new Date().toISOString()
+    writeJsonFile(filepath, status)
+}
 
-export { getOsmFiles, readJsonFile, writeJsonFile }
+
+export { getOsmFiles, readJsonFile, writeJsonFile, updateStatusFile }

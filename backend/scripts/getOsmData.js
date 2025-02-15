@@ -2,6 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fetch from 'node-fetch';
+import { updateStatusFile } from './utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -71,5 +72,8 @@ export const cacheAllNodes = async () => {
 
 console.log('Start fetching osm data from overpass api ...');
 cacheAllNodes()
-    .then(() => console.log('Download and saving completed.'))
+    .then(() => {
+        console.log('Download and saving completed.')
+        updateStatusFile("fetchedOsmData")
+    })
     .catch(error => console.error('Error on download and saving:', error));
