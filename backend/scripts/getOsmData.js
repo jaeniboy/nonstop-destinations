@@ -7,6 +7,15 @@ import { updateStatusFile } from './utils.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+function removeNodeProperties(data) {
+    return data.map(obj => {
+        if (obj.nodes) {
+            delete obj.nodes;
+        }
+        return obj;
+    });
+}
+
 const fetchOSMData = async (bbox) => {
     const query = `
     [out:json]
@@ -29,7 +38,9 @@ const fetchOSMData = async (bbox) => {
         }
         const data = await response.json();
         console.log(`... fetched data successfully!`);
-        // todo: delete unneccesary properties here - save disc space
+        // remove unnecessary properties
+        data.elements = removeNodeProperties(data.elements)
+
         return data.elements;
     } catch (error) {
         console.error(`... error:`, error);
