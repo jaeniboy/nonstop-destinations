@@ -28,6 +28,7 @@ const fetchOSMData = async (bbox) => {
         }
         const data = await response.json();
         console.log(`... fetched data successfully!`);
+        // todo: delete unneccesary properties here - save disc space
         return data.elements;
     } catch (error) {
         console.error(`... error:`, error);
