@@ -1,10 +1,9 @@
 import RBush from "rbush";
 import * as fs from 'fs';
-import { readFile } from 'fs/promises';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import * as turf from '@turf/turf';
-import { getOsmFiles, readJsonFile } from "./utils.js";
+import { getOsmFiles, readJsonFile, updateStatusFile } from "./utils.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -143,7 +142,7 @@ try {
 
     // save index
     fs.writeFileSync('../data/index/spatial_index.json', serializedTree);
-
+    updateStatusFile("builtSpatialIndex")
     console.log("Index built successfully");
 } catch (error) {
     console.error('Unable to load osm data', error);

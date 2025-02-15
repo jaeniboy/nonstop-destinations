@@ -1,5 +1,5 @@
 import * as turf from '@turf/turf';
-import { getOsmFiles, readJsonFile, writeJsonFile } from './utils.js';
+import { getOsmFiles, readJsonFile, updateStatusFile, writeJsonFile } from './utils.js';
 
 function median(arr) {
     const sorted = [...arr].sort((a, b) => a - b);
@@ -132,6 +132,7 @@ function calculateAreaAndSave(filename) {
 
     // write enhanced data to file
     console.log("Safe file...")
+    updateStatusFile("computedWeights")
     // const newFilename = filename.replace('.json', '_enhanced.json');
     writeJsonFile(filename, data);
 }

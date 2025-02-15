@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { getOsmFiles } from './utils.js';
+import { getOsmFiles, updateStatusFile } from './utils.js';
 
 function deleteFiles(filePaths) {
     filePaths.forEach(filePath => {
@@ -18,6 +18,7 @@ const filePaths = await getOsmFiles("./../data/osm", false, 2, true)
 if (filePaths.length > 0) {
     deleteFiles(filePaths);
     console.log(`Removed old files: ${filePaths.join(" ")}`)
+    updateStatusFile("removedOldFiles")
 } else {
     console.log("No files to remove!")
 }
