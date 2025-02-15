@@ -2,20 +2,6 @@ import axios from "axios";
 import { getOsmFiles, readJsonFile, writeJsonFile } from "./utils.js";
 
 // Function to get summaries of wikipedia articles
-async function fetchWikipediaSummary(title) {
-    const titleFormatted = title.split(":")[1].replace(/\s+/g, "_")
-    try {
-        const url = `https://de.wikipedia.org/api/rest_v1/page/summary/${titleFormatted}`;
-        const response = await axios.get(url);
-        const data = response.data;
-
-        return data.extract;
-    } catch (error) {
-        console.error(`Unable to fetch summary for ${titleFormatted}:`, error);
-        return null;
-    }
-}
-
 async function fetchMultipleArticles(titles) {
     const url = "https://de.wikipedia.org/w/api.php";
     const params = {
@@ -31,24 +17,10 @@ async function fetchMultipleArticles(titles) {
         const response = await axios.get(url, { params });
         return response.data;
     } catch (error) {
-        console.error("Fehler beim Abrufen der Artikel:", error);
+        console.error("Error on fetching data:", error);
         return null;
     }
 }
-
-// Add summaries to json objects
-// async function addDescriptions(data) {
-//     for (const item of data) {
-//         if (item.tags.wikipedia) {
-//             console.log(`fetch data for item ${item.id}`)
-//             const description = await fetchWikipediaSummary(item.tags.wikipedia);
-//             if (description) {
-//                 item.tags.wikipedia_description = description;
-//             }
-//         }
-//     }
-//     return data;
-// }
 
 async function addDescriptions(data) {
     const articleTitles = data
