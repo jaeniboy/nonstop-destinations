@@ -143,3 +143,4 @@ backend/data/index/spatial_index.json
 *.bak
 backend/data/index/spatial_index.json
 backend/controllers/timetables.js
+frontend/.env.production
