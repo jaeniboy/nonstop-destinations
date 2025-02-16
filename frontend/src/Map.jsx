@@ -1,7 +1,9 @@
 import React from 'react';
 import L from "leaflet";
 import { MapContainer, TileLayer, Marker, Popup, useMap, Circle } from 'react-leaflet';
+import { GestureHandling } from "leaflet-gesture-handling";
 import 'leaflet/dist/leaflet.css';
+import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
 import { useEffect } from 'react';
 import { colors } from "../colors";
 import { iconMapping } from './IconMapper';
@@ -78,7 +80,7 @@ const Map = ({ station, radius }) => {
 
     return (
 
-        <MapContainer center={position} zoom={fixedZoom} style={{ height: '100%', width: '100%' }} >
+        <MapContainer center={position} zoom={fixedZoom} style={{ height: '100%', width: '100%' }} gestureHandling={true}>
             <TileLayer
                 url={tiles.url}
                 attribution={tiles.attribution}
