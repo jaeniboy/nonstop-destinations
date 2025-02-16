@@ -29,7 +29,7 @@ function App() {
   })
   const [description, setDescription] = useState("Description")
   const station = stations[stationDisplayIndex]
-  
+
   useEffect(() => {
     originalStations.length !== 0 && showStations()
   }, [originalStations])
@@ -162,8 +162,6 @@ function App() {
     const response = await fetch(`${API_URL}/description`, options)
     const data = await response.json();
     setDescription(data.choices[0].message.content)
-    console.log(data.choices[0].message)
-    // console.log(data.choices.message)
   }
 
   const toggleOptions = () => {
@@ -181,12 +179,12 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col justify-center h-full">
+      <div className="flex flex-col justify-center h-full h-screen overflow-hidden">
+        {/* Header */}
         <div>
-          <div className="w-full flex items-center pt-3 pb-3 bg-primary rounded-b-2xl px-5">
+          <div className="w-full flex items-center pt-3 pb-3 bg-primary rounded-b-2xl px-5 ">
             <img src={logo} className="h-14 hidden sm:block" />
             <div className="w-full flex justify-center">
-              {/* <div className="w-full flex justify-center relative -translate-y-1/4"> */}
               <StationSearch
                 sendDepartureStation={sendDepartureStation}
               />
@@ -197,65 +195,68 @@ function App() {
               </span><div className="h-full ml-2 content-center hidden sm:block">Options</div>
             </div>
           </div>
-        </div>
-
-        {showOptions &&
-          <Options
-            options={options}
-            optionsChange={handleOptionsChange}
-            onSave={handleSaveOptions}
-          />
-        }
-
-        {loading && <LoadingSpinner />}
-
-        {alert.show && <Alert message={alert.message} type={alert.type} retry={retryLoading} />}
-
-        {originalStations.length === 0 && !loading &&
-          <div className="w-full flex justify-center items-center mt-7">
-            <div className="w-3/4 text-center">Find interesting places in your area that are accessible by public transport without transfers. Please select your starting point ... </div>
-          </div>
-        }
-
-        {stations.length === 0 && !loading && originalStations.length != 0 &&
-          <div className="w-full text-center mt-7"><div>No suggestions.</div><div> Please choose different options or try another station.</div></div>
-        }
-
-        {stations.length != 0 && !loading && !alert.show &&
-          <div className="w-full sm:w-full md:w-4/5 xl:w-3/5 mx-auto ">
-            {/* <div className="w-full sm:w-full md:w-4/5 lg:w-1/2 mx-auto"> */}
-            <div className="w-full lg:w-4/5 mx-auto lg:pb-5">
-              <SuggestionTitleBox
-                stationName={station.name}
-                index={stationDisplayIndex}
-                nextStation={nextStation}
-                previousStation={previousStation}
-                lastSuggestion={stations.length}
-                station={station}
-              />
-            </div>
-
-            <div className="mb-5 px-5 md:px-0">
-              {description}
-            </div>
-
-            <div className="w-full flex flex-col lg:flex-row">
-
-
-              <div className="w-full lg:w-1/2 h-[400px]">
-                <Map
+          {stations.length != 0 && !loading && !alert.show &&
+            <div className="w-full sm:w-full md:w-4/5 xl:w-3/5 mx-auto">
+              <div className="w-full lg:w-4/5 mx-auto lg:pb-5">
+                <SuggestionTitleBox
+                  stationName={station.name}
+                  index={stationDisplayIndex}
+                  nextStation={nextStation}
+                  previousStation={previousStation}
+                  lastSuggestion={stations.length}
                   station={station}
-                  radius={radius}
                 />
               </div>
-
-
-              <div className="w-full lg:w-1/2">
-                <SuggestionPlaces data={station} />
-              </div>
-            </div>
           </div>}
+        </div>
+        {/* Main content */}
+        <div className='flex-1 overflow-y-scroll'>
+          {showOptions &&
+            <Options
+              options={options}
+              optionsChange={handleOptionsChange}
+              onSave={handleSaveOptions}
+            />
+          }
 
+          {loading && <LoadingSpinner />}
+
+          {alert.show && <Alert message={alert.message} type={alert.type} retry={retryLoading} />}
+
+          {originalStations.length === 0 && !loading &&
+            <div className="w-full flex justify-center items-center mt-7">
+              <div className="w-3/4 text-center">Find interesting places in your area that are accessible by public transport without transfers. Please select your starting point ... </div>
+            </div>
+          }
+
+          {stations.length === 0 && !loading && originalStations.length != 0 &&
+            <div className="w-full text-center mt-7"><div>No suggestions.</div><div> Please choose different options or try another station.</div></div>
+          }
+
+          {stations.length != 0 && !loading && !alert.show &&
+            <div className="w-full sm:w-full md:w-4/5 xl:w-3/5 mx-auto">              
+
+              <div className="mb-5 px-5 md:px-0">
+                {description}
+              </div>
+
+              <div className="w-full flex flex-col lg:flex-row">
+
+
+                <div className="w-full lg:w-1/2 h-[400px]">
+                  <Map
+                    station={station}
+                    radius={radius}
+                  />
+                </div>
+
+
+                <div className="w-full lg:w-1/2">
+                  <SuggestionPlaces data={station} />
+                </div>
+              </div>
+            </div>}
+        </div>
       </div>
     </>
   )
