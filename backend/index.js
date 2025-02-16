@@ -33,6 +33,16 @@ app.get('/', (req, res) => {
   res.send('Hello from Backend! How are you, today?');
 });
 
+app.get('/health', (req, res) => {
+  setTimeout(() => {
+      try {
+          res.status(200).send('OK');
+      } catch (error) {
+          res.status(503).send('Unhealthy');
+      }
+  }, 50000);
+});
+
 const vendo = createClient(
   dbProfile,
   'janfseipel@gmail.com'
