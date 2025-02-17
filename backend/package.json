@@ -15,7 +15,8 @@
     "fetchData": "cd scripts && node getOsmData.js && node addWeightsToOsm.js && node --max-old-space-size=4096 addWikipediaDescriptions.js && node buildSpatialIndex.js && node cleanup.js",
     "buildCloudDocker": "docker build -t europe-west3-docker.pkg.dev/jani-projekt/nonstop-destinations-repository/backend-app -f ../Dockerfile --platform linux/x86_64 ..",
     "pushCloudDocker": "docker push europe-west3-docker.pkg.dev/jani-projekt/nonstop-destinations-repository/backend-app",
-    "deployCloudDocker": "gcloud run deploy backend-app --image europe-west3-docker.pkg.dev/jani-projekt/nonstop-destinations-repository/backend-app --platform managed --region europe-west3 --allow-unauthenticated"
+    "deployCloudDocker": "gcloud run deploy backend-app --image europe-west3-docker.pkg.dev/jani-projekt/nonstop-destinations-repository/backend-app --platform managed --region europe-west3 --allow-unauthenticated",
+    "deploy": "npm run buildCloudDocker && npm run pushCloudDocker && npm run deployCloudDocker"
   },
   "keywords": [],
   "author": "",
