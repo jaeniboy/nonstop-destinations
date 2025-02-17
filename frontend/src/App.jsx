@@ -199,11 +199,11 @@ function App() {
     <>
 
       {!healthy ?
-        <div className="flex flex-col min-h-screen justify-center items-center text-center">
-          <div className="mb-8">
+        <div className="flex flex-col min-h-screen justify-center items-center text-center animate-pulse">
+          <img src={logoBlack} className=""></img>
+          <div className="mt-8">
             ... waiting for backend server to be ready
           </div>
-          <img src={logoBlack} className="animate-pulse"></img>
         </div>
         :
 

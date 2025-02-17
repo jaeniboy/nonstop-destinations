@@ -8,7 +8,6 @@ import { autocomplete } from 'db-stations-autocomplete';
 import { findStationById } from './controllers/hafas.js';
 import { getDescription } from './controllers/openai.js';
 import { exec } from 'child_process';
-import fs from 'fs/promises';
 import { readJsonFile } from './scripts/utils.js';
 
 const app = express();
@@ -34,19 +33,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/health', (req, res) => {
-  setTimeout(() => {
-      try {
-          res.status(200).send('OK');
-      } catch (error) {
-          res.status(503).send('Unhealthy');
-      }
-  }, 50000);
+  res.status(200).send('OK');
 });
-
-const vendo = createClient(
-  dbProfile,
-  'janfseipel@gmail.com'
-);
 
 app.get('/destinations', async (req, res) => {
   //http://localhost:3000/destinations?station=8000191&radius=2000&distmin=15000
