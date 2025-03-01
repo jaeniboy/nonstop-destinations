@@ -1,15 +1,15 @@
 import express from 'express';
 import cors from 'cors';
-import { getAllNonStopStations, getStationCoords, getDeparturesTripIds } from './controllers/hafas.js'
+import { getAllNonStopStations } from './controllers/hafas.js'
 import { enhancedStopovers } from './controllers/osm.js';
-import { createClient } from 'db-vendo-client'
-import { profile as dbProfile } from 'db-vendo-client/p/dbnav/index.js'
 import { autocomplete } from 'db-stations-autocomplete';
 import { findStationById } from './controllers/hafas.js';
 import { getDescription } from './controllers/openai.js';
 import { exec } from 'child_process';
-import fs from 'fs/promises';
 import { readJsonFile } from './scripts/utils.js';
+import { config } from './config.js'
+
+console.log(config)
 
 const app = express();
 // const port = 4000;
@@ -18,14 +18,12 @@ const port = process.env.PORT || 3000;
 app.use(express.json()); // Middleware für JSON-Daten
 
 app.use(cors({
-  origin: '*',
-  // origin: [
-  //   // 'http://localhost:5173',
-  //   // 'http://192.168.0.23:5173/',
-  //   // 'http://172.21.160.1:5173/'
-  //   '*'
-  // ],
-  methods: ['GET', 'POST'],
+  origin: [
+    'http://192.168.0.23:5173',
+    'https://jaeniboy.github.io'
+    // 'https://jaeniboy.github.io/nonstop-destinations'
+  ],
+  methods: ['GET', 'POST','OPTIONS'],
   allowedHeaders: ['Content-Type']
 }));
 
@@ -33,10 +31,9 @@ app.get('/', (req, res) => {
   res.send('Hello from Backend! How are you, today?');
 });
 
-const vendo = createClient(
-  dbProfile,
-  'janfseipel@gmail.com'
-);
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
 
 app.get('/destinations', async (req, res) => {
   //http://localhost:3000/destinations?station=8000191&radius=2000&distmin=15000
@@ -66,7 +63,7 @@ app.get('/destinations', async (req, res) => {
       error: error.message,
       metadata: {
         isComplete: false,
-        message: "Fehler bei der Verarbeitung der Anfrage"
+        message: "Error while processing the request."
       }
     })
   }
@@ -94,9 +91,13 @@ app.get("/autocomplete", async (req, res) => {
 
 app.post("/description", async (req, res) => {
   const { cityName, destinations, language } = req.body
-  // const desc = await getDescription(cityName, destinations, language)
-  const desc = { "choices": [{ "message": { "content": `${cityName} Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren` } }] }
-  res.json(desc)
+  if (config.llmDescriptions) {
+    const desc = await getDescription(cityName, destinations, language)
+    res.json(desc)
+  } else {
+    const desc = { "choices": [{ "message": { "content": `${cityName} Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren` } }] }
+    res.json(desc)
+  }
 })
 
 app.get('/updateData', (req, res) => {
