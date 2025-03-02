@@ -32,6 +32,7 @@
     "db-vendo-client": "^6.3.2",
     "dotenv": "^16.4.7",
     "express": "^4.21.1",
+    "nanoid": "^5.1.2",
     "openai": "^4.82.0",
     "rbush": "^4.0.1"
   },

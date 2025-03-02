@@ -1,13 +1,11 @@
 import * as turf from '@turf/turf';
 import { createClient } from 'db-vendo-client'
-import { profile as dbProfile } from 'db-vendo-client/p/dbweb/index.js'
-// import { profile as dbProfile } from 'db-vendo-client/p/dbnav/index.js'
+// import { profile as dbProfile } from 'db-vendo-client/p/db/index.js'
+// import { profile as dbProfile } from 'db-vendo-client/p/dbweb/index.js'
+import {withRetrying} from 'db-vendo-client/retry.js'
+import { profile as dbProfile } from 'db-vendo-client/p/dbnav/index.js'
 import { readStations } from 'db-stations'
-
-const vendo = createClient(
-    dbProfile,
-    'janfseipel@gmail.com'
-); 
+import { nanoid } from 'nanoid';
 
 // Utility function for retry logic
 const withRetry = async (operation, operationName) => {
@@ -62,48 +60,63 @@ export const getStationCoords = async (stationId = "8000191") => {
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) => {
-    console.log("Ermittle TripIds")
+export const getDeparturesTripIds = async (client, stationId = "8000191", dateAndTime) => {
 
     const productFilter = ["nationalExpress", "bus"]
 
     const result = await withRetry(async () => {
-        const departures = await vendo.departures(stationId, {
+        const departures = await client.departures(stationId, {
+            // const departures = await vendo.departures(stationId, {
             results: 20, // Anzahl der Ergebnisse
             duration: 60, // Zeitraum in Minuten
             when: dateAndTime
         })
         return departures;
-    }, `Abrufen der Abfahrten`);
+    }, `fetching departures`);
+
+    console.log(`Found ${result.departures.length} departures.`)
+
     const departuresFilterd = result.departures.filter(d => !productFilter.includes(d.line.product))
     const tripIds = departuresFilterd
-        .map(dep => { return { "tripId": dep.tripId, "plannedWhen": dep.plannedWhen } });
-    return tripIds
+        .map(dep => { return { "tripId": dep.tripId, "plannedWhen": dep.plannedWhen } })
+    console.log(`Reduced to ${tripIds.length} tripIds by filtering`)
+
+    const finalTripIds = tripIds.slice(0,20)
+    console.log(`Finally picked the first ${finalTripIds.length} of them`)
+
+    return finalTripIds
 }
 
-export const getStopovers = async (tripId, departureTime = null) => {
-    console.log("Ermittle Zwischenhalte")
+export const getStopovers = async (client, tripId, departureTime = null) => {
 
-    const result = await withRetry(async () => {
-        const trip = await vendo.trip(tripId, { stopovers: true });
-        return trip;
-    }, `Abrufen der Zwischenhalte`);
-    const stations = result.trip.stopovers.map((stopover) => {
-        return {
-            id: stopover.stop.id,
-            name: stopover.stop.name,
-            latitude: stopover.stop.location.latitude,
-            longitude: stopover.stop.location.longitude,
-            plannedArrival: stopover.plannedArrival,
-            travelTime: timeDelta(stopover.plannedArrival, departureTime)
-        }
-    });
-    // remove startpoint and stops before departure time
-    return departureTime ? stations.filter(d => d.plannedArrival > departureTime) : stations;
+    try {
+        const result = await client.trip(tripId, { stopovers: true });
+        const stations = result.trip.stopovers.map((stopover) => {
+            return {
+                id: stopover.stop.id,
+                name: stopover.stop.name,
+                latitude: stopover.stop.location.latitude,
+                longitude: stopover.stop.location.longitude,
+                plannedArrival: stopover.plannedArrival,
+                travelTime: timeDelta(stopover.plannedArrival, departureTime)
+            }
+        });
+
+        // remove startpoint and stops before departure time
+        return departureTime ? stations.filter(d => d.plannedArrival > departureTime) : stations;
+    } catch (error) {
+        console.log("Error on getting stopovers: ", error)
+        throw error;
+    }
 }
 
 export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) => {
-    console.log("Ermittle alle direkt angefahrenen Haltestellen")
+    console.log("Get all non-stop stations")
+
+    const hash = nanoid()
+    const clientId = `janfseipel@gmail.com`
+    const client = createClient(
+        dbProfile, clientId)
 
     let initStationCoords
     let trips;
@@ -111,7 +124,7 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
 
     try {
         initStationCoords = await getStationCoords(stationId);
-        trips = await getDeparturesTripIds(stationId, dateAndTime)
+        trips = await getDeparturesTripIds(client, stationId, dateAndTime)
 
         if (!trips || trips.length === 0) {
             throw new Error(`Keine Trips gefunden für Station ID: ${stationId}`);
@@ -119,7 +132,7 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
 
         const nonStopStations = {}
 
-        const stopoversOfTrips = await Promise.all(trips.slice(0, 50).map(trip => getStopovers(trip.tripId, trip.plannedWhen)));
+        const stopoversOfTrips = await Promise.all(trips.slice(0, 50).map(trip => getStopovers(client, trip.tripId, trip.plannedWhen)));
 
         for (const stopovers of stopoversOfTrips) {
             try {
@@ -149,6 +162,7 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
                 continue;
             }
         };
+        // setActiveProfile()
         return {
             stations: nonStopStations,
             metadata: {
