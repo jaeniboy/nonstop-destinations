@@ -20,6 +20,7 @@ app.use(express.json()); // Middleware für JSON-Daten
 app.use(cors({
   origin: [
     'http://192.168.0.23:5173',
+    'http://192.168.0.23:5174',
     'https://jaeniboy.github.io'
     // 'https://jaeniboy.github.io/nonstop-destinations'
   ],

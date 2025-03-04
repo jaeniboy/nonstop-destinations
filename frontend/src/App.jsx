@@ -29,11 +29,13 @@ function App() {
     maxtime: 90,
     maxwalk: 1000
   })
-  const [description, setDescription] = useState("Description")
+  const [description, setDescription] = useState("")
   const station = stations[stationDisplayIndex]
 
   useEffect(() => {
     originalStations.length !== 0 && showStations()
+    setDescription("")
+    generateDescriptions()
   }, [originalStations])
 
   useEffect(() => {
