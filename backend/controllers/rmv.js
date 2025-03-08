@@ -61,29 +61,18 @@ const stations = [
 export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) => {
     console.log("Fetching TripIds")
     const duration = 60
-    const maxJourneys = 10
+    const maxJourneys = 50
     const url = `https://www.rmv.de/hapi/departureBoard?format=json&lang=de&id=${stationId}&duration=${duration}&maxJourneys=${maxJourneys}&passlist=0&baim=0&rtMode=SERVER_DEFAULT&type=DEP&accessId=${API_KEY}`;
-    console.log(url)
-    console.log('Umgebungsvariablen:', process.env);
 
     const result = await fetch(url)
     const data = await result.json()
 
+    const productFilter = ["2", "3"] // 2 = regional, 3 = suburban
 
-    // const productFilter = ["nationalExpress", "bus"]
-
-    // const result = await withRetry(async () => {
-    //     const departures = await vendo.departures(stationId, {
-    //         results: 20, // Anzahl der Ergebnisse
-    //         duration: 60, // Zeitraum in Minuten
-    //         when: dateAndTime
-    //     })
-    //     return departures;
-    // }, `Abrufen der Abfahrten`);
-    // const departuresFilterd = result.departures.filter(d => !productFilter.includes(d.line.product))
-    // const tripIds = departuresFilterd
-    //     .map(dep => { return { "tripId": dep.tripId, "plannedWhen": dep.plannedWhen } });
-    return data
+    const departuresFilterd = data.Departure.filter(d => productFilter.includes(d.ProductAtStop.catCode))
+    const tripIds = departuresFilterd
+        .map(dep => { return { "tripId": dep.JourneyDetailRef.ref, "plannedWhen": `${dep.date}T${dep.time}.000`, "product": dep.ProductAtStop.name } });
+    return tripIds
 } 
 
 
