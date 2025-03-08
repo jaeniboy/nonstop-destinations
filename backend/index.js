@@ -48,18 +48,19 @@ app.get('/destinations', async (req, res) => {
     const time = "2025-01-17 08:00"
     const nonStopStations = await getAllNonStopStations(stationId, time)
 
-    const nonStopStationsFiltered = {
-      ...nonStopStations,
-      stations: Object.values(nonStopStations.stations)
-        .filter(d => d.distance > mindist)
-    }
+  //   const nonStopStationsFiltered = {
+  //     ...nonStopStations,
+  //     stations: Object.values(nonStopStations.stations)
+  //       .filter(d => d.distance > mindist)
+  //   }
 
-    const enhancedStations = {
-      ...nonStopStationsFiltered,
-      stations: await enhancedStopovers(Object.values(nonStopStationsFiltered.stations), radius)
-    }
+  //   const enhancedStations = {
+  //     ...nonStopStationsFiltered,
+  //     stations: await enhancedStopovers(Object.values(nonStopStationsFiltered.stations), radius)
+  //   }
 
-    res.json(enhancedStations)
+  //   res.json(enhancedStations)
+  res.send(nonStopStations)
 
   } catch (error) {
     res.status(500).json({
@@ -70,6 +71,7 @@ app.get('/destinations', async (req, res) => {
       }
     })
   }
+
 })
 
 app.get('/destinationsRmv', async (req, res) => {
