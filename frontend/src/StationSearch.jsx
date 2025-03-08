@@ -11,7 +11,8 @@ const StationSearch = ({ sendDepartureStation }) => {
     if (value.length > 1) {
       try {
         const API_URL = import.meta.env.VITE_API_URL;
-        const response = await axios.get(`${API_URL}/autocomplete?input=${value}`);
+        const response = await axios.get(`${API_URL}/autocompleteRmv?input=${value}`);
+        // const response = await axios.get(`${API_URL}/autocomplete?input=${value}`);
         setSuggestions(response.data);
       } catch (error) {
         console.error('Error fetching suggestions:', error);
@@ -25,7 +26,8 @@ const StationSearch = ({ sendDepartureStation }) => {
   const handleSelectStation = (station) => {
     setInputValue(station.name);
     setSuggestions([]);
-    sendDepartureStation(station.id)
+    sendDepartureStation(station.dbId)
+    // sendDepartureStation(station.id)
   };
 
   return (

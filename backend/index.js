@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import { getAllNonStopStations } from './controllers/hafas.js'
+// import { getAllNonStopStations } from './controllers/hafas.js'
+import { getAllNonStopStations } from './controllers/utils.js'
 import { enhancedStopovers } from './controllers/osm.js';
 import { autocomplete } from 'db-stations-autocomplete';
 import { findStationById } from './controllers/hafas.js';
@@ -10,6 +11,8 @@ import { readJsonFile } from './scripts/utils.js';
 import { config } from './config.js'
 
 console.log(config)
+
+const autocompleteData = readJsonFile("./data/stations/stationsWithRmvId.json")
 
 const app = express();
 // const port = 4000;
@@ -69,6 +72,41 @@ app.get('/destinations', async (req, res) => {
   }
 })
 
+app.get('/destinationsRmv', async (req, res) => {
+  //http://localhost:3000/destinationsRmv?station=8000191&radius=2000&distmin=15000
+  try {
+    const stationId = req.query.station
+    const radius = req.query.radius
+    const mindist = req.query.distmin || 10000
+    // todo: variable time value
+    const time = "2025-01-17 08:00"
+    const nonStopStations = await getAllNonStopStationsRmv(stationId, time)
+    // const nonStopStations = await getAllNonStopStations(stationId, time)
+
+    const nonStopStationsFiltered = {
+      ...nonStopStations,
+      stations: Object.values(nonStopStations.stations)
+        .filter(d => d.distance > mindist)
+    }
+
+    const enhancedStations = {
+      ...nonStopStationsFiltered,
+      stations: await enhancedStopovers(Object.values(nonStopStationsFiltered.stations), radius)
+    }
+
+    res.json(enhancedStations)
+
+  } catch (error) {
+    res.status(500).json({
+      error: error.message,
+      metadata: {
+        isComplete: false,
+        message: "Error while processing the request."
+      }
+    })
+  }
+})
+
 app.get("/autocomplete", async (req, res) => {
   //http://localhost:3000/autocomplete?input=kar
   try {
@@ -86,6 +124,19 @@ app.get("/autocomplete", async (req, res) => {
   } catch (error) {
     console.log(error)
     res.status(500).json({ error: "autocomplete error" });
+  }
+})
+
+app.get("/autocompleteRmv", async (req, res) => {
+  //http://localhost:3000/autocompleteRmv?input=kar
+  try {
+    const input = req.query.input
+    const stationsFilterd = autocompleteData.filter(d => d.name.toLowerCase().includes(input.toLowerCase()))
+    const stationsRanked = stationsFilterd.sort((a,b) => b.weight - a.weight)
+
+    res.json(stationsRanked.slice(0,10))
+  } catch(error) {
+    res.status(500).json({error: "autocomplete error"});
   }
 })
 
