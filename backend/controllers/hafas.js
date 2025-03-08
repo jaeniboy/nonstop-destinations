@@ -176,14 +176,14 @@ export const getDistance = (firstPoint, secondPoint) => {
     );
 }
 
-const timeDelta = (dateString1, dateString2) => {
+// const timeDelta = (dateString1, dateString2) => {
 
-    const date1 = new Date(dateString1);
-    const date2 = new Date(dateString2);
+//     const date1 = new Date(dateString1);
+//     const date2 = new Date(dateString2);
 
-    const differenceInMilliseconds = Math.abs(date2 - date1);
-    const differenceInMinutes = Math.floor(differenceInMilliseconds / (1000 * 60));
+//     const differenceInMilliseconds = Math.abs(date2 - date1);
+//     const differenceInMinutes = Math.floor(differenceInMilliseconds / (1000 * 60));
 
-    return differenceInMinutes;
+//     return differenceInMinutes;
 
-}
+// }
