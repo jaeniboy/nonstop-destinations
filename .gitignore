@@ -144,10 +144,11 @@ backend/data/index/spatial_index.json
 backend/data/index/spatial_index.json
 backend/controllers/timetables.js
 frontend/.env.production
+backend/controllers/departures.json
+backend/controllers/departures.js
 backend/controllers/test.py
 backend/controllers/departures.js
 backend/controllers/rmv.json
 backend/controllers/departures_trip_ids.json
 backend/controllers/departures.js
-backend/controllers/departures.json
 backend/controllers/departures.js
