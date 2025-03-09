@@ -152,3 +152,4 @@ backend/controllers/rmv.json
 backend/controllers/departures_trip_ids.json
 backend/controllers/departures.js
 backend/controllers/departures.js
+backend/scripts/addCoords.js

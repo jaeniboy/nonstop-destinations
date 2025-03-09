@@ -1,8 +1,16 @@
 import 'dotenv/config'
 import { getNextDayAt9AM, timeDelta } from './utils.js'
 import fetch from 'node-fetch-retry'
+import { readJsonFile } from '../scripts/utils.js';
 
 const API_KEY = process.env.RMV_API_KEY;
+
+export const getStationCoords = async (stationId) => {
+  const stationData = await readJsonFile("./data/stations/stationsWithRmvId.json")
+  const station = stationData.find(d=>d.rmvId===stationId)
+
+  return [station.longitude, station.latitude]
+}
 
 export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) => {
     console.log("Fetching TripIds")

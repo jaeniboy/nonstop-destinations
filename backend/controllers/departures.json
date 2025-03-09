@@ -1,1 +1,1392 @@
-{"departures":[{"tripId":"20250305-8dffc1e1-4f36-37b1-943b-2781023b65de","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T09:16:00+01:00","plannedWhen":"2025-03-05T09:16:00+01:00","delay":null,"platform":"2","plannedPlatform":"2","direction":"Karlsruhe Hbf","provenance":null,"line":{"type":"line","id":"re-2-4712","fahrtNr":"4712","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8000191","name":"Karlsruhe Hbf","location":{"type":"location","id":"8000191","latitude":48.99353,"longitude":8.401939},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":true},"distance":757,"weight":47.65}},{"tripId":"20250305-a6fae74a-7220-3f65-a4ac-ea8badd3515a","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T09:21:00+01:00","plannedWhen":"2025-03-05T09:21:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Ruhestein Nationalparkzentrum, Baiersbronn","provenance":null,"line":{"type":"line","id":"bus-400-71683","fahrtNr":"71683","name":"Bus 400","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"815369","name":"Ruhestein Nationalparkzentrum, Baiersbronn","location":{"type":"location","id":"815369","latitude":48.561463,"longitude":8.221031},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":2194,"weight":1}},{"tripId":"20250305-204038dc-2afe-3488-8293-bc71fb51147b","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T09:22:00+01:00","plannedWhen":"2025-03-05T09:22:00+01:00","delay":null,"platform":"10","plannedPlatform":"10","direction":"Ottenhöfen","provenance":null,"line":{"type":"line","id":"swe-rs3-2410","fahrtNr":"2410","name":"SWE RS3","public":true,"adminCode":"S6","productName":"SWE","mode":"train","product":"regional","operator":{"type":"operator","id":"SWE","name":"SWEG Südwestdeutsche Landesverkehrs-GmbH"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8007006","name":"Ottenhöfen","location":{"type":"location","id":"8007006","latitude":48.566929,"longitude":8.151014},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":2.4}},{"tripId":"20250305-7b11539d-283d-322d-b1de-6ad85b652d87","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T09:33:00+01:00","plannedWhen":"2025-03-05T09:33:00+01:00","delay":null,"platform":"1","plannedPlatform":"1","direction":"Tullastraße/Alter Schlachthof, Karlsruhe","provenance":null,"line":{"type":"line","id":"s-7-85566","fahrtNr":"85566","name":"S 7","public":true,"adminCode":"A6S7","productName":"S","mode":"train","product":"suburban","operator":{"type":"operator","id":"AVG","name":"Albtal-Verkehrs-Gesellschaft mbH S7"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"364807","name":"Tullastraße/Alter Schlachthof, Karlsruhe"}},{"tripId":"20250305-617146fb-ebd8-353a-97bf-50af206e9a4d","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T09:39:00+01:00","plannedWhen":"2025-03-05T09:39:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof/ZOB, Offenburg","provenance":null,"line":{"type":"line","id":"bus-7135-66317","fahrtNr":"66317","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"366883","name":"Bahnhof/ZOB, Offenburg","location":{"type":"location","id":"366883","latitude":48.475131,"longitude":7.944855},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":2495,"weight":27.45}},{"tripId":"20250305-d6b18974-5ffc-38c3-aba4-33866c0559aa","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T09:44:00+01:00","plannedWhen":"2025-03-05T09:44:00+01:00","delay":null,"platform":"3","plannedPlatform":"3","direction":"Konstanz","provenance":null,"line":{"type":"line","id":"re-2-4719","fahrtNr":"4719","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8003400","name":"Konstanz","location":{"type":"location","id":"8003400","latitude":47.658757,"longitude":9.177411},"products":{"nationalExpress":false,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"weight":15.3}},{"tripId":"20250305-0ee3e745-16d1-3ec4-921c-5cd442838deb","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T09:51:00+01:00","plannedWhen":"2025-03-05T09:51:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Nationalpark-Hornisgrinde, Seebach (Baden)","provenance":null,"line":{"type":"line","id":"bus-423-17280","fahrtNr":"17280","name":"Bus 423","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"570043","name":"Nationalpark-Hornisgrinde, Seebach (Baden)","location":{"type":"location","id":"570043","latitude":48.601276,"longitude":8.20209},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1760,"weight":1}},{"tripId":"20250305-0d2f4814-1b32-3c25-9f43-0437844da7f2","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T09:53:00+01:00","plannedWhen":"2025-03-05T09:53:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof, Bühl","provenance":null,"line":{"type":"line","id":"bus-7135-66320","fahrtNr":"66320","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"723996","name":"Bahnhof, Bühl","location":{"type":"location","id":"723996","latitude":48.697857,"longitude":8.130716},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"distance":2591,"weight":7}},{"tripId":"20250305-b1e9cfb1-0c33-36a5-9cbf-d89e31e0e955","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T10:16:00+01:00","plannedWhen":"2025-03-05T10:16:00+01:00","delay":null,"platform":"2","plannedPlatform":"2","direction":"Karlsruhe Hbf","provenance":null,"line":{"type":"line","id":"re-2-4714","fahrtNr":"4714","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8000191","name":"Karlsruhe Hbf","location":{"type":"location","id":"8000191","latitude":48.99353,"longitude":8.401939},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":true},"distance":757,"weight":47.65}},{"tripId":"20250305-4b0f0d58-046b-3fa5-82c1-ef422447a7f4","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T10:22:00+01:00","plannedWhen":"2025-03-05T10:22:00+01:00","delay":null,"platform":"10","plannedPlatform":"10","direction":"Ottenhöfen","provenance":null,"line":{"type":"line","id":"swe-rs3-2412","fahrtNr":"2412","name":"SWE RS3","public":true,"adminCode":"S6","productName":"SWE","mode":"train","product":"regional","operator":{"type":"operator","id":"SWE","name":"SWEG Südwestdeutsche Landesverkehrs-GmbH"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8007006","name":"Ottenhöfen","location":{"type":"location","id":"8007006","latitude":48.566929,"longitude":8.151014},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":2.4}},{"tripId":"20250305-69748961-c96a-3454-997c-0df49cf78a73","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T10:32:00+01:00","plannedWhen":"2025-03-05T10:32:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof, Oberkirch","provenance":null,"line":{"type":"line","id":"bus-7124-27848","fahrtNr":"27848","name":"Bus 7124","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"367020","name":"Bahnhof, Oberkirch","location":{"type":"location","id":"367020","latitude":48.529444,"longitude":8.076781},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1473,"weight":3.25}},{"tripId":"20250305-de5db1ac-cd5e-3d3d-827f-51b69d022025","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T10:33:00+01:00","plannedWhen":"2025-03-05T10:33:00+01:00","delay":null,"platform":"1","plannedPlatform":"1","direction":"Marktplatz (Pyramide U), Karlsruhe","provenance":null,"line":{"type":"line","id":"s-7-85568","fahrtNr":"85568","name":"S 7","public":true,"adminCode":"A6S7","productName":"S","mode":"train","product":"suburban","operator":{"type":"operator","id":"AVG","name":"Albtal-Verkehrs-Gesellschaft mbH S7"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"301011","name":"Marktplatz (Pyramide U), Karlsruhe","location":{"type":"location","id":"301011","latitude":49.009117,"longitude":8.403853},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":false,"ferry":false,"subway":false,"tram":true,"taxi":false},"distance":3160,"weight":54.6}},{"tripId":"20250305-f3df0d1e-f55d-3fb8-834c-7add9db45476","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T10:44:00+01:00","plannedWhen":"2025-03-05T10:44:00+01:00","delay":null,"platform":"3","plannedPlatform":"3","direction":"Konstanz","provenance":null,"line":{"type":"line","id":"re-2-4721","fahrtNr":"4721","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8003400","name":"Konstanz","location":{"type":"location","id":"8003400","latitude":47.658757,"longitude":9.177411},"products":{"nationalExpress":false,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"weight":15.3}},{"tripId":"20250305-bec58a7c-6707-30c2-9a0f-af8a88703805","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T10:46:00+01:00","plannedWhen":"2025-03-05T10:46:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof, Bühl","provenance":null,"line":{"type":"line","id":"bus-7135-14678","fahrtNr":"14678","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"723996","name":"Bahnhof, Bühl","location":{"type":"location","id":"723996","latitude":48.697857,"longitude":8.130716},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"distance":2591,"weight":7}},{"tripId":"20250305-79589e6d-8f1c-3569-ac24-d473a21dc0af","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T10:58:00+01:00","plannedWhen":"2025-03-05T10:58:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof/ZOB, Offenburg","provenance":null,"line":{"type":"line","id":"bus-7135-34031","fahrtNr":"34031","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"366883","name":"Bahnhof/ZOB, Offenburg","location":{"type":"location","id":"366883","latitude":48.475131,"longitude":7.944855},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":2495,"weight":27.45}},{"tripId":"20250305-099906e9-78fa-3e93-b331-71771d967df3","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T11:16:00+01:00","plannedWhen":"2025-03-05T11:16:00+01:00","delay":null,"platform":"2","plannedPlatform":"2","direction":"Karlsruhe Hbf","provenance":null,"line":{"type":"line","id":"re-2-4716","fahrtNr":"4716","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8000191","name":"Karlsruhe Hbf","location":{"type":"location","id":"8000191","latitude":48.99353,"longitude":8.401939},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":true},"distance":757,"weight":47.65}},{"tripId":"20250305-7d72d24c-fb14-37b4-aee2-1f8c5ab9ab39","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T11:21:00+01:00","plannedWhen":"2025-03-05T11:21:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Ruhestein Nationalparkzentrum, Baiersbronn","provenance":null,"line":{"type":"line","id":"bus-400-53048","fahrtNr":"53048","name":"Bus 400","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"815369","name":"Ruhestein Nationalparkzentrum, Baiersbronn","location":{"type":"location","id":"815369","latitude":48.561463,"longitude":8.221031},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":2194,"weight":1}},{"tripId":"20250305-96dc41c9-5151-367e-a93c-37a837929295","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T11:22:00+01:00","plannedWhen":"2025-03-05T11:22:00+01:00","delay":null,"platform":"10","plannedPlatform":"10","direction":"Ottenhöfen","provenance":null,"line":{"type":"line","id":"swe-rs3-2414","fahrtNr":"2414","name":"SWE RS3","public":true,"adminCode":"S6","productName":"SWE","mode":"train","product":"regional","operator":{"type":"operator","id":"SWE","name":"SWEG Südwestdeutsche Landesverkehrs-GmbH"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8007006","name":"Ottenhöfen","location":{"type":"location","id":"8007006","latitude":48.566929,"longitude":8.151014},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":2.4}},{"tripId":"20250305-9bb5c31b-87f9-3f25-b821-e0902a87697f","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T11:32:00+01:00","plannedWhen":"2025-03-05T11:32:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof, Oberkirch","provenance":null,"line":{"type":"line","id":"bus-7124-59059","fahrtNr":"59059","name":"Bus 7124","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"367020","name":"Bahnhof, Oberkirch","location":{"type":"location","id":"367020","latitude":48.529444,"longitude":8.076781},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1473,"weight":3.25}},{"tripId":"20250305-d07e4f2c-cdab-3174-9872-4f54f55e8ffc","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T11:33:00+01:00","plannedWhen":"2025-03-05T11:33:00+01:00","delay":null,"platform":"1","plannedPlatform":"1","direction":"Tullastraße/Alter Schlachthof, Karlsruhe","provenance":null,"line":{"type":"line","id":"s-7-85570","fahrtNr":"85570","name":"S 7","public":true,"adminCode":"A6S7","productName":"S","mode":"train","product":"suburban","operator":{"type":"operator","id":"AVG","name":"Albtal-Verkehrs-Gesellschaft mbH S7"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"364807","name":"Tullastraße/Alter Schlachthof, Karlsruhe"}},{"tripId":"20250305-2a475498-eeed-37f1-94f9-af7ef37a5918","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T11:34:00+01:00","plannedWhen":"2025-03-05T11:34:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof, Appenweier","provenance":null,"line":{"type":"line","id":"bus-7135-49167","fahrtNr":"49167","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"750038","name":"Bahnhof, Appenweier","location":{"type":"location","id":"750038","latitude":48.541516,"longitude":7.973764},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":3026,"weight":9.15}},{"tripId":"20250305-30b3508f-6d1b-35a7-ba3f-67a27ec65af9","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T11:44:00+01:00","plannedWhen":"2025-03-05T11:44:00+01:00","delay":null,"platform":"3","plannedPlatform":"3","direction":"Konstanz","provenance":null,"line":{"type":"line","id":"re-2-4723","fahrtNr":"4723","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8003400","name":"Konstanz","location":{"type":"location","id":"8003400","latitude":47.658757,"longitude":9.177411},"products":{"nationalExpress":false,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"weight":15.3}},{"tripId":"20250305-591d95a6-ea8b-34d0-9d61-fbf8065ab7fb","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T11:53:00+01:00","plannedWhen":"2025-03-05T11:53:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof, Bühl","provenance":null,"line":{"type":"line","id":"bus-7135-57638","fahrtNr":"57638","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"723996","name":"Bahnhof, Bühl","location":{"type":"location","id":"723996","latitude":48.697857,"longitude":8.130716},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"distance":2591,"weight":7}},{"tripId":"20250305-9119b9d6-2485-3bc9-8768-73d962e3ba17","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T12:12:00+01:00","plannedWhen":"2025-03-05T12:12:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Niederhofen, Lauf (Baden)","provenance":null,"line":{"type":"line","id":"bus-7122-68810","fahrtNr":"68810","name":"Bus 7122","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"721656","name":"Niederhofen, Lauf (Baden)","location":{"type":"location","id":"721656","latitude":48.652964,"longitude":8.128091},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":3049,"weight":0.75}},{"tripId":"20250305-da3c939d-7f4d-3991-8c89-409ec3480f81","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T12:16:00+01:00","plannedWhen":"2025-03-05T12:16:00+01:00","delay":null,"platform":"2","plannedPlatform":"2","direction":"Karlsruhe Hbf","provenance":null,"line":{"type":"line","id":"re-2-4718","fahrtNr":"4718","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8000191","name":"Karlsruhe Hbf","location":{"type":"location","id":"8000191","latitude":48.99353,"longitude":8.401939},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":true},"distance":757,"weight":47.65}},{"tripId":"20250305-3a28d0cd-7f96-3f58-aa16-8cc610c7031e","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T12:20:00+01:00","plannedWhen":"2025-03-05T12:20:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Freistett Busbahnhof, Rheinau (Baden)","provenance":null,"line":{"type":"line","id":"bus-405-1181","fahrtNr":"1181","name":"Bus 405","public":true,"adminCode":"tgo099","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"DPN","name":"SWEG Südwestdeutsche Landesverkehrs-GmbH"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"882139","name":"Freistett Busbahnhof, Rheinau (Baden)","location":{"type":"location","id":"882139","latitude":48.666889,"longitude":7.942185},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1249,"weight":1.75}},{"tripId":"20250305-bd829f6e-1035-3c68-86e7-7d9cb784d330","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T12:20:00+01:00","plannedWhen":"2025-03-05T12:20:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof/ZOB, Offenburg","provenance":null,"line":{"type":"line","id":"bus-7135-15243","fahrtNr":"15243","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"366883","name":"Bahnhof/ZOB, Offenburg","location":{"type":"location","id":"366883","latitude":48.475131,"longitude":7.944855},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":2495,"weight":27.45}},{"tripId":"20250305-54757232-015d-3824-ab0d-46225c064f97","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T12:27:00+01:00","plannedWhen":"2025-03-05T12:27:00+01:00","delay":null,"platform":"10","plannedPlatform":"10","direction":"Ottenhöfen","provenance":null,"line":{"type":"line","id":"swe-rs3-2418","fahrtNr":"2418","name":"SWE RS3","public":true,"adminCode":"S6","productName":"SWE","mode":"train","product":"regional","operator":{"type":"operator","id":"SWE","name":"SWEG Südwestdeutsche Landesverkehrs-GmbH"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8007006","name":"Ottenhöfen","location":{"type":"location","id":"8007006","latitude":48.566929,"longitude":8.151014},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":2.4}},{"tripId":"20250305-76b964ea-3480-3890-8fdc-cea57ffded21","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T12:33:00+01:00","plannedWhen":"2025-03-05T12:33:00+01:00","delay":null,"platform":"1","plannedPlatform":"1","direction":"Tullastraße/Alter Schlachthof, Karlsruhe","provenance":null,"line":{"type":"line","id":"s-7-85572","fahrtNr":"85572","name":"S 7","public":true,"adminCode":"A6S7","productName":"S","mode":"train","product":"suburban","operator":{"type":"operator","id":"AVG","name":"Albtal-Verkehrs-Gesellschaft mbH S7"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"364807","name":"Tullastraße/Alter Schlachthof, Karlsruhe"}},{"tripId":"20250305-938d1092-a979-3863-a604-ce7ade68b0ad","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T12:44:00+01:00","plannedWhen":"2025-03-05T12:44:00+01:00","delay":null,"platform":"3","plannedPlatform":"3","direction":"Konstanz","provenance":null,"line":{"type":"line","id":"re-2-4725","fahrtNr":"4725","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8003400","name":"Konstanz","location":{"type":"location","id":"8003400","latitude":47.658757,"longitude":9.177411},"products":{"nationalExpress":false,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"weight":15.3}},{"tripId":"20250305-2cc81cd9-dd34-3f7c-92e9-dd9f591c9f8c","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T12:48:00+01:00","plannedWhen":"2025-03-05T12:48:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof, Bühl","provenance":null,"line":{"type":"line","id":"bus-7135-41241","fahrtNr":"41241","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"723996","name":"Bahnhof, Bühl","location":{"type":"location","id":"723996","latitude":48.697857,"longitude":8.130716},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"distance":2591,"weight":7}},{"tripId":"20250305-6ca72ba9-593c-3ed3-bf70-70eca7b02edb","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T12:51:00+01:00","plannedWhen":"2025-03-05T12:51:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Nationalpark-Hornisgrinde, Seebach (Baden)","provenance":null,"line":{"type":"line","id":"bus-423-58070","fahrtNr":"58070","name":"Bus 423","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"570043","name":"Nationalpark-Hornisgrinde, Seebach (Baden)","location":{"type":"location","id":"570043","latitude":48.601276,"longitude":8.20209},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1760,"weight":1}},{"tripId":"20250305-27d91651-5c5b-39db-afd8-364f8ec2d77a","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T13:11:00+01:00","plannedWhen":"2025-03-05T13:11:00+01:00","delay":null,"platform":"3","plannedPlatform":"3","direction":"Basel Bad Bf","provenance":null,"line":{"type":"line","id":"re-7-17017","fahrtNr":"17017","name":"RE 7","public":true,"adminCode":"8006C5","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 4 Los 1 (Rheintal)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8000026","name":"Basel Bad Bf","location":{"type":"location","id":"8000026","latitude":47.567679,"longitude":7.607886},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":false},"weight":22.3}},{"tripId":"20250305-f2c40761-1199-3c1c-b385-df27158c2710","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T13:12:00+01:00","plannedWhen":"2025-03-05T13:12:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Niederhofen, Lauf (Baden)","provenance":null,"line":{"type":"line","id":"bus-7122-61157","fahrtNr":"61157","name":"Bus 7122","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"721656","name":"Niederhofen, Lauf (Baden)","location":{"type":"location","id":"721656","latitude":48.652964,"longitude":8.128091},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":3049,"weight":0.75}},{"tripId":"20250305-13604f07-4521-384e-8226-f11ee892d251","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T13:14:00+01:00","plannedWhen":"2025-03-05T13:14:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof/ZOB, Offenburg","provenance":null,"line":{"type":"line","id":"bus-7135-52750","fahrtNr":"52750","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"366883","name":"Bahnhof/ZOB, Offenburg","location":{"type":"location","id":"366883","latitude":48.475131,"longitude":7.944855},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":2495,"weight":27.45}},{"tripId":"20250305-16c692f2-600b-30c5-99e1-7c5c5d543057","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T13:15:00+01:00","plannedWhen":"2025-03-05T13:15:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof, Oberkirch","provenance":null,"line":{"type":"line","id":"bus-7124-90729","fahrtNr":"90729","name":"Bus 7124","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"367020","name":"Bahnhof, Oberkirch","location":{"type":"location","id":"367020","latitude":48.529444,"longitude":8.076781},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1473,"weight":3.25}},{"tripId":"20250305-30df903b-a271-3f6a-9928-a3f1037c98fe","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T13:16:00+01:00","plannedWhen":"2025-03-05T13:16:00+01:00","delay":null,"platform":"2","plannedPlatform":"2","direction":"Karlsruhe Hbf","provenance":null,"line":{"type":"line","id":"re-2-4720","fahrtNr":"4720","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8000191","name":"Karlsruhe Hbf","location":{"type":"location","id":"8000191","latitude":48.99353,"longitude":8.401939},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":true},"distance":757,"weight":47.65}},{"tripId":"20250305-f6527772-5dae-3651-a3ab-411b3d95d558","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T13:21:00+01:00","plannedWhen":"2025-03-05T13:21:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Ruhestein Nationalparkzentrum, Baiersbronn","provenance":null,"line":{"type":"line","id":"bus-400-87760","fahrtNr":"87760","name":"Bus 400","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"815369","name":"Ruhestein Nationalparkzentrum, Baiersbronn","location":{"type":"location","id":"815369","latitude":48.561463,"longitude":8.221031},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":2194,"weight":1}},{"tripId":"20250305-b0fff9b9-acaf-3589-aa51-6de09d61108b","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T13:22:00+01:00","plannedWhen":"2025-03-05T13:22:00+01:00","delay":null,"platform":"10","plannedPlatform":"10","direction":"Ottenhöfen","provenance":null,"line":{"type":"line","id":"swe-rs3-2420","fahrtNr":"2420","name":"SWE RS3","public":true,"adminCode":"S6","productName":"SWE","mode":"train","product":"regional","operator":{"type":"operator","id":"SWE","name":"SWEG Südwestdeutsche Landesverkehrs-GmbH"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8007006","name":"Ottenhöfen","location":{"type":"location","id":"8007006","latitude":48.566929,"longitude":8.151014},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":2.4}},{"tripId":"20250305-0eb3d029-0ad9-3177-a874-9f85852aff04","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T13:33:00+01:00","plannedWhen":"2025-03-05T13:33:00+01:00","delay":null,"platform":"1","plannedPlatform":"1","direction":"Tullastraße/Alter Schlachthof, Karlsruhe","provenance":null,"line":{"type":"line","id":"s-7-85574","fahrtNr":"85574","name":"S 7","public":true,"adminCode":"A6S7","productName":"S","mode":"train","product":"suburban","operator":{"type":"operator","id":"AVG","name":"Albtal-Verkehrs-Gesellschaft mbH S7"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"364807","name":"Tullastraße/Alter Schlachthof, Karlsruhe"}},{"tripId":"20250305-e8f43c49-a0f7-3d02-9c6b-81e06bb161ae","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T13:44:00+01:00","plannedWhen":"2025-03-05T13:44:00+01:00","delay":null,"platform":"3","plannedPlatform":"3","direction":"Konstanz","provenance":null,"line":{"type":"line","id":"re-2-4727","fahrtNr":"4727","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8003400","name":"Konstanz","location":{"type":"location","id":"8003400","latitude":47.658757,"longitude":9.177411},"products":{"nationalExpress":false,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"weight":15.3}},{"tripId":"20250305-4f85cc38-6c6e-3dfc-9fa0-d07efc759e42","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T13:49:00+01:00","plannedWhen":"2025-03-05T13:49:00+01:00","delay":null,"platform":"2","plannedPlatform":"2","direction":"Karlsruhe Hbf","provenance":null,"line":{"type":"line","id":"re-7-17016","fahrtNr":"17016","name":"RE 7","public":true,"adminCode":"8006C5","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 4 Los 1 (Rheintal)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8000191","name":"Karlsruhe Hbf","location":{"type":"location","id":"8000191","latitude":48.99353,"longitude":8.401939},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":true},"distance":757,"weight":47.65}},{"tripId":"20250305-7f638a1e-4da2-363e-bf61-ba92bb9bd2fe","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T13:58:00+01:00","plannedWhen":"2025-03-05T13:58:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof, Bühl","provenance":null,"line":{"type":"line","id":"bus-7135-5410","fahrtNr":"5410","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"723996","name":"Bahnhof, Bühl","location":{"type":"location","id":"723996","latitude":48.697857,"longitude":8.130716},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"distance":2591,"weight":7}},{"tripId":"20250305-0a5f7de2-ffd4-39ad-ad8f-1e66ab6f5a56","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T14:09:00+01:00","plannedWhen":"2025-03-05T14:09:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof/ZOB, Offenburg","provenance":null,"line":{"type":"line","id":"bus-7135-99987","fahrtNr":"99987","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"366883","name":"Bahnhof/ZOB, Offenburg","location":{"type":"location","id":"366883","latitude":48.475131,"longitude":7.944855},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":2495,"weight":27.45}},{"tripId":"20250305-9e80ed8e-1103-30ec-9db6-c89e43a103ae","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T14:16:00+01:00","plannedWhen":"2025-03-05T14:16:00+01:00","delay":null,"platform":"2","plannedPlatform":"2","direction":"Karlsruhe Hbf","provenance":null,"line":{"type":"line","id":"re-2-4722","fahrtNr":"4722","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8000191","name":"Karlsruhe Hbf","location":{"type":"location","id":"8000191","latitude":48.99353,"longitude":8.401939},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":true},"distance":757,"weight":47.65}},{"tripId":"20250305-5ad2821d-77ad-3447-ac63-c8852cf7bd3c","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T14:21:00+01:00","plannedWhen":"2025-03-05T14:21:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Gaishölle, Sasbachwalden","provenance":null,"line":{"type":"line","id":"bus-423-39848","fahrtNr":"39848","name":"Bus 423","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"571999","name":"Gaishölle, Sasbachwalden","location":{"type":"location","id":"571999","latitude":48.617412,"longitude":8.128262},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":2167,"weight":0.5}},{"tripId":"20250305-93049f7e-cecf-3c2e-88fa-ff0537ba2380","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T14:22:00+01:00","plannedWhen":"2025-03-05T14:22:00+01:00","delay":null,"platform":"10","plannedPlatform":"10","direction":"Ottenhöfen","provenance":null,"line":{"type":"line","id":"swe-rs3-2422","fahrtNr":"2422","name":"SWE RS3","public":true,"adminCode":"S6","productName":"SWE","mode":"train","product":"regional","operator":{"type":"operator","id":"SWE","name":"SWEG Südwestdeutsche Landesverkehrs-GmbH"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8007006","name":"Ottenhöfen","location":{"type":"location","id":"8007006","latitude":48.566929,"longitude":8.151014},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":2.4}},{"tripId":"20250305-d8907d12-4523-35c6-b094-2ccc9f5cc2b7","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T14:22:00+01:00","plannedWhen":"2025-03-05T14:22:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof, Oberkirch","provenance":null,"line":{"type":"line","id":"bus-7124-72671","fahrtNr":"72671","name":"Bus 7124","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"367020","name":"Bahnhof, Oberkirch","location":{"type":"location","id":"367020","latitude":48.529444,"longitude":8.076781},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1473,"weight":3.25}},{"tripId":"20250305-00e96f32-64fc-3c79-bbc3-3f974904e88c","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T14:33:00+01:00","plannedWhen":"2025-03-05T14:33:00+01:00","delay":null,"platform":"1","plannedPlatform":"1","direction":"Tullastraße/Alter Schlachthof, Karlsruhe","provenance":null,"line":{"type":"line","id":"s-7-85576","fahrtNr":"85576","name":"S 7","public":true,"adminCode":"A6S7","productName":"S","mode":"train","product":"suburban","operator":{"type":"operator","id":"AVG","name":"Albtal-Verkehrs-Gesellschaft mbH S7"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"364807","name":"Tullastraße/Alter Schlachthof, Karlsruhe"}},{"tripId":"20250305-b7469dd6-a7a4-300b-a628-056abcfacb1a","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T14:44:00+01:00","plannedWhen":"2025-03-05T14:44:00+01:00","delay":null,"platform":"3","plannedPlatform":"3","direction":"Konstanz","provenance":null,"line":{"type":"line","id":"re-2-4729","fahrtNr":"4729","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8003400","name":"Konstanz","location":{"type":"location","id":"8003400","latitude":47.658757,"longitude":9.177411},"products":{"nationalExpress":false,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"weight":15.3}},{"tripId":"20250305-fce47231-afe4-3ca2-851e-17954c8928e2","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T14:48:00+01:00","plannedWhen":"2025-03-05T14:48:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof, Bühl","provenance":null,"line":{"type":"line","id":"bus-7135-36043","fahrtNr":"36043","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"723996","name":"Bahnhof, Bühl","location":{"type":"location","id":"723996","latitude":48.697857,"longitude":8.130716},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"distance":2591,"weight":7}},{"tripId":"20250305-8feab1f9-0a9f-3680-87e9-eeea2bbdf2a2","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T14:49:00+01:00","plannedWhen":"2025-03-05T14:49:00+01:00","delay":null,"platform":"2","plannedPlatform":"2","direction":"Karlsruhe Hbf","provenance":null,"line":{"type":"line","id":"re-7-5332","fahrtNr":"5332","name":"RE 7","public":true,"adminCode":"8006C5","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 4 Los 1 (Rheintal)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8000191","name":"Karlsruhe Hbf","location":{"type":"location","id":"8000191","latitude":48.99353,"longitude":8.401939},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":true},"distance":757,"weight":47.65}},{"tripId":"20250305-739099c4-4b6e-3f03-a9e5-127e65790774","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T15:00:00+01:00","plannedWhen":"2025-03-05T15:00:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof/ZOB, Offenburg","provenance":null,"line":{"type":"line","id":"bus-7135-86676","fahrtNr":"86676","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"366883","name":"Bahnhof/ZOB, Offenburg","location":{"type":"location","id":"366883","latitude":48.475131,"longitude":7.944855},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":2495,"weight":27.45}},{"tripId":"20250305-6a18bfe2-9bf4-324b-ba02-68d0b6133a9d","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T15:11:00+01:00","plannedWhen":"2025-03-05T15:11:00+01:00","delay":null,"platform":"3","plannedPlatform":"3","direction":"Basel Bad Bf","provenance":null,"line":{"type":"line","id":"re-7-17019","fahrtNr":"17019","name":"RE 7","public":true,"adminCode":"8006C5","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 4 Los 1 (Rheintal)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8000026","name":"Basel Bad Bf","location":{"type":"location","id":"8000026","latitude":47.567679,"longitude":7.607886},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":false},"weight":22.3}},{"tripId":"20250305-c5bef855-0f40-37ab-b2b7-edd8db661cef","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T15:16:00+01:00","plannedWhen":"2025-03-05T15:16:00+01:00","delay":null,"platform":"2","plannedPlatform":"2","direction":"Karlsruhe Hbf","provenance":null,"line":{"type":"line","id":"re-2-4724","fahrtNr":"4724","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8000191","name":"Karlsruhe Hbf","location":{"type":"location","id":"8000191","latitude":48.99353,"longitude":8.401939},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":true},"distance":757,"weight":47.65}},{"tripId":"20250305-900944c6-7812-3743-8c35-1abc820ee773","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T15:21:00+01:00","plannedWhen":"2025-03-05T15:21:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Ruhestein Nationalparkzentrum, Baiersbronn","provenance":null,"line":{"type":"line","id":"bus-400-4602","fahrtNr":"4602","name":"Bus 400","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"815369","name":"Ruhestein Nationalparkzentrum, Baiersbronn","location":{"type":"location","id":"815369","latitude":48.561463,"longitude":8.221031},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":2194,"weight":1}},{"tripId":"20250305-df051476-b2a3-3bb8-a3a7-d32da73ebad2","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T15:30:00+01:00","plannedWhen":"2025-03-05T15:30:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Freistett Busbahnhof, Rheinau (Baden)","provenance":null,"line":{"type":"line","id":"bus-405-1851","fahrtNr":"1851","name":"Bus 405","public":true,"adminCode":"tgo099","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"DPN","name":"SWEG Südwestdeutsche Landesverkehrs-GmbH"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"882139","name":"Freistett Busbahnhof, Rheinau (Baden)","location":{"type":"location","id":"882139","latitude":48.666889,"longitude":7.942185},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1249,"weight":1.75}},{"tripId":"20250305-dc05d4bf-24f4-3dbc-80a2-64adf02099d8","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T15:32:00+01:00","plannedWhen":"2025-03-05T15:32:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Niederhofen, Lauf (Baden)","provenance":null,"line":{"type":"line","id":"bus-7122-94667","fahrtNr":"94667","name":"Bus 7122","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"721656","name":"Niederhofen, Lauf (Baden)","location":{"type":"location","id":"721656","latitude":48.652964,"longitude":8.128091},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":3049,"weight":0.75}},{"tripId":"20250305-4e7d396f-73d8-3cdc-8a94-fca5e627d93c","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T15:33:00+01:00","plannedWhen":"2025-03-05T15:33:00+01:00","delay":null,"platform":"1","plannedPlatform":"1","direction":"Tullastraße/Alter Schlachthof, Karlsruhe","provenance":null,"line":{"type":"line","id":"s-7-85578","fahrtNr":"85578","name":"S 7","public":true,"adminCode":"A6S7","productName":"S","mode":"train","product":"suburban","operator":{"type":"operator","id":"AVG","name":"Albtal-Verkehrs-Gesellschaft mbH S7"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"364807","name":"Tullastraße/Alter Schlachthof, Karlsruhe"}},{"tripId":"20250305-12ec8d75-6476-3e13-96cb-e9afeba0d56f","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T15:35:00+01:00","plannedWhen":"2025-03-05T15:35:00+01:00","delay":null,"platform":"10","plannedPlatform":"10","direction":"Ottenhöfen","provenance":null,"line":{"type":"line","id":"swe-rs3-2454","fahrtNr":"2454","name":"SWE RS3","public":true,"adminCode":"S6","productName":"SWE","mode":"train","product":"regional","operator":{"type":"operator","id":"SWE","name":"SWEG Südwestdeutsche Landesverkehrs-GmbH"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8007006","name":"Ottenhöfen","location":{"type":"location","id":"8007006","latitude":48.566929,"longitude":8.151014},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":2.4}},{"tripId":"20250305-d0b37ea4-f562-3bb9-b3ce-7a9cb9803eef","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T15:44:00+01:00","plannedWhen":"2025-03-05T15:44:00+01:00","delay":null,"platform":"3","plannedPlatform":"3","direction":"Konstanz","provenance":null,"line":{"type":"line","id":"re-2-4731","fahrtNr":"4731","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8003400","name":"Konstanz","location":{"type":"location","id":"8003400","latitude":47.658757,"longitude":9.177411},"products":{"nationalExpress":false,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"weight":15.3}},{"tripId":"20250305-45e41c72-97f2-3bca-afce-c0910e2e360e","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T15:48:00+01:00","plannedWhen":"2025-03-05T15:48:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof, Bühl","provenance":null,"line":{"type":"line","id":"bus-7135-81820","fahrtNr":"81820","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"723996","name":"Bahnhof, Bühl","location":{"type":"location","id":"723996","latitude":48.697857,"longitude":8.130716},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"distance":2591,"weight":7}},{"tripId":"20250305-54c0ec1a-275b-3713-938b-2915949c96b9","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T15:49:00+01:00","plannedWhen":"2025-03-05T15:49:00+01:00","delay":null,"platform":"2","plannedPlatform":"2","direction":"Karlsruhe Hbf","provenance":null,"line":{"type":"line","id":"re-7-17020","fahrtNr":"17020","name":"RE 7","public":true,"adminCode":"8006C5","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 4 Los 1 (Rheintal)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8000191","name":"Karlsruhe Hbf","location":{"type":"location","id":"8000191","latitude":48.99353,"longitude":8.401939},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":true},"distance":757,"weight":47.65}},{"tripId":"20250305-f1e0c868-3a71-3e40-94b4-bed7ffb34152","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T15:51:00+01:00","plannedWhen":"2025-03-05T15:51:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Nationalpark-Hornisgrinde, Seebach (Baden)","provenance":null,"line":{"type":"line","id":"bus-423-53722","fahrtNr":"53722","name":"Bus 423","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"570043","name":"Nationalpark-Hornisgrinde, Seebach (Baden)","location":{"type":"location","id":"570043","latitude":48.601276,"longitude":8.20209},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1760,"weight":1}},{"tripId":"20250305-3fb4df83-5a5b-34d0-af54-3b90e1fa8cc3","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T16:00:00+01:00","plannedWhen":"2025-03-05T16:00:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof/ZOB, Offenburg","provenance":null,"line":{"type":"line","id":"bus-7135-95883","fahrtNr":"95883","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"366883","name":"Bahnhof/ZOB, Offenburg","location":{"type":"location","id":"366883","latitude":48.475131,"longitude":7.944855},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":2495,"weight":27.45}},{"tripId":"20250305-47ddeca2-5d93-348f-a27b-7c43aace1613","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T16:12:00+01:00","plannedWhen":"2025-03-05T16:12:00+01:00","delay":null,"platform":"3","plannedPlatform":"3","direction":"Basel SBB","provenance":null,"line":{"type":"line","id":"re-7-5339","fahrtNr":"5339","name":"RE 7","public":true,"adminCode":"8006C5","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 4 Los 1 (Rheintal)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8500010","name":"Basel SBB","location":{"type":"location","id":"8500010","latitude":47.547408,"longitude":7.589548},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":false},"distance":2933,"weight":59.6}},{"tripId":"20250305-c1c35eae-5781-362f-b3ce-e92ac524b354","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T16:16:00+01:00","plannedWhen":"2025-03-05T16:16:00+01:00","delay":null,"platform":"2","plannedPlatform":"2","direction":"Karlsruhe Hbf","provenance":null,"line":{"type":"line","id":"re-2-4726","fahrtNr":"4726","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8000191","name":"Karlsruhe Hbf","location":{"type":"location","id":"8000191","latitude":48.99353,"longitude":8.401939},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":true},"distance":757,"weight":47.65}},{"tripId":"20250305-2f018b3c-5300-3525-b00b-260619f5a816","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T16:21:00+01:00","plannedWhen":"2025-03-05T16:21:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Gaishölle, Sasbachwalden","provenance":null,"line":{"type":"line","id":"bus-423-28969","fahrtNr":"28969","name":"Bus 423","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"571999","name":"Gaishölle, Sasbachwalden","location":{"type":"location","id":"571999","latitude":48.617412,"longitude":8.128262},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":2167,"weight":0.5}},{"tripId":"20250305-db01e1e0-45e2-3c2d-b499-1f68c96ae7a7","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T16:22:00+01:00","plannedWhen":"2025-03-05T16:22:00+01:00","delay":null,"platform":"10","plannedPlatform":"10","direction":"Ottenhöfen","provenance":null,"line":{"type":"line","id":"swe-rs3-2426","fahrtNr":"2426","name":"SWE RS3","public":true,"adminCode":"S6","productName":"SWE","mode":"train","product":"regional","operator":{"type":"operator","id":"SWE","name":"SWEG Südwestdeutsche Landesverkehrs-GmbH"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8007006","name":"Ottenhöfen","location":{"type":"location","id":"8007006","latitude":48.566929,"longitude":8.151014},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":2.4}},{"tripId":"20250305-247d75dd-d2c7-3e7e-8985-fd12cbf10fa0","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T16:32:00+01:00","plannedWhen":"2025-03-05T16:32:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof, Oberkirch","provenance":null,"line":{"type":"line","id":"bus-7124-35773","fahrtNr":"35773","name":"Bus 7124","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"367020","name":"Bahnhof, Oberkirch","location":{"type":"location","id":"367020","latitude":48.529444,"longitude":8.076781},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1473,"weight":3.25}},{"tripId":"20250305-85c9a178-c6a1-372e-8563-1cda5554cebc","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T16:32:00+01:00","plannedWhen":"2025-03-05T16:32:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Niederhofen, Lauf (Baden)","provenance":null,"line":{"type":"line","id":"bus-7122-24576","fahrtNr":"24576","name":"Bus 7122","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"721656","name":"Niederhofen, Lauf (Baden)","location":{"type":"location","id":"721656","latitude":48.652964,"longitude":8.128091},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":false,"suburban":false,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":3049,"weight":0.75}},{"tripId":"20250305-2431604e-fd51-38c2-93ee-f7be4c055211","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T16:33:00+01:00","plannedWhen":"2025-03-05T16:33:00+01:00","delay":null,"platform":"1","plannedPlatform":"1","direction":"Tullastraße/Alter Schlachthof, Karlsruhe","provenance":null,"line":{"type":"line","id":"s-7-85580","fahrtNr":"85580","name":"S 7","public":true,"adminCode":"A6S7","productName":"S","mode":"train","product":"suburban","operator":{"type":"operator","id":"AVG","name":"Albtal-Verkehrs-Gesellschaft mbH S7"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"364807","name":"Tullastraße/Alter Schlachthof, Karlsruhe"}},{"tripId":"20250305-d6806af1-1faa-380b-b39e-a2e35c4ada04","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T16:44:00+01:00","plannedWhen":"2025-03-05T16:44:00+01:00","delay":null,"platform":"3","plannedPlatform":"3","direction":"Konstanz","provenance":null,"line":{"type":"line","id":"re-2-4733","fahrtNr":"4733","name":"RE 2","public":true,"adminCode":"800647","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 13 (Schwarzwaldbahn)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8003400","name":"Konstanz","location":{"type":"location","id":"8003400","latitude":47.658757,"longitude":9.177411},"products":{"nationalExpress":false,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"weight":15.3}},{"tripId":"20250305-ea7cf840-e059-3bd2-82f1-0f9465a3e55f","stop":{"type":"station","id":"8000412","name":"Achern","location":{"type":"location","id":"8000412","latitude":48.633997,"longitude":8.065275},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"weight":6.05},"when":"2025-03-05T16:49:00+01:00","plannedWhen":"2025-03-05T16:49:00+01:00","delay":null,"platform":"2","plannedPlatform":"2","direction":"Karlsruhe Hbf","provenance":null,"line":{"type":"line","id":"re-7-17022","fahrtNr":"17022","name":"RE 7","public":true,"adminCode":"8006C5","productName":"RE","mode":"train","product":"regional","operator":{"type":"operator","id":"DB","name":"DB Regio BW, Freiburg, Netz 4 Los 1 (Rheintal)"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"8000191","name":"Karlsruhe Hbf","location":{"type":"location","id":"8000191","latitude":48.99353,"longitude":8.401939},"products":{"nationalExpress":true,"national":true,"regionalExp":true,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":true,"taxi":true},"distance":757,"weight":47.65}},{"tripId":"20250305-1fb99e23-783a-3b50-9480-3d5eb8abe852","stop":{"type":"station","id":"882004","name":"Bahnhof, Achern","location":{"type":"location","id":"882004","latitude":48.633305,"longitude":8.066174},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":false},"distance":1098,"weight":6.05},"when":"2025-03-05T16:50:00+01:00","plannedWhen":"2025-03-05T16:50:00+01:00","delay":null,"platform":null,"plannedPlatform":null,"direction":"Bahnhof, Bühl","provenance":null,"line":{"type":"line","id":"bus-7135-8848","fahrtNr":"8848","name":"Bus 7135","public":true,"adminCode":"rbgRVs","productName":"Bus","mode":"bus","product":"bus","operator":{"type":"operator","id":"RVS","name":"Südwestbus"}},"remarks":[],"origin":null,"destination":{"type":"station","id":"723996","name":"Bahnhof, Bühl","location":{"type":"location","id":"723996","latitude":48.697857,"longitude":8.130716},"products":{"nationalExpress":false,"national":false,"regionalExp":false,"regional":true,"suburban":true,"bus":true,"ferry":false,"subway":false,"tram":false,"taxi":true},"distance":2591,"weight":7}}],"realtimeDataUpdatedAt":null}
+{
+    "departures": [
+        {
+            "tripId": "2|#VN#1#ST#1741032079#PI#0#ZI#309849#TA#0#DA#60325#1S#8003400#1T#1839#LS#8000191#LT#2149#PU#80#RT#1#CA#RE#ZE#4738#ZB#RE  4738#PC#3#FR#8003400#FT#1839#TO#8000191#TT#2149#",
+            "stop": {
+                "type": "station",
+                "id": "8000412",
+                "name": "Achern",
+                "location": {
+                    "type": "location",
+                    "id": "8000412",
+                    "latitude": 48.633997,
+                    "longitude": 8.065275
+                },
+                "products": {
+                    "nationalExpress": false,
+                    "national": false,
+                    "regionalExp": false,
+                    "regional": true,
+                    "suburban": true,
+                    "bus": true,
+                    "ferry": false,
+                    "subway": false,
+                    "tram": false,
+                    "taxi": false
+                },
+                "weight": 6.05
+            },
+            "when": "2025-03-06T21:17:00+01:00",
+            "plannedWhen": "2025-03-06T21:16:00+01:00",
+            "delay": 60,
+            "platform": "2",
+            "plannedPlatform": "2",
+            "direction": "Karlsruhe Hbf",
+            "provenance": null,
+            "line": {
+                "type": "line",
+                "id": "re-4738",
+                "fahrtNr": "4738",
+                "name": "RE 4738",
+                "public": true,
+                "productName": "RE",
+                "mode": "train",
+                "product": "regional",
+                "operator": null
+            },
+            "remarks": [
+                {
+                    "summary": "Vorankündigung: Im Zeitraum vom 10. - 17.03. finden zwischen Karlsruhe und Basel diverse Bauarbeiten statt. Hierbei kommt es zu Fahrplanänderung, Fahrtausfällen und Ersatzverkehr mit Bussen. Bitte informieren Sie sich frühzeitig über Ihre Reisemöglichkeiten.",
+                    "text": "Vorankündigung: Im Zeitraum vom 10. - 17.03. finden zwischen Karlsruhe und Basel diverse Bauarbeiten statt. Hierbei kommt es zu Fahrplanänderung, Fahrtausfällen und Ersatzverkehr mit Bussen. Bitte informieren Sie sich frühzeitig über Ihre Reisemöglichkeiten.",
+                    "type": "status"
+                }
+            ],
+            "origin": null,
+            "destination": null,
+            "nextStopovers": [
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000412",
+                        "name": "Achern",
+                        "location": {
+                            "type": "location",
+                            "id": "8000412",
+                            "latitude": 48.633997,
+                            "longitude": 8.065275
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 6.05
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8001252",
+                        "name": "Bühl(Baden)",
+                        "location": {
+                            "type": "location",
+                            "id": "8001252",
+                            "latitude": 48.696508,
+                            "longitude": 8.129314
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "distance": 2511,
+                        "weight": 7
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000774",
+                        "name": "Baden-Baden",
+                        "location": {
+                            "type": "location",
+                            "id": "8000774",
+                            "latitude": 48.790392,
+                            "longitude": 8.190773
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExp": true,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "distance": 2938,
+                        "weight": 12.85
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000306",
+                        "name": "Rastatt",
+                        "location": {
+                            "type": "location",
+                            "id": "8000306",
+                            "latitude": 48.860597,
+                            "longitude": 8.215763
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "weight": 19.35
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000191",
+                        "name": "Karlsruhe Hbf",
+                        "location": {
+                            "type": "location",
+                            "id": "8000191",
+                            "latitude": 48.99353,
+                            "longitude": 8.401939
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExp": true,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": true,
+                            "taxi": true
+                        },
+                        "distance": 757,
+                        "weight": 47.65
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                }
+            ]
+        },
+        {
+            "tripId": "2|#VN#1#ST#1741032079#PI#0#ZI#309878#TA#0#DA#60325#1S#8000191#1T#2107#LS#8003400#LT#10014#PU#80#RT#1#CA#RE#ZE#4743#ZB#RE  4743#PC#3#FR#8000191#FT#2107#TO#8003400#TT#10014#",
+            "stop": {
+                "type": "station",
+                "id": "8000412",
+                "name": "Achern",
+                "location": {
+                    "type": "location",
+                    "id": "8000412",
+                    "latitude": 48.633997,
+                    "longitude": 8.065275
+                },
+                "products": {
+                    "nationalExpress": false,
+                    "national": false,
+                    "regionalExp": false,
+                    "regional": true,
+                    "suburban": true,
+                    "bus": true,
+                    "ferry": false,
+                    "subway": false,
+                    "tram": false,
+                    "taxi": false
+                },
+                "weight": 6.05
+            },
+            "when": "2025-03-06T21:44:00+01:00",
+            "plannedWhen": "2025-03-06T21:44:00+01:00",
+            "delay": 0,
+            "platform": "3",
+            "plannedPlatform": "3",
+            "direction": "Konstanz",
+            "provenance": null,
+            "line": {
+                "type": "line",
+                "id": "re-4743",
+                "fahrtNr": "4743",
+                "name": "RE 4743",
+                "public": true,
+                "productName": "RE",
+                "mode": "train",
+                "product": "regional",
+                "operator": null
+            },
+            "remarks": [
+                {
+                    "summary": "Vorankündigung: Im Zeitraum vom 10. - 17.03. finden zwischen Karlsruhe und Basel diverse Bauarbeiten statt. Hierbei kommt es zu Fahrplanänderung, Fahrtausfällen und Ersatzverkehr mit Bussen. Bitte informieren Sie sich frühzeitig über Ihre Reisemöglichkeiten.",
+                    "text": "Vorankündigung: Im Zeitraum vom 10. - 17.03. finden zwischen Karlsruhe und Basel diverse Bauarbeiten statt. Hierbei kommt es zu Fahrplanänderung, Fahrtausfällen und Ersatzverkehr mit Bussen. Bitte informieren Sie sich frühzeitig über Ihre Reisemöglichkeiten.",
+                    "type": "status"
+                }
+            ],
+            "origin": null,
+            "destination": null,
+            "nextStopovers": [
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000412",
+                        "name": "Achern",
+                        "location": {
+                            "type": "location",
+                            "id": "8000412",
+                            "latitude": 48.633997,
+                            "longitude": 8.065275
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 6.05
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8005037",
+                        "name": "Renchen",
+                        "location": {
+                            "type": "location",
+                            "id": "8005037",
+                            "latitude": 48.592728,
+                            "longitude": 8.007222
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": false,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 4.45
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000596",
+                        "name": "Appenweier",
+                        "location": {
+                            "type": "location",
+                            "id": "8000596",
+                            "latitude": 48.54193,
+                            "longitude": 7.973387
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 1824,
+                        "weight": 9.15
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000290",
+                        "name": "Offenburg",
+                        "location": {
+                            "type": "location",
+                            "id": "8000290",
+                            "latitude": 48.476506,
+                            "longitude": 7.94677
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExp": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 27.45
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000942",
+                        "name": "Biberach(Baden)",
+                        "location": {
+                            "type": "location",
+                            "id": "8000942",
+                            "latitude": 48.338423,
+                            "longitude": 8.032842
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 2675,
+                        "weight": 3.5
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8002621",
+                        "name": "Haslach",
+                        "location": {
+                            "type": "location",
+                            "id": "8002621",
+                            "latitude": 48.279921,
+                            "longitude": 8.087999
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 4.95
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000333",
+                        "name": "Hausach",
+                        "location": {
+                            "type": "location",
+                            "id": "8000333",
+                            "latitude": 48.284955,
+                            "longitude": 8.18164
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 2894,
+                        "weight": 4.5
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8003001",
+                        "name": "Hornberg(Schwarzw)",
+                        "location": {
+                            "type": "location",
+                            "id": "8003001",
+                            "latitude": 48.212035,
+                            "longitude": 8.233058
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "weight": 1.7
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8005902",
+                        "name": "Triberg",
+                        "location": {
+                            "type": "location",
+                            "id": "8005902",
+                            "latitude": 48.13986,
+                            "longitude": 8.236906
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "distance": 1757,
+                        "weight": 7.85
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8005644",
+                        "name": "St Georgen(Schwarzw)",
+                        "location": {
+                            "type": "location",
+                            "id": "8005644",
+                            "latitude": 48.123922,
+                            "longitude": 8.342097
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "distance": 3481,
+                        "weight": 5.25
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "location",
+                        "id": null,
+                        "name": "Villingen(Schwarzw)"
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "location",
+                        "id": null,
+                        "name": "Donaueschingen"
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8002214",
+                        "name": "Geisingen",
+                        "location": {
+                            "type": "location",
+                            "id": "8002214",
+                            "latitude": 47.921431,
+                            "longitude": 8.652891
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 4.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000182",
+                        "name": "Immendingen",
+                        "location": {
+                            "type": "location",
+                            "id": "8000182",
+                            "latitude": 47.93621,
+                            "longitude": 8.729488
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 2787,
+                        "weight": 4.5
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000073",
+                        "name": "Singen(Hohentwiel)",
+                        "location": {
+                            "type": "location",
+                            "id": "8000073",
+                            "latitude": 47.758888,
+                            "longitude": 8.841116
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "weight": 22.75
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000880",
+                        "name": "Radolfzell",
+                        "location": {
+                            "type": "location",
+                            "id": "8000880",
+                            "latitude": 47.73584,
+                            "longitude": 8.968655
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "distance": 2041,
+                        "weight": 10.9
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000496",
+                        "name": "Allensbach",
+                        "location": {
+                            "type": "location",
+                            "id": "8000496",
+                            "latitude": 47.714643,
+                            "longitude": 9.068264
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "distance": 2992,
+                        "weight": 6.2
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8003400",
+                        "name": "Konstanz",
+                        "location": {
+                            "type": "location",
+                            "id": "8003400",
+                            "latitude": 47.658757,
+                            "longitude": 9.177411
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": true,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "weight": 15.3
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                }
+            ]
+        },
+        {
+            "tripId": "2|#VN#1#ST#1741032079#PI#0#ZI#1091902#TA#0#DA#60325#1S#8000290#1T#2134#LS#8007006#LT#2212#PU#80#RT#1#CA#DPN#ZE#88604#ZB#SWE88604#PC#3#FR#8000290#FT#2134#TO#8007006#TT#2212#",
+            "stop": {
+                "type": "station",
+                "id": "8000412",
+                "name": "Achern",
+                "location": {
+                    "type": "location",
+                    "id": "8000412",
+                    "latitude": 48.633997,
+                    "longitude": 8.065275
+                },
+                "products": {
+                    "nationalExpress": false,
+                    "national": false,
+                    "regionalExp": false,
+                    "regional": true,
+                    "suburban": true,
+                    "bus": true,
+                    "ferry": false,
+                    "subway": false,
+                    "tram": false,
+                    "taxi": false
+                },
+                "weight": 6.05
+            },
+            "when": "2025-03-06T21:54:00+01:00",
+            "plannedWhen": "2025-03-06T21:54:00+01:00",
+            "delay": null,
+            "platform": "1",
+            "plannedPlatform": "1",
+            "direction": "Ottenhöfen",
+            "provenance": null,
+            "line": {
+                "type": "line",
+                "id": "swe88604",
+                "fahrtNr": "88604",
+                "name": "SWE88604",
+                "public": true,
+                "productName": "SWE",
+                "mode": "train",
+                "product": "regional",
+                "operator": null
+            },
+            "remarks": [],
+            "origin": null,
+            "destination": null,
+            "nextStopovers": [
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000412",
+                        "name": "Achern",
+                        "location": {
+                            "type": "location",
+                            "id": "8000412",
+                            "latitude": 48.633997,
+                            "longitude": 8.065275
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 6.05
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8007001",
+                        "name": "Achern Stadt",
+                        "location": {
+                            "type": "location",
+                            "id": "8007001",
+                            "latitude": 48.625493,
+                            "longitude": 8.068007
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": false,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8007002",
+                        "name": "Oberachern",
+                        "location": {
+                            "type": "location",
+                            "id": "8007002",
+                            "latitude": 48.614032,
+                            "longitude": 8.079226
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": false,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 2971,
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8007003",
+                        "name": "Oberachern Bindfadenfabrik",
+                        "location": {
+                            "type": "location",
+                            "id": "8007003",
+                            "latitude": 48.603452,
+                            "longitude": 8.093258
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": false,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8007004",
+                        "name": "Kappelrodeck",
+                        "location": {
+                            "type": "location",
+                            "id": "8007004",
+                            "latitude": 48.593348,
+                            "longitude": 8.116288
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8077004",
+                        "name": "Kappelrodeck Ost",
+                        "location": {
+                            "type": "location",
+                            "id": "8077004",
+                            "latitude": 48.586957,
+                            "longitude": 8.125835
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": false,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 3296,
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8007005",
+                        "name": "Furschenbach",
+                        "location": {
+                            "type": "location",
+                            "id": "8007005",
+                            "latitude": 48.580026,
+                            "longitude": 8.134797
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": false,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 1226,
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8007015",
+                        "name": "Ottenhöfen West",
+                        "location": {
+                            "type": "location",
+                            "id": "8007015",
+                            "latitude": 48.567855,
+                            "longitude": 8.142618
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": false,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 2853,
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8007006",
+                        "name": "Ottenhöfen",
+                        "location": {
+                            "type": "location",
+                            "id": "8007006",
+                            "latitude": 48.566929,
+                            "longitude": 8.151014
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                }
+            ]
+        }
+    ],
+    "realtimeDataUpdatedAt": null
+}

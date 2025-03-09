@@ -1,4 +1,3 @@
-import * as turf from '@turf/turf';
 import { createClient } from 'db-vendo-client'
 import { profile as dbProfile } from 'db-vendo-client/p/dbweb/index.js'
 // import { profile as dbProfile } from 'db-vendo-client/p/dbnav/index.js'
@@ -168,13 +167,7 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
     }
 }
 
-export const getDistance = (firstPoint, secondPoint) => {
-    return turf.distance(
-        turf.point(firstPoint),
-        turf.point(secondPoint),
-        { units: 'meters' }
-    );
-}
+
 
 // const timeDelta = (dateString1, dateString2) => {
 

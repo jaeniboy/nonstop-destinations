@@ -1,74 +1,60 @@
-import { getDeparturesTripIds, getStopovers } from "./rmv.js";
+import { getDeparturesTripIds, getStopovers, getStationCoords } from "./rmv.js";
+import * as turf from '@turf/turf'; 
 
 export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) => {
     console.log(`Fetching direct connections from station id ${stationId}`)
 
-    let initStationCoords
     let trips;
     let errorCount = 0;
 
-    // try {
-        // initStationCoords = await getStationCoords(stationId);
-        initStationCoords = [8.4037, 49.0069] // zu testzwecken erstmal nur Karlsruhe
+    try {
+        const stationCoords = await getStationCoords(stationId);
         trips = await getDeparturesTripIds(stationId, dateAndTime)
 
         if (!trips || trips.length === 0) {
             throw new Error(`No trips found for Station ID: ${stationId}`);
         }
         
-        const nonStopStations = {}
-        const journeyDetails = getStopovers(trips[0].tripId, trips[0].plannedWhen)
-        // const journeyDetails = getStopovers(trips[0].tripId, stationId)
-
-        
         const stopoversOfTrips = await Promise.all(trips.map(trip => getStopovers(trip.tripId, trip.plannedWhen, trip.connectionsPerHour)));
-        return stopoversOfTrips
-
-    //     for (const stopovers of stopoversOfTrips) {
-    //         try {
-    //             if (!stopovers) continue;
-
-    //             stopovers.forEach(stopover => {
-    //                 if (nonStopStations[stopover.id]) {
-    //                     nonStopStations[stopover.id].count += 1;
-    //                     if (!nonStopStations[stopover.id].travelTime.includes(stopover.travelTime)) {
-    //                         nonStopStations[stopover.id].travelTime.push(stopover.travelTime);
-    //                     }
-    //                 } else {
-    //                     nonStopStations[stopover.id] = {
-    //                         id: stopover.id,
-    //                         name: stopover.name,
-    //                         latitude: stopover.latitude,
-    //                         longitude: stopover.longitude,
-    //                         count: 1,
-    //                         distance: getDistance(initStationCoords, [stopover.longitude, stopover.latitude]),
-    //                         travelTime: [stopover.travelTime]
-    //                     };
-    //                 }
-    //             });
-    //         } catch (error) {
-    //             console.log(`Error fetching stopovers: ${error}`, error.message);
-    //             errorCount++;
-    //             continue;
-    //         }
-    //     };
-    //     return {
-    //         stations: nonStopStations,
-    //         metadata: {
-    //             total: trips.length,
-    //             errors: errorCount,
-    //             isComplete: errorCount === 0,
-    //             message: errorCount > 0 ? `${errorCount} Verbindungen konnten nicht geladen werden` : null
-    //         }
-    //     };
-    // } catch (error) {
-    //     throw {
-    //         type: 'StationSearchError',
-    //         message: error.message,
-    //         stationId,
-    //         originalError: error
-    //     }
-    // }
+        const nonStopStations = {}
+        for (const stopovers of stopoversOfTrips) {
+            try {
+                stopovers.forEach(stopover => {
+                    if (nonStopStations[stopover.id]) {
+                        nonStopStations[stopover.id].connectionsPerHour = nonStopStations[stopover.id].connectionsPerHour + stopover.connectionsPerHour;
+                        if (!nonStopStations[stopover.id].travelTime.includes(stopover.travelTime)) {
+                            nonStopStations[stopover.id].travelTime.push(stopover.travelTime);
+                        }
+                    } else {
+                        nonStopStations[stopover.id] = {
+                            ...stopover,
+                            distance: getDistance(stationCoords, [stopover.longitude, stopover.latitude]),
+                            travelTime: [stopover.travelTime]
+                        };
+                    }
+                });
+            } catch (error) {
+                console.log(`Error fetching stopovers: ${error}`, error.message);
+                errorCount++;
+                continue;
+            }
+        };
+        return {
+            stations: nonStopStations,
+            metadata: {
+                total: trips.length,
+                errors: errorCount,
+                isComplete: errorCount === 0,
+                message: errorCount > 0 ? `${errorCount} Verbindungen konnten nicht geladen werden` : null
+            }
+        };
+    } catch (error) {
+        throw {
+            type: 'StationSearchError',
+            message: error.message,
+            stationId,
+            originalError: error
+    }}
 }
 
 export function getNextDayAt9AM() {
@@ -88,4 +74,12 @@ export const timeDelta = (dateString1, dateString2) => {
 
     return differenceInMinutes;
 
+}
+
+export const getDistance = (firstPoint, secondPoint) => {
+    return turf.distance(
+        turf.point(firstPoint),
+        turf.point(secondPoint),
+        { units: 'meters' }
+    );
 }
