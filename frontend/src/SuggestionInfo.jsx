@@ -26,6 +26,15 @@ const formatTimes = (times) => {
     }
 }
 
+const formatFrequency = (freq) => {
+    if (freq === 1) {
+        return "once per hour"
+    }
+    if (freq % 1 !== 0) {
+        return `${Math.floor(freq)}-${Math.ceil(freq)} times per hour`
+    }
+}
+
 const IconWithText = ({ children, icontext, value }) => {
     return (
         <div className="flex items-center  mt-4 w-1/3 border border-gray-400 rounded-md p-1 m-1">
@@ -49,13 +58,14 @@ const SuggestionInfo = ({ data }) => {
     return (
         <div className="flex justify-evenly">
             {/* <div class="flex-1"></div> */}
+            {/* <IconWithText icontext="travel time" value={data.connectionsPerHour}> */}
             <IconWithText icontext="travel time" value={formatTimes(data.travelTime)}>
                 <BsClock />
             </IconWithText>
             <IconWithText icontext="distance" value={formatDistance(data.distance)}>
                 <BsSignpostSplit />
             </IconWithText>
-            <IconWithText icontext="frequency" value={data.count + " / hour"}>
+            <IconWithText icontext="frequency" value={formatFrequency(data.connectionsPerHour)}>
                 <BsRepeat />
             </IconWithText>
             {/* <div class="flex-1"></div> */}
