@@ -1,0 +1,1392 @@
+{
+    "departures": [
+        {
+            "tripId": "2|#VN#1#ST#1741032079#PI#0#ZI#309849#TA#0#DA#60325#1S#8003400#1T#1839#LS#8000191#LT#2149#PU#80#RT#1#CA#RE#ZE#4738#ZB#RE  4738#PC#3#FR#8003400#FT#1839#TO#8000191#TT#2149#",
+            "stop": {
+                "type": "station",
+                "id": "8000412",
+                "name": "Achern",
+                "location": {
+                    "type": "location",
+                    "id": "8000412",
+                    "latitude": 48.633997,
+                    "longitude": 8.065275
+                },
+                "products": {
+                    "nationalExpress": false,
+                    "national": false,
+                    "regionalExp": false,
+                    "regional": true,
+                    "suburban": true,
+                    "bus": true,
+                    "ferry": false,
+                    "subway": false,
+                    "tram": false,
+                    "taxi": false
+                },
+                "weight": 6.05
+            },
+            "when": "2025-03-06T21:17:00+01:00",
+            "plannedWhen": "2025-03-06T21:16:00+01:00",
+            "delay": 60,
+            "platform": "2",
+            "plannedPlatform": "2",
+            "direction": "Karlsruhe Hbf",
+            "provenance": null,
+            "line": {
+                "type": "line",
+                "id": "re-4738",
+                "fahrtNr": "4738",
+                "name": "RE 4738",
+                "public": true,
+                "productName": "RE",
+                "mode": "train",
+                "product": "regional",
+                "operator": null
+            },
+            "remarks": [
+                {
+                    "summary": "Vorankündigung: Im Zeitraum vom 10. - 17.03. finden zwischen Karlsruhe und Basel diverse Bauarbeiten statt. Hierbei kommt es zu Fahrplanänderung, Fahrtausfällen und Ersatzverkehr mit Bussen. Bitte informieren Sie sich frühzeitig über Ihre Reisemöglichkeiten.",
+                    "text": "Vorankündigung: Im Zeitraum vom 10. - 17.03. finden zwischen Karlsruhe und Basel diverse Bauarbeiten statt. Hierbei kommt es zu Fahrplanänderung, Fahrtausfällen und Ersatzverkehr mit Bussen. Bitte informieren Sie sich frühzeitig über Ihre Reisemöglichkeiten.",
+                    "type": "status"
+                }
+            ],
+            "origin": null,
+            "destination": null,
+            "nextStopovers": [
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000412",
+                        "name": "Achern",
+                        "location": {
+                            "type": "location",
+                            "id": "8000412",
+                            "latitude": 48.633997,
+                            "longitude": 8.065275
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 6.05
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8001252",
+                        "name": "Bühl(Baden)",
+                        "location": {
+                            "type": "location",
+                            "id": "8001252",
+                            "latitude": 48.696508,
+                            "longitude": 8.129314
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "distance": 2511,
+                        "weight": 7
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000774",
+                        "name": "Baden-Baden",
+                        "location": {
+                            "type": "location",
+                            "id": "8000774",
+                            "latitude": 48.790392,
+                            "longitude": 8.190773
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExp": true,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "distance": 2938,
+                        "weight": 12.85
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000306",
+                        "name": "Rastatt",
+                        "location": {
+                            "type": "location",
+                            "id": "8000306",
+                            "latitude": 48.860597,
+                            "longitude": 8.215763
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "weight": 19.35
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000191",
+                        "name": "Karlsruhe Hbf",
+                        "location": {
+                            "type": "location",
+                            "id": "8000191",
+                            "latitude": 48.99353,
+                            "longitude": 8.401939
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExp": true,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": true,
+                            "taxi": true
+                        },
+                        "distance": 757,
+                        "weight": 47.65
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                }
+            ]
+        },
+        {
+            "tripId": "2|#VN#1#ST#1741032079#PI#0#ZI#309878#TA#0#DA#60325#1S#8000191#1T#2107#LS#8003400#LT#10014#PU#80#RT#1#CA#RE#ZE#4743#ZB#RE  4743#PC#3#FR#8000191#FT#2107#TO#8003400#TT#10014#",
+            "stop": {
+                "type": "station",
+                "id": "8000412",
+                "name": "Achern",
+                "location": {
+                    "type": "location",
+                    "id": "8000412",
+                    "latitude": 48.633997,
+                    "longitude": 8.065275
+                },
+                "products": {
+                    "nationalExpress": false,
+                    "national": false,
+                    "regionalExp": false,
+                    "regional": true,
+                    "suburban": true,
+                    "bus": true,
+                    "ferry": false,
+                    "subway": false,
+                    "tram": false,
+                    "taxi": false
+                },
+                "weight": 6.05
+            },
+            "when": "2025-03-06T21:44:00+01:00",
+            "plannedWhen": "2025-03-06T21:44:00+01:00",
+            "delay": 0,
+            "platform": "3",
+            "plannedPlatform": "3",
+            "direction": "Konstanz",
+            "provenance": null,
+            "line": {
+                "type": "line",
+                "id": "re-4743",
+                "fahrtNr": "4743",
+                "name": "RE 4743",
+                "public": true,
+                "productName": "RE",
+                "mode": "train",
+                "product": "regional",
+                "operator": null
+            },
+            "remarks": [
+                {
+                    "summary": "Vorankündigung: Im Zeitraum vom 10. - 17.03. finden zwischen Karlsruhe und Basel diverse Bauarbeiten statt. Hierbei kommt es zu Fahrplanänderung, Fahrtausfällen und Ersatzverkehr mit Bussen. Bitte informieren Sie sich frühzeitig über Ihre Reisemöglichkeiten.",
+                    "text": "Vorankündigung: Im Zeitraum vom 10. - 17.03. finden zwischen Karlsruhe und Basel diverse Bauarbeiten statt. Hierbei kommt es zu Fahrplanänderung, Fahrtausfällen und Ersatzverkehr mit Bussen. Bitte informieren Sie sich frühzeitig über Ihre Reisemöglichkeiten.",
+                    "type": "status"
+                }
+            ],
+            "origin": null,
+            "destination": null,
+            "nextStopovers": [
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000412",
+                        "name": "Achern",
+                        "location": {
+                            "type": "location",
+                            "id": "8000412",
+                            "latitude": 48.633997,
+                            "longitude": 8.065275
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 6.05
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8005037",
+                        "name": "Renchen",
+                        "location": {
+                            "type": "location",
+                            "id": "8005037",
+                            "latitude": 48.592728,
+                            "longitude": 8.007222
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": false,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 4.45
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000596",
+                        "name": "Appenweier",
+                        "location": {
+                            "type": "location",
+                            "id": "8000596",
+                            "latitude": 48.54193,
+                            "longitude": 7.973387
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 1824,
+                        "weight": 9.15
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000290",
+                        "name": "Offenburg",
+                        "location": {
+                            "type": "location",
+                            "id": "8000290",
+                            "latitude": 48.476506,
+                            "longitude": 7.94677
+                        },
+                        "products": {
+                            "nationalExpress": true,
+                            "national": true,
+                            "regionalExp": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 27.45
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000942",
+                        "name": "Biberach(Baden)",
+                        "location": {
+                            "type": "location",
+                            "id": "8000942",
+                            "latitude": 48.338423,
+                            "longitude": 8.032842
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 2675,
+                        "weight": 3.5
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8002621",
+                        "name": "Haslach",
+                        "location": {
+                            "type": "location",
+                            "id": "8002621",
+                            "latitude": 48.279921,
+                            "longitude": 8.087999
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 4.95
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000333",
+                        "name": "Hausach",
+                        "location": {
+                            "type": "location",
+                            "id": "8000333",
+                            "latitude": 48.284955,
+                            "longitude": 8.18164
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 2894,
+                        "weight": 4.5
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8003001",
+                        "name": "Hornberg(Schwarzw)",
+                        "location": {
+                            "type": "location",
+                            "id": "8003001",
+                            "latitude": 48.212035,
+                            "longitude": 8.233058
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "weight": 1.7
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8005902",
+                        "name": "Triberg",
+                        "location": {
+                            "type": "location",
+                            "id": "8005902",
+                            "latitude": 48.13986,
+                            "longitude": 8.236906
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "distance": 1757,
+                        "weight": 7.85
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8005644",
+                        "name": "St Georgen(Schwarzw)",
+                        "location": {
+                            "type": "location",
+                            "id": "8005644",
+                            "latitude": 48.123922,
+                            "longitude": 8.342097
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "distance": 3481,
+                        "weight": 5.25
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "location",
+                        "id": null,
+                        "name": "Villingen(Schwarzw)"
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "location",
+                        "id": null,
+                        "name": "Donaueschingen"
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8002214",
+                        "name": "Geisingen",
+                        "location": {
+                            "type": "location",
+                            "id": "8002214",
+                            "latitude": 47.921431,
+                            "longitude": 8.652891
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 4.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000182",
+                        "name": "Immendingen",
+                        "location": {
+                            "type": "location",
+                            "id": "8000182",
+                            "latitude": 47.93621,
+                            "longitude": 8.729488
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 2787,
+                        "weight": 4.5
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000073",
+                        "name": "Singen(Hohentwiel)",
+                        "location": {
+                            "type": "location",
+                            "id": "8000073",
+                            "latitude": 47.758888,
+                            "longitude": 8.841116
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "weight": 22.75
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000880",
+                        "name": "Radolfzell",
+                        "location": {
+                            "type": "location",
+                            "id": "8000880",
+                            "latitude": 47.73584,
+                            "longitude": 8.968655
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": true,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "distance": 2041,
+                        "weight": 10.9
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000496",
+                        "name": "Allensbach",
+                        "location": {
+                            "type": "location",
+                            "id": "8000496",
+                            "latitude": 47.714643,
+                            "longitude": 9.068264
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "distance": 2992,
+                        "weight": 6.2
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8003400",
+                        "name": "Konstanz",
+                        "location": {
+                            "type": "location",
+                            "id": "8003400",
+                            "latitude": 47.658757,
+                            "longitude": 9.177411
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": true,
+                            "regionalExp": true,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": true
+                        },
+                        "weight": 15.3
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                }
+            ]
+        },
+        {
+            "tripId": "2|#VN#1#ST#1741032079#PI#0#ZI#1091902#TA#0#DA#60325#1S#8000290#1T#2134#LS#8007006#LT#2212#PU#80#RT#1#CA#DPN#ZE#88604#ZB#SWE88604#PC#3#FR#8000290#FT#2134#TO#8007006#TT#2212#",
+            "stop": {
+                "type": "station",
+                "id": "8000412",
+                "name": "Achern",
+                "location": {
+                    "type": "location",
+                    "id": "8000412",
+                    "latitude": 48.633997,
+                    "longitude": 8.065275
+                },
+                "products": {
+                    "nationalExpress": false,
+                    "national": false,
+                    "regionalExp": false,
+                    "regional": true,
+                    "suburban": true,
+                    "bus": true,
+                    "ferry": false,
+                    "subway": false,
+                    "tram": false,
+                    "taxi": false
+                },
+                "weight": 6.05
+            },
+            "when": "2025-03-06T21:54:00+01:00",
+            "plannedWhen": "2025-03-06T21:54:00+01:00",
+            "delay": null,
+            "platform": "1",
+            "plannedPlatform": "1",
+            "direction": "Ottenhöfen",
+            "provenance": null,
+            "line": {
+                "type": "line",
+                "id": "swe88604",
+                "fahrtNr": "88604",
+                "name": "SWE88604",
+                "public": true,
+                "productName": "SWE",
+                "mode": "train",
+                "product": "regional",
+                "operator": null
+            },
+            "remarks": [],
+            "origin": null,
+            "destination": null,
+            "nextStopovers": [
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8000412",
+                        "name": "Achern",
+                        "location": {
+                            "type": "location",
+                            "id": "8000412",
+                            "latitude": 48.633997,
+                            "longitude": 8.065275
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": true,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 6.05
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8007001",
+                        "name": "Achern Stadt",
+                        "location": {
+                            "type": "location",
+                            "id": "8007001",
+                            "latitude": 48.625493,
+                            "longitude": 8.068007
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": false,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8007002",
+                        "name": "Oberachern",
+                        "location": {
+                            "type": "location",
+                            "id": "8007002",
+                            "latitude": 48.614032,
+                            "longitude": 8.079226
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": false,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 2971,
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8007003",
+                        "name": "Oberachern Bindfadenfabrik",
+                        "location": {
+                            "type": "location",
+                            "id": "8007003",
+                            "latitude": 48.603452,
+                            "longitude": 8.093258
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": false,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8007004",
+                        "name": "Kappelrodeck",
+                        "location": {
+                            "type": "location",
+                            "id": "8007004",
+                            "latitude": 48.593348,
+                            "longitude": 8.116288
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8077004",
+                        "name": "Kappelrodeck Ost",
+                        "location": {
+                            "type": "location",
+                            "id": "8077004",
+                            "latitude": 48.586957,
+                            "longitude": 8.125835
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": false,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 3296,
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8007005",
+                        "name": "Furschenbach",
+                        "location": {
+                            "type": "location",
+                            "id": "8007005",
+                            "latitude": 48.580026,
+                            "longitude": 8.134797
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": false,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 1226,
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8007015",
+                        "name": "Ottenhöfen West",
+                        "location": {
+                            "type": "location",
+                            "id": "8007015",
+                            "latitude": 48.567855,
+                            "longitude": 8.142618
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": false,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "distance": 2853,
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                },
+                {
+                    "stop": {
+                        "type": "station",
+                        "id": "8007006",
+                        "name": "Ottenhöfen",
+                        "location": {
+                            "type": "location",
+                            "id": "8007006",
+                            "latitude": 48.566929,
+                            "longitude": 8.151014
+                        },
+                        "products": {
+                            "nationalExpress": false,
+                            "national": false,
+                            "regionalExp": false,
+                            "regional": true,
+                            "suburban": false,
+                            "bus": true,
+                            "ferry": false,
+                            "subway": false,
+                            "tram": false,
+                            "taxi": false
+                        },
+                        "weight": 2.4
+                    },
+                    "arrival": null,
+                    "plannedArrival": null,
+                    "arrivalDelay": null,
+                    "arrivalPlatform": null,
+                    "arrivalPrognosisType": null,
+                    "plannedArrivalPlatform": null,
+                    "departure": null,
+                    "plannedDeparture": null,
+                    "departureDelay": null,
+                    "departurePlatform": null,
+                    "departurePrognosisType": null,
+                    "plannedDeparturePlatform": null,
+                    "remarks": []
+                }
+            ]
+        }
+    ],
+    "realtimeDataUpdatedAt": null
+}
