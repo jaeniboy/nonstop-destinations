@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-// import { getAllNonStopStations } from './controllers/hafas.js'
 import { getAllNonStopStations } from './controllers/utils.js'
 import { enhancedStopovers } from './controllers/osm.js';
 import { autocomplete } from 'db-stations-autocomplete';
@@ -26,7 +25,7 @@ app.use(cors({
     'https://jaeniboy.github.io'
     // 'https://jaeniboy.github.io/nonstop-destinations'
   ],
-  methods: ['GET', 'POST','OPTIONS'],
+  methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
 }));
 
@@ -48,19 +47,19 @@ app.get('/destinations', async (req, res) => {
     const time = "2025-01-17 08:00"
     const nonStopStations = await getAllNonStopStations(stationId, time)
 
-  //   const nonStopStationsFiltered = {
-  //     ...nonStopStations,
-  //     stations: Object.values(nonStopStations.stations)
-  //       .filter(d => d.distance > mindist)
-  //   }
+    const nonStopStationsFiltered = {
+      ...nonStopStations,
+      stations: Object.values(nonStopStations.stations)
+        .filter(d => d.distance > mindist)
+    }
 
-  //   const enhancedStations = {
-  //     ...nonStopStationsFiltered,
-  //     stations: await enhancedStopovers(Object.values(nonStopStationsFiltered.stations), radius)
-  //   }
+    const enhancedStations = {
+      ...nonStopStationsFiltered,
+      stations: await enhancedStopovers(Object.values(nonStopStationsFiltered.stations), radius)
+    }
 
-  //   res.json(enhancedStations)
-  res.send(nonStopStations)
+    res.json(enhancedStations)
+  // res.send(nonStopStations)
 
   } catch (error) {
     res.status(500).json({
