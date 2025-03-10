@@ -36,8 +36,11 @@ const StationSearch = ({ sendDepartureStation }) => {
         type="text"
         value={inputValue}
         onChange={handleInputChange}
-        placeholder="Bahnhof suchen"
+        placeholder="search station "
         className="
+            text-center
+            text-sm
+            text-gray-800
             w-full 
             px-4 
             py-2 

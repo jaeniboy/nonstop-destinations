@@ -209,11 +209,12 @@ function App() {
         </div>
         :
 
-        <div className="flex flex-col justify-center h-full h-screen overflow-hidden">
+        <div className="flex flex-col justify-center h-full h-screen overflow-hidden bg-indigo-50">
           <div>
-            <div className="w-full flex items-center pt-3 pb-3 bg-primary rounded-b-2xl px-5 ">
-              <img src={logo} className="h-14 hidden sm:block" />
-              <div className="w-full flex justify-center">
+            <div className="w-full place-content-between flex items-center pt-3 pb-3 bg-indigo-500 rounded-b-2xl px-5 ">
+              <img src={logo} className="h-8 md:h-11 lg:h-12" />
+              <div className="">
+              {/* <div className="w-full flex justify-center"> */}
                 <StationSearch
                   sendDepartureStation={sendDepartureStation}
                 />
@@ -226,7 +227,7 @@ function App() {
             </div>
             {stations.length != 0 && !loading && !alert.show &&
               <div className="w-full sm:w-full md:w-4/5 xl:w-3/5 mx-auto">
-                <div className="w-full lg:w-4/5 mx-auto lg:pb-5">
+                <div className="w-full lg:w-4/5 mx-auto md:pb-7">
                   <SuggestionTitleBox
                     stationName={station.name}
                     index={stationDisplayIndex}
@@ -265,7 +266,7 @@ function App() {
             {stations.length != 0 && !loading && !alert.show &&
               <div className="w-full sm:w-full md:w-4/5 xl:w-3/5 mx-auto">
 
-                <div className="mb-5 px-5 md:px-0">
+                <div className="mb-5 md:mb-7 px-5 md:px-0 text-gray-600 text-sm/6 tracking-wide">
                   {description}
                 </div>
 

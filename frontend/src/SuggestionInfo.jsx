@@ -41,17 +41,14 @@ const formatFrequency = (freq) => {
 
 const IconWithText = ({ children, icontext, value }) => {
     return (
-        <div className="flex items-center  mt-4 w-1/3 border border-gray-400 rounded-md p-1 m-1">
-            <div className="flex flex-col items-center justify-center bg-secondary rounded-md w-10 h-10">
-                <div className="text-lg text-white font-bold">
+        <div className="flex flex-row sm:flex-col md:flex-row items-center p-1 w-full sm:w-1/3">
+          {/* <div className="flex items-center  mt-4 w-1/3 border border-gray-400 rounded-md p-1 m-1"> */}
+            <div className="flex flex-col items-center justify-center bg-indigo-200 rounded-sm aspect-square h-7">
+                <div className="text-sm text-indigo-700 font-bold">
                     {children}
                 </div>
-                {/* <div className="text-xs mt-1">
-                    {icontext}
-                </div> */}
-
             </div>
-            <div className="text-sm text-lg ml-2 text-gray-400">
+            <div className="text-xs text-center ml-2 sm:mt-2 sm:ml-0 md:mt-0 md:ml-2 md:text-left text-gray-400 hyphens-auto">
                 {value}
             </div>
         </div>
@@ -60,7 +57,7 @@ const IconWithText = ({ children, icontext, value }) => {
 
 const SuggestionInfo = ({ data }) => {
     return (
-        <div className="flex justify-evenly">
+        <div className="flex flex-col mx-auto sm:flex-row justify-center mt-2 px-10">
             {/* <div class="flex-1"></div> */}
             {/* <IconWithText icontext="travel time" value={data.connectionsPerHour}> */}
             <IconWithText icontext="travel time" value={formatTimes(data.travelTime)}>
