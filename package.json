@@ -5,6 +5,7 @@
     "dev:frontend": "cd frontend && npm run dev -- --host",
     "build:frontend": "cd frontend && npm run build",
     "preview:frontend": "cd frontend && npm run preview",
+    "deploy:frontend": "cd frontend && npm run deploy",
     "dev:backend": "cd backend && npm run dev",
     "build:backend": "cd backend && npm run build",
     "start:backend": "cd backend && npm run start",

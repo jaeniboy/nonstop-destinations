@@ -4,7 +4,8 @@ import { BsClock } from "react-icons/bs";
 import { BsSignpostSplit } from "react-icons/bs";
 
 const formatDistance = (distance) => {
-    return distance < 1000 ? `${distance} m` : `${(distance / 1000).toFixed(0)} km`
+    const dist = distance < 1000 ? `${distance} m` : `${(distance / 1000).toFixed(0)} km`
+    return dist + " from origin"
 }
 
 const formatTime = (time) => {
@@ -15,23 +16,26 @@ const formatTime = (time) => {
 }
 
 const formatTimes = (times) => {
+    let timesString
     if (times.length > 1) {
         const timesSorted = times.sort((a,b) => a - b)
         const timesFormatted = timesSorted.map(time => formatTime(time));
         // show only the longest and the shortest travel time
-        const timesString = [timesFormatted[0],timesFormatted.slice(-1)[0]].join(" - ")
-        return timesString;
+        timesString = [timesFormatted[0],timesFormatted.slice(-1)[0]].join(" - ")
     } else {
-        return formatTime(times[0]);
+        timesString = formatTime(times[0]);
     }
+    return timesString + " travel time";
 }
 
 const formatFrequency = (freq) => {
     if (freq === 1) {
-        return "once per hour"
+        return "One connection per hour"
     }
     if (freq % 1 !== 0) {
-        return `${Math.floor(freq)}-${Math.ceil(freq)} times per hour`
+        return `${Math.floor(freq)}-${Math.ceil(freq)} connections per hour`
+    } else {
+        return `${freq} connections per hour`
     }
 }
 
