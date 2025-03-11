@@ -214,7 +214,6 @@ function App() {
             <div className="w-full place-content-between flex items-center pt-3 pb-3 bg-indigo-500 rounded-b-2xl px-5 ">
               <img src={logo} className="h-8 md:h-11 lg:h-12" />
               <div className="">
-              {/* <div className="w-full flex justify-center"> */}
                 <StationSearch
                   sendDepartureStation={sendDepartureStation}
                 />
@@ -226,8 +225,8 @@ function App() {
               </div>
             </div>
             {stations.length != 0 && !loading && !alert.show &&
-              <div className="w-full sm:w-full md:w-4/5 xl:w-3/5 mx-auto">
-                <div className="w-full lg:w-4/5 mx-auto md:pb-7">
+              <div className="w-full md:w-4/5 xl:w-3/5 mx-auto">
+                <div className="w-full px-4 md:px-0 lg:w-4/5 mx-auto md:pb-7">
                   <SuggestionTitleBox
                     stationName={station.name}
                     index={stationDisplayIndex}
@@ -266,7 +265,7 @@ function App() {
             {stations.length != 0 && !loading && !alert.show &&
               <div className="w-full sm:w-full md:w-4/5 xl:w-3/5 mx-auto">
 
-                <div className="mb-5 md:mb-7 px-5 md:px-0 text-gray-600 text-sm/6 tracking-wide">
+                <div className="mb-5 md:mb-7 mt-5 px-5 md:px-0 text-gray-600 text-sm/6 tracking-wide">
                   {description}
                 </div>
 
