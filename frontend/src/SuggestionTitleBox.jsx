@@ -25,7 +25,8 @@ const SuggestionTitleBox = ({
     const suggestionNumber = index + 1
     return (
         // <IconContext.Provider value={{ className: "text-2xl text-gray-400" }}>
-        <div className="h-60 absolute left-0 bottom-0 flex flex-col w-full justify-around px-2 pb-4 pt-2 mt-4 items-center bg-white rounded-xl border border-solid border-gray-300 shadow-[0px_-1px_6px_1px_rgba(0,0,0,0.1)] " style={{ "zIndex": 1000 }}>
+        <div className="flex flex-col w-full justify-around px-2 pb-4 items-center bg-white" style={{ "zIndex": 1000 }}>
+        {/* <div className="h-60 absolute left-0 bottom-0 flex flex-col w-full justify-around px-2 pb-4 pt-2 mt-4 items-center bg-white rounded-xl border border-solid border-gray-300 shadow-[0px_-1px_6px_1px_rgba(0,0,0,0.1)] " style={{ "zIndex": 1000 }}> */}
             <div className="flex w-full justify-between mb-5 mt-7">
                 <button onClick={previousStation} className={suggestionNumber === 1 && "invisible"} >
                     <NavigationIcon>

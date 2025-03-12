@@ -11,6 +11,7 @@ import logoBlack from './assets/nsd_logo_all_path.svg';
 import Alert from './Alert';
 import { BsGear } from "react-icons/bs";
 import { extractCityName } from './SuggestionPlaces';
+import Example from './Example'
 
 function App() {
 
@@ -227,14 +228,16 @@ function App() {
             {stations.length != 0 && !loading && !alert.show &&
               <div className="w-full md:w-4/5 xl:w-3/5 mx-auto">
                 <div className="w-full px-4 md:px-0 lg:w-4/5 mx-auto md:pb-7">
-                  <SuggestionTitleBox
-                    stationName={station.name}
-                    index={stationDisplayIndex}
-                    nextStation={nextStation}
-                    previousStation={previousStation}
-                    lastSuggestion={stations.length}
-                    station={station}
-                  />
+                  <Example>
+                    <SuggestionTitleBox
+                      stationName={station.name}
+                      index={stationDisplayIndex}
+                      nextStation={nextStation}
+                      previousStation={previousStation}
+                      lastSuggestion={stations.length}
+                      station={station}
+                    />
+                  </Example>
                 </div>
               </div>}
           </div>
@@ -279,10 +282,10 @@ function App() {
                     />
                   </div>
 
-
                   <div className="w-full lg:w-1/2">
                     <SuggestionPlaces data={station} />
                   </div>
+
                 </div>
               </div>}
           </div>
