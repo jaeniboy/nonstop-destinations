@@ -12,6 +12,7 @@ import Alert from './Alert';
 import { BsGear } from "react-icons/bs";
 import { extractCityName } from './SuggestionPlaces';
 import Example from './Example'
+import BottomSheet from './BottomSheet';
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [alert, setAlert] = useState({ show: false, message: '', type: '' });
   const [retry, setRetry] = useState(false)
-  const [departureStation, setDepartureStation] = useState('')
+  const [departureStation, setDepartureStation] = useState({})
   const [radius, setRadius] = useState(1000)
   const [showOptions, setShowOptions] = useState(false)
   const [options, setOptions] = useState({
@@ -46,7 +47,7 @@ function App() {
 
   const sendDepartureStation = (stationId) => {
     setDepartureStation(stationId)
-    fetchStationData(stationId)
+    fetchStationData(stationId.rmvId)
   }
 
   const sendAlert = (message, type) => {
@@ -58,7 +59,7 @@ function App() {
   const retryLoading = () => {
     setAlert({ show: false, message: '', type: '' });
     setRetry(true)
-    fetchStationData(departureStation)
+    fetchStationData(departureStation.rmvId)
   }
 
   const nextStation = () => {
@@ -71,7 +72,7 @@ function App() {
   }
 
   const fetchStationData = async (stationId) => {
-
+    console.log(stationId)
     setLoading(true)
     setAlert({ show: false, message: '', type: '' });
     try {
@@ -95,7 +96,6 @@ function App() {
       setLoading(false)
       setRetry(false)
       setOriginalStations(data)
-      // showStations(data) // call filter and sorting logic
 
     } catch (error) {
 
@@ -211,8 +211,8 @@ function App() {
         :
 
         <div className="flex flex-col justify-center h-full h-screen overflow-hidden bg-indigo-50">
-          <div>
-            <div className="w-full place-content-between flex items-center pt-3 pb-3 bg-indigo-500 rounded-b-2xl px-5 ">
+          <div className="z-[10001]">
+            <div className="w-full place-content-between flex items-center pt-3 pb-3 bg-indigo-500 px-5 h-14">
               <img src={logo} className="h-8 md:h-11 lg:h-12" />
               <div className="">
                 <StationSearch
@@ -228,7 +228,7 @@ function App() {
             {stations.length != 0 && !loading && !alert.show &&
               <div className="w-full md:w-4/5 xl:w-3/5 mx-auto">
                 <div className="w-full px-4 md:px-0 lg:w-4/5 mx-auto md:pb-7">
-                  <Example>
+                  <BottomSheet>
                     <SuggestionTitleBox
                       stationName={station.name}
                       index={stationDisplayIndex}
@@ -236,8 +236,15 @@ function App() {
                       previousStation={previousStation}
                       lastSuggestion={stations.length}
                       station={station}
+                      departureStation={departureStation}
                     />
-                  </Example>
+                    <div className="mb-5 md:mb-7 mt-2 px-5 md:px-0 text-gray-600 text-sm/6 tracking-wide h-40">
+                      {description}
+                    </div>
+                    <div className="overflow-auto w-full lg:w-1/2">
+                      <SuggestionPlaces data={station} />
+                    </div>
+                  </BottomSheet>
                 </div>
               </div>}
           </div>
@@ -267,25 +274,13 @@ function App() {
 
             {stations.length != 0 && !loading && !alert.show &&
               <div className="w-full sm:w-full md:w-4/5 xl:w-3/5 mx-auto">
-
-                <div className="mb-5 md:mb-7 mt-5 px-5 md:px-0 text-gray-600 text-sm/6 tracking-wide">
-                  {description}
-                </div>
-
                 <div className="w-full flex flex-col lg:flex-row">
-
-
-                  <div className="w-full lg:w-1/2 h-[400px]">
+                  <div className="w-full lg:w-1/2 h-[55vh] absolute top-14">
                     <Map
                       station={station}
                       radius={radius}
                     />
                   </div>
-
-                  <div className="w-full lg:w-1/2">
-                    <SuggestionPlaces data={station} />
-                  </div>
-
                 </div>
               </div>}
           </div>

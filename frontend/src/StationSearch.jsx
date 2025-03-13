@@ -26,7 +26,7 @@ const StationSearch = ({ sendDepartureStation }) => {
   const handleSelectStation = (station) => {
     setInputValue(station.name);
     setSuggestions([]);
-    sendDepartureStation(station.rmvId)
+    sendDepartureStation(station)
     // sendDepartureStation(station.id)
   };
 

@@ -41,18 +41,19 @@ const formatFrequency = (freq) => {
 
 const IconWithText = ({ children, label, value, unit }) => {
     return (
-        <div className="flex flex-row md:flex-row items-end px-1 w-full sm:w-1/3">
-            <div className="flex flex-col items-center justify-center bg-indigo-200 rounded-sm aspect-square h-10">
-                <div className="text-xl text-indigo-700 font-bold">
+        <div className="flex flex-row justify-center items-center px-1 w-full sm:w-1/3">
+            <div className="flex flex-col items-center justify-center">
+            {/* <div className="flex flex-col items-center justify-center bg-indigo-200 rounded-sm aspect-square h-10"> */}
+                <div className="text-xl text-gray-600 ">
                     {children}
                 </div>
             </div>
-            <div className="flex flex-col ml-1 hyphens-auto translate-y-[3px]">
-                <div className="flex flex-row items-baseline text-gray-600 translate-y-1">
-                    <div className="text-xl font-semibold">
+            <div className="flex flex-col ml-2 hyphens-auto">
+                <div className="flex flex-row items-baseline text-gray-600">
+                    <div className="text-xs font-semibold">
                         {value}
                     </div>
-                    <div className="text-sm text-gray-400 ml-[3px]">
+                    <div className="text-xs text-gray-400 ml-[3px]">
                         {unit}
                     </div>
                 </div>
@@ -75,7 +76,7 @@ const SuggestionInfo = ({ data }) => {
             <IconWithText label="from origin" value={formatDistance(data.distance)} unit="km">
                 <BsSignpostSplit />
             </IconWithText>
-            <IconWithText label="per hour" value={formatFrequency(data.connectionsPerHour)} unit="conn.">
+            <IconWithText label="per hour" value={formatFrequency(data.connectionsPerHour)} unit="connect.">
                 <BsRepeat />
             </IconWithText>
             {/* <div class="flex-1"></div> */}
