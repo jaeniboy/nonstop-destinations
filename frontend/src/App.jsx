@@ -13,6 +13,7 @@ import { BsGear } from "react-icons/bs";
 import { extractCityName } from './SuggestionPlaces';
 import Example from './Example'
 import BottomSheet from './BottomSheet';
+import { BsSearch } from "react-icons/bs";
 
 function App() {
 
@@ -215,9 +216,7 @@ function App() {
             <div className="w-full place-content-between flex items-center pt-3 pb-3 bg-indigo-500 px-5 h-14">
               <img src={logo} className="h-8 md:h-11 lg:h-12" />
               <div className="">
-                <StationSearch
-                  sendDepartureStation={sendDepartureStation}
-                />
+
               </div>
               <div onClick={toggleOptions} className="flex ml-3 cursor-pointer items-center text-white">
                 <span className="text-xl">
@@ -237,6 +236,7 @@ function App() {
                       lastSuggestion={stations.length}
                       station={station}
                       departureStation={departureStation}
+                      sendDepartureStation={sendDepartureStation}
                     />
                     <div className="mb-5 md:mb-7 mt-2 px-5 md:px-0 text-gray-600 text-sm/6 tracking-wide h-40">
                       {description}
@@ -258,13 +258,29 @@ function App() {
               />
             }
 
-            {loading && <LoadingSpinner />}
+            {loading && 
+            <div className="h-full flex items-center">
+              <LoadingSpinner />
+            </div>
+            }
 
             {alert.show && <Alert message={alert.message} type={alert.type} retry={retryLoading} />}
 
             {originalStations.length === 0 && !loading &&
-              <div className="w-full flex justify-center items-center mt-7">
-                <div className="w-3/4 text-center">Find interesting places in your area that are accessible by public transport without transfers. Please select your starting point ... </div>
+              <div className="flex items-center h-full">
+                <div className="w-full flex flex-col justify-center items-center">
+                  <blockquote class="w-3/4 text-5xl font-bold italic mb-11 px-4 text-gray-900">
+                    <p>„Changing trains sucks!“</p>
+                    <footer class="mt-4 text-base font-normal text-end text-gray-400">- some guy with kids</footer>
+                  </blockquote>
+                  <div className="w-3/4 text-start text-gray-700">Use this tool to find interesting places in your area that are accessible by public transport without transfers.</div>
+                  <div className="w-3/5 mt-20 flex items-center">
+                    <StationSearch
+                      sendDepartureStation={sendDepartureStation}
+                    />
+                    <div className="text-gray-600 ml-2"><BsSearch /></div>
+                  </div>
+                </div>
               </div>
             }
 
