@@ -58,11 +58,11 @@ const SuggestionPlaces = ({ data }) => {
         return (
             d.data.length > 0 &&
             <div key={d.id} >
-                <div className="items-center flex w-full py-2 px-1 justify-between border-t cursor-pointer"
+                <div className="items-center flex flex-grow overflow-auto w-full py-2 px-1 justify-between border-t cursor-pointer"
                     onClick={() => toggleAccordion(d.id)}
                 >
                     <div className="flex items-center">
-                        <div className="p-1.5 rounded-full" style={{background: iconMap.color}}>
+                        <div className="p-1.5 rounded-full" style={{ background: iconMap.color }}>
                             <div className="w-12 h-12 flex justify-center items-center bg-white rounded-full">
                                 <p className="text-3xl font-noto-emoji text-black">
                                     {iconMap.emoji}
@@ -122,7 +122,9 @@ const SuggestionPlaces = ({ data }) => {
     return (
         <div className="relative flex flex-col px-5 z-[1000]}">
             <div className="pb-3 pt-5 lg:pt-0 text-lg font-semibold text-center">Places of Interest</div>
-            {displaySummary}
+            <div className="h-[40vh] overflow-auto">
+                {displaySummary}
+            </div>
         </div>
     )
 }
