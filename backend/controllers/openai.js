@@ -1,19 +1,20 @@
 import OpenAI from "openai";
 import 'dotenv/config'
 
-export const getDescription = async (cityName="Hinterdupfingen", data=testdata, language="english") => {
+export const getDescription = async (stationName="Hinterdupfingen", data=testdata, language="english") => {
 
     const sysprompt = `
-    Please write a short text with round about 40 Words about
-    why a city or village is worth visiting for families. Your 
-    text should include the city name and a short description of 
-    the most important places of interest. Please be friendly and
+    Please write a short text with round about 30 Words about
+    why a train station is worth visiting for families based on 
+    interesting places around it. Your text should include the 
+    station name and a short description of the three most 
+    important places of interest. Please be friendly and
     objective. Avoid typical marketing phrases. The text should
     be written in ${language}.
 
     Here is the data: 
 
-    City Name: ${cityName}
+    Station Name: ${stationName}
 
     Places of Interest:
 
