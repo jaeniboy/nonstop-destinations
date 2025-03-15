@@ -122,7 +122,7 @@ const SuggestionPlaces = ({ data }) => {
     return (
         <div className="relative flex flex-col px-5 z-[1000]}">
             <div className="pb-3 pt-5 lg:pt-0 text-lg font-semibold text-center">Places of Interest</div>
-            <div className="h-[40vh] overflow-auto">
+            <div className="h-full overflow-auto">
                 {displaySummary}
             </div>
         </div>

@@ -27,16 +27,16 @@ const SuggestionTitleBox = ({
 }) => {
     const suggestionNumber = index + 1
     return (
-        <div className="flex flex-col w-full px-2 pb-4 bg-white" style={{ "zIndex": 1000 }}>
+        <div className="flex flex-col w-full pb-4 bg-white" style={{ "zIndex": 1000 }}>
             <div className="flex w-full mb-2 mt-1">
-                <div className="w-1/5 flex content-start justify-center">
+                <div className="w-1/5 flex content-start justify-start">
                     <div onClick={previousStation} className={suggestionNumber === 1 && "invisible"} >
                         <NavigationIcon>
                             <BsChevronLeft />
                         </NavigationIcon>
                     </div>
                 </div>
-                <div className="w-3/5 flex">
+                <div className="w-3/5 flex justify-center">
                     <div className="flex flex-col">
                         <div className="border border-4 p-1 mt-1 rounded-full border-gray-400 border-solid"></div>
                         <div className="border-l-4 py-[14px] ml-[6px] border-gray-400 border-dotted"></div>
@@ -44,10 +44,10 @@ const SuggestionTitleBox = ({
                     </div>
                     <div className="flex flex-col pl-4 transform -translate-y-3">
                         <StationSearch sendDepartureStation={sendDepartureStation} displayValue={departureStation.name} />
-                        <h3 className="text-left text-xl mt-4 text-gray-700 font-semibold tracking-tight hyphens-auto">{stationName}</h3>
+                        <h3 className="text-left text-md mt-4 text-gray-700 font-semibold tracking-tight hyphens-auto">{stationName}</h3>
                     </div>
                 </div>
-                <div className="w-1/5 flex justify-center">
+                <div className="w-1/5 flex justify-end">
                 <div onClick={nextStation} className={suggestionNumber === lastSuggestion ? "invisible" : undefined}>
                     <NavigationIcon>
                         <BsChevronRight />

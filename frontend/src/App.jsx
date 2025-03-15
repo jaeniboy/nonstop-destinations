@@ -33,6 +33,7 @@ function App() {
     maxwalk: 1000
   })
   const [description, setDescription] = useState("")
+  const [showPlaces, setShowPlaces] = useState(false)
   const station = stations[stationDisplayIndex]
 
   useEffect(() => {
@@ -151,7 +152,8 @@ function App() {
   const generateDescriptions = async () => {
 
     const payload = {
-      cityName: extractCityName(station.name),
+      stationName: station.name,
+      // cityName: extractCityName(station.name),
       destinations: station.destinations,
       language: "german"
     };
@@ -199,6 +201,54 @@ function App() {
 
   checkHealth()
 
+  const ContentBox = () => {
+
+    const toggleShowPlaces = () => {
+      setShowPlaces(!showPlaces)
+    }
+
+    return (
+      <div className="relative h-full">
+        <div className="flex flex-col content-end">
+          <SuggestionTitleBox
+            stationName={station.name}
+            index={stationDisplayIndex}
+            nextStation={nextStation}
+            previousStation={previousStation}
+            lastSuggestion={stations.length}
+            station={station}
+            departureStation={departureStation}
+            sendDepartureStation={sendDepartureStation}
+          />
+          <div className="mb-5 md:mb-14 mt-2 md:px-0 text-gray-600 text-sm/6 tracking-wide">
+            {description}
+          </div>
+          <div className="flex justify-center">
+            <button onClick={toggleShowPlaces} className="bg-indigo-600 px-2 py-1 rounded-sm text-indigo-100 ">
+              show details
+            </button>
+          </div>
+        </div>
+        <div className={`
+            fixed bottom-0
+            overflow-auto 
+            bg-white
+            w-full
+            md:h-full
+            top-0 absolute 
+            transition-all duration-300 ease-in-out
+            md:translate-y-0
+            ${showPlaces ? "translate-y-0 md:translate-x-0" : "translate-y-full md:-translate-x-full"}`
+        }>
+          <button onClick={toggleShowPlaces}>
+            hide details
+          </button>
+          <SuggestionPlaces data={station} />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <>
 
@@ -226,24 +276,9 @@ function App() {
             </div>
             {stations.length != 0 && !loading && !alert.show &&
               <div className="w-full md:w-4/5 xl:w-3/5 mx-auto">
-                <div className="w-full px-4 md:px-0 lg:w-4/5 mx-auto md:pb-7">
+                <div className="w-full px-4 md:px-0 lg:w-4/5 mx-auto">
                   <BottomSheet>
-                    <SuggestionTitleBox
-                      stationName={station.name}
-                      index={stationDisplayIndex}
-                      nextStation={nextStation}
-                      previousStation={previousStation}
-                      lastSuggestion={stations.length}
-                      station={station}
-                      departureStation={departureStation}
-                      sendDepartureStation={sendDepartureStation}
-                    />
-                    <div className="mb-5 md:mb-7 mt-2 px-5 md:px-0 text-gray-600 text-sm/6 tracking-wide h-40">
-                      {description}
-                    </div>
-                    <div className="overflow-auto w-full lg:w-1/2">
-                      <SuggestionPlaces data={station} />
-                    </div>
+                    {ContentBox()}
                   </BottomSheet>
                 </div>
               </div>}
@@ -258,19 +293,25 @@ function App() {
               />
             }
 
-            {loading && 
-            <div className="h-full flex items-center">
-              <LoadingSpinner />
-            </div>
+            {loading &&
+              <div className="h-full flex items-center">
+                <LoadingSpinner />
+              </div>
             }
 
             {alert.show && <Alert message={alert.message} type={alert.type} retry={retryLoading} />}
 
             {originalStations.length === 0 && !loading &&
-              <div className="flex items-center h-full">
-                <div className="w-full flex flex-col justify-center items-center">
-                  <blockquote class="w-3/4 text-5xl font-bold italic mb-11 px-4 text-gray-900">
-                    <p>„Changing trains sucks!“</p>
+              <div className="flex justify-center items-center h-full">
+                <div className="w-full lg:w-2/3 flex flex-col justify-center items-center">
+                  <blockquote class="flex flex-col justify-center w-3/4 lg:w-1/2 text-3xl font-semibold text-start mb-11 px-4 text-gray-900">
+                    <div className="flex justify-center">
+                      <div className="text-indigo-500 text-6xl item-end mr-4 content-end">„</div>
+                      <div className="content-center">
+                        <p>Changing trains sucks!</p>
+                      </div>
+                      <div className="text-indigo-500 text-6xl item-end ml-4 content-start">“</div>
+                    </div>
                     <footer class="mt-4 text-base font-normal text-end text-gray-400">- some guy with kids</footer>
                   </blockquote>
                   <div className="w-3/4 text-start text-gray-700">Use this tool to find interesting places in your area that are accessible by public transport without transfers.</div>
@@ -289,13 +330,18 @@ function App() {
             }
 
             {stations.length != 0 && !loading && !alert.show &&
-              <div className="w-full sm:w-full md:w-4/5 xl:w-3/5 mx-auto">
-                <div className="w-full flex flex-col lg:flex-row">
-                  <div className="w-full lg:w-1/2 h-[55vh] absolute top-14">
-                    <Map
-                      station={station}
-                      radius={radius}
-                    />
+              <div className="w-full h-full mx-auto">
+                <div className="w-full h-full flex flex-col md:flex-row">
+                  <div className="hidden md:block w-1/2 h-full bg-white p-5 z-[1001] shadow-[3px_-3px_9px_0px_rgba(0,0,0,0.2)]">
+                    {ContentBox()}
+                  </div>
+                  <div className="">
+                    <div className="w-full md:w-1/2 h-96 md:h-full absolute top-0 pt-14 pr-2">
+                      <Map
+                        station={station}
+                        radius={radius}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>}

@@ -21,7 +21,8 @@ app.use(express.json()); // Middleware für JSON-Daten
 
 app.use(cors({
   origin: [
-    'http://192.168.13.107:5173',,
+    'http://192.168.13.107:5173',
+    'http://192.168.0.23:5173',
     'https://jaeniboy.github.io'
     // 'https://jaeniboy.github.io/nonstop-destinations'
   ],
@@ -147,7 +148,7 @@ app.post("/description", async (req, res) => {
     const desc = await getDescription(stationName, destinations, language)
     res.json(desc)
   } else {
-    const desc = { "choices": [{ "message": { "content": `${stationName} Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et` } }] }
+    const desc = { "choices": [{ "message": { "content": `${stationName} Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren` } }] }
     res.json(desc)
   }
 })

@@ -44,7 +44,7 @@ const IconWithText = ({ children, label, value, unit }) => {
         <div className="flex flex-row justify-center items-center px-1 w-full sm:w-1/3">
             <div className="flex flex-col items-center justify-center">
             {/* <div className="flex flex-col items-center justify-center bg-indigo-200 rounded-sm aspect-square h-10"> */}
-                <div className="text-xl text-gray-600 ">
+                <div className="text-xl text-gray-500 ">
                     {children}
                 </div>
             </div>
@@ -67,17 +67,17 @@ const IconWithText = ({ children, label, value, unit }) => {
 
 const SuggestionInfo = ({ data }) => {
     return (
-        <div className="flex justify-between mx-auto w-full md:w-2/3 sm:flex-row justify-center mt-2 px-2">
+        <div className="flex justify-between mx-auto w-full sm:flex-row justify-center mt-2">
             {/* <div class="flex-1"></div> */}
             {/* <IconWithText icontext="travel time" value={data.connectionsPerHour}> */}
             <IconWithText label="travel time" value={formatTimes(data.travelTime)} unit="min">
                 <BsClock />
             </IconWithText>
-            <IconWithText label="from origin" value={formatDistance(data.distance)} unit="km">
-                <BsSignpostSplit />
-            </IconWithText>
             <IconWithText label="per hour" value={formatFrequency(data.connectionsPerHour)} unit="connect.">
                 <BsRepeat />
+            </IconWithText>
+            <IconWithText label="from origin" value={formatDistance(data.distance)} unit="km">
+                <BsSignpostSplit />
             </IconWithText>
             {/* <div class="flex-1"></div> */}
         </div>
