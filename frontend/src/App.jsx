@@ -14,6 +14,7 @@ import { extractCityName } from './SuggestionPlaces';
 import Example from './Example'
 import BottomSheet from './BottomSheet';
 import { BsSearch } from "react-icons/bs";
+import { BsXLg } from "react-icons/bs";
 
 function App() {
 
@@ -209,18 +210,20 @@ function App() {
 
     return (
       <div className="relative h-full">
-        <div className="flex flex-col content-end">
-          <SuggestionTitleBox
-            stationName={station.name}
-            index={stationDisplayIndex}
-            nextStation={nextStation}
-            previousStation={previousStation}
-            lastSuggestion={stations.length}
-            station={station}
-            departureStation={departureStation}
-            sendDepartureStation={sendDepartureStation}
-          />
-          <div className="mb-5 md:mb-14 mt-2 md:px-0 text-gray-600 text-sm/6 tracking-wide">
+        <div className="h-full flex-col content-start p-5">
+          <div className="">
+            <SuggestionTitleBox
+              stationName={station.name}
+              index={stationDisplayIndex}
+              nextStation={nextStation}
+              previousStation={previousStation}
+              lastSuggestion={stations.length}
+              station={station}
+              departureStation={departureStation}
+              sendDepartureStation={sendDepartureStation}
+            />
+          </div>
+          <div className="mb-5 md:my-14 mt-2 md:px-0 text-gray-600 text-sm/6 tracking-wide">
             {description}
           </div>
           <div className="flex justify-center">
@@ -238,11 +241,13 @@ function App() {
             top-0 absolute 
             transition-all duration-300 ease-in-out
             md:translate-y-0
+            py-5
+            pl-5
             ${showPlaces ? "translate-y-0 md:translate-x-0" : "translate-y-full md:-translate-x-full"}`
         }>
-          <button onClick={toggleShowPlaces}>
-            hide details
-          </button>
+          <div onClick={toggleShowPlaces} className="flex justify-end pr-5 cursor-pointer">
+            <BsXLg/>
+          </div>
           <SuggestionPlaces data={station} />
         </div>
       </div>
@@ -332,7 +337,7 @@ function App() {
             {stations.length != 0 && !loading && !alert.show &&
               <div className="w-full h-full mx-auto">
                 <div className="w-full h-full flex flex-col md:flex-row">
-                  <div className="hidden md:block w-1/2 h-full bg-white p-5 z-[1001] shadow-[3px_-3px_9px_0px_rgba(0,0,0,0.2)]">
+                  <div className="hidden md:block w-1/2 h-full bg-white z-[1001] shadow-[3px_-3px_9px_0px_rgba(0,0,0,0.2)]">
                     {ContentBox()}
                   </div>
                   <div className="">

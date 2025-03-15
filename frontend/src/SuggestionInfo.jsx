@@ -41,7 +41,7 @@ const formatFrequency = (freq) => {
 
 const IconWithText = ({ children, label, value, unit }) => {
     return (
-        <div className="flex flex-row justify-center items-center px-1 w-full sm:w-1/3">
+        <div className="flex flex-row justify-center items-center px-1 w-fit">
             <div className="flex flex-col items-center justify-center">
             {/* <div className="flex flex-col items-center justify-center bg-indigo-200 rounded-sm aspect-square h-10"> */}
                 <div className="text-xl text-gray-500 ">
@@ -67,7 +67,7 @@ const IconWithText = ({ children, label, value, unit }) => {
 
 const SuggestionInfo = ({ data }) => {
     return (
-        <div className="flex justify-between mx-auto w-full sm:flex-row justify-center mt-2">
+        <div className="flex justify-around mx-auto w-full sm:flex-row justify-center mt-2">
             {/* <div class="flex-1"></div> */}
             {/* <IconWithText icontext="travel time" value={data.connectionsPerHour}> */}
             <IconWithText label="travel time" value={formatTimes(data.travelTime)} unit="min">
