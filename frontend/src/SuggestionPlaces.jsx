@@ -54,23 +54,21 @@ const SuggestionPlaces = ({ data, visible }) => {
 
     const displaySummary = summary.map(d => {
         const iconMap = d.data.length > 0 && iconMapping(d.id)
-        // const iconMap = d.data.length > 0 && iconMapping(d.data[0].tags)
         return (
             d.data.length > 0 &&
             <div key={d.id} >
-                <div className="items-center flex flex-grow overflow-auto w-full py-2 px-1 justify-between border-t cursor-pointer"
+                <div className="items-center flex flex-grow overflow-auto w-full py-2 px-1 justify-between border-b cursor-pointer"
                     onClick={() => toggleAccordion(d.id)}
                 >
                     <div className="flex items-center">
                         <div className="p-1.5 rounded-full" style={{ background: iconMap.color }}>
                             <div className="w-12 h-12 flex justify-center items-center bg-white rounded-full">
-                                <p className="text-3xl font-noto-emoji text-black">
+                                <p className="text-2xl font-noto-emoji text-black">
                                     {iconMap.emoji}
                                 </p>
-                                {/* <img src={iconMap.image}></img> */}
                             </div>
                         </div>
-                        <div className="text-lg ml-5">
+                        <div className="text-md ml-5">
                             {iconMap.name}
                         </div>
                     </div>
@@ -91,16 +89,13 @@ const SuggestionPlaces = ({ data, visible }) => {
                             {d.data.map((d, i) => {
                                 const addressGiven = d.tags["addr:city"] && d.tags["addr:street"] && d.tags["addr:housenumber"]
                                 return (
-                                    <div key={i} className="flex items-center justify-between w-full px-4 py-2 border-t">
+                                    <div key={i} className="flex items-center w-full px-4 py-2 border-t">
                                         <div className="flex flex-col ml-5">
                                             <div className="flex">
                                                 {d.tags.name ? d.tags.name : <div className="text-gray-400">no name provided</div>}
-                                                {d.tags.website ?
-                                                    <Weblink text="website" url={d.tags.website} Icon={BsGlobe} /> :
-                                                    <Weblink text="web search" url={"https://duckduckgo.com/?q=" + d.tags.name + "+" + extractCityName(data.name)} Icon={BsSearch} />
-                                                }
+
                                             </div>
-                                            <div className="text-gray-500 text-xs">
+                                            <div className="text-gray-400 text-xs">
                                                 {
                                                     addressGiven ?
                                                         `${d.tags["addr:street"]} ${d.tags["addr:housenumber"]}, ${d.tags["addr:city"]}` :
@@ -108,6 +103,12 @@ const SuggestionPlaces = ({ data, visible }) => {
                                                 }
 
                                             </div>
+                                        </div>
+                                        <div className="text-nowrap">
+                                            {d.tags.website ?
+                                                <Weblink text="website" url={d.tags.website} Icon={BsGlobe} /> :
+                                                <Weblink text="web search" url={"https://duckduckgo.com/?q=" + d.tags.name + "+" + extractCityName(data.name)} Icon={BsSearch} />
+                                            }
                                         </div>
                                     </div>
                                 )
@@ -121,7 +122,6 @@ const SuggestionPlaces = ({ data, visible }) => {
 
     return (
         <div className="relative flex flex-col z-[1000]} h-full overflow-auto">
-            {/* <div className="pb-3 lg:pt-0 text-lg font-semibold text-center tracking-tight">Places of Interest</div> */}
             <div className="h-full overflow-auto pb-5">
                 {displaySummary}
             </div>
