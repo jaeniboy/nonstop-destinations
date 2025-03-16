@@ -15,6 +15,7 @@ import Example from './Example'
 import BottomSheet from './BottomSheet';
 import { BsSearch } from "react-icons/bs";
 import { BsXLg } from "react-icons/bs";
+import { BsSliders } from "react-icons/bs";
 
 function App() {
 
@@ -263,6 +264,7 @@ function App() {
         :
 
         <div className="flex flex-col justify-center h-full h-screen overflow-hidden bg-white">
+
           <div className="z-[10001]">
             <div className="w-full place-content-between flex items-center pt-3 pb-3 bg-indigo-500 px-5 h-14">
               <img src={logo} className="h-8 md:h-11 lg:h-12" />
@@ -271,10 +273,18 @@ function App() {
               </div>
               <div onClick={toggleOptions} className="flex ml-3 cursor-pointer items-center text-white">
                 <span className="text-xl">
-                  <BsGear />
-                </span><div className="h-full ml-2 content-center hidden sm:block">Options</div>
+                  <BsSliders />
+                </span><div className="h-full ml-2 content-center hidden sm:block">Settings</div>
               </div>
             </div>
+            {showOptions &&
+              <Options
+                options={options}
+                optionsChange={handleOptionsChange}
+                onSave={handleSaveOptions}
+                onClose={toggleOptions}
+              />
+            }
             {stations.length != 0 && !loading && !alert.show &&
               <div className="w-full md:w-4/5 xl:w-3/5 mx-auto">
                 <div className="w-full px-4 md:px-0 lg:w-4/5 mx-auto">
@@ -286,13 +296,6 @@ function App() {
           </div>
 
           <div className='flex-1 overflow-y-scroll'>
-            {showOptions &&
-              <Options
-                options={options}
-                optionsChange={handleOptionsChange}
-                onSave={handleSaveOptions}
-              />
-            }
 
             {loading &&
               <div className="h-full flex items-center">
