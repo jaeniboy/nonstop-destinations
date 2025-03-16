@@ -1,9 +1,9 @@
 import React from 'react';
 import L from "leaflet";
 import { MapContainer, TileLayer, Marker, Popup, useMap, Circle } from 'react-leaflet';
-import { GestureHandling } from "leaflet-gesture-handling";
+// import { GestureHandling } from "leaflet-gesture-handling";
 import 'leaflet/dist/leaflet.css';
-import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
+// import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
 import { useEffect } from 'react';
 import { colors } from "../colors";
 import { iconMapping } from './IconMapper';
