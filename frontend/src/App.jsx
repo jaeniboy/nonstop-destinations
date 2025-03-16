@@ -341,7 +341,7 @@ function App() {
                     {ContentBox()}
                   </div>
                   <div className="">
-                    <div className="w-full md:w-1/2 h-96 md:h-full absolute top-0 pt-14 pr-2">
+                    <div className="w-full md:w-1/2 h-3/5 md:h-full absolute top-0 pt-14 md:pr-2">
                       <Map
                         station={station}
                         radius={radius}
