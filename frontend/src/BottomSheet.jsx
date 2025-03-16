@@ -9,16 +9,16 @@ const BottomSheet = ({children}) => {
   return (
     <div className={
         `fixed bottom-0 left-0 right-0 
-        bg-white sm:bg-green-200 md:bg-red-200
+        bg-white
         shadow-[0px_-3px_9px_0px_rgba(0,0,0,0.2)] 
         rounded-xl 
         transition-all duration-300 ease-in-out 
         z-[1001]
         md:hidden
         px-5
-        ${isOpen ? 'h-[90vh]' : 'h-96 sm:h-[18em]'}`
+        ${isOpen ? 'h-[90vh]' : 'h-[22em] sm:h-[18em]'}`
         }>
-      <div onClick={toggleSheet} className="flex justify-center p-4">
+      {/* <div onClick={toggleSheet} className="flex justify-center p-4">
         {isOpen ? (
           <button  className="text-gray-500 hover:text-gray-700">
             <BsChevronDown className="h-6 w-6" />
@@ -28,8 +28,8 @@ const BottomSheet = ({children}) => {
             <BsChevronUp className="h-6 w-6" />
           </button>
         )}
-      </div>
-      <div className="px-42 flex flex-col h-full">
+      </div> */}
+      <div className="px-42 flex flex-col h-full pt-5">
         {children}
       </div>
     </div>

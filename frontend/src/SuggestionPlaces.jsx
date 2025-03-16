@@ -9,7 +9,7 @@ export function extractCityName(input) {
     return match ? match[0] : '';
 }
 
-const SuggestionPlaces = ({ data }) => {
+const SuggestionPlaces = ({ data, visible }) => {
 
     const [isOpen, setIsOpen] = useState("")
 
@@ -80,7 +80,7 @@ const SuggestionPlaces = ({ data }) => {
                 </div>
                 <div className={`
                     grid transition-[grid-template-rows] duration-500 ease-in-out
-                        ${isOpen === d.id
+                        ${isOpen === d.id && visible
                         ? 'grid-rows-[1fr]'
                         : 'grid-rows-[0fr]'
                     }
@@ -120,9 +120,9 @@ const SuggestionPlaces = ({ data }) => {
     })
 
     return (
-        <div className="relative flex flex-col pr-5 z-[1000]}">
-            <div className="pb-3 lg:pt-0 text-lg font-semibold text-center tracking-tight">Places of Interest</div>
-            <div className="h-full overflow-auto">
+        <div className="relative flex flex-col z-[1000]} h-full overflow-auto">
+            {/* <div className="pb-3 lg:pt-0 text-lg font-semibold text-center tracking-tight">Places of Interest</div> */}
+            <div className="h-full overflow-auto pb-5">
                 {displaySummary}
             </div>
         </div>

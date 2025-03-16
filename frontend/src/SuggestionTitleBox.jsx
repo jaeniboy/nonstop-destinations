@@ -7,7 +7,7 @@ import StationSearch from "./StationSearch";
 
 const NavigationIcon = ({ children }) => {
     return (
-        <div className="bg-gray-300 p-3 mt-3 rounded-full shadow-md hover:bg-indigo-500 text-gray-400 hover:text-indigo-200">
+        <div className="bg-gray-300 p-3 mt-3 rounded-full shadow-md hover:bg-indigo-500 text-gray-400 hover:text-indigo-200 cursor-pointer">
             <IconContext.Provider value={{ className: "text-2xl" }}>
                 {children}
             </IconContext.Provider>

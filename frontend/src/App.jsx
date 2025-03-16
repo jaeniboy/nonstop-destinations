@@ -210,7 +210,7 @@ function App() {
 
     return (
       <div className="relative h-full">
-        <div className="h-full flex-col content-start p-5">
+        <div className="h-full flex-col content-start">
           <div className="">
             <SuggestionTitleBox
               stationName={station.name}
@@ -223,32 +223,28 @@ function App() {
               sendDepartureStation={sendDepartureStation}
             />
           </div>
-          <div className="mb-5 md:my-14 mt-2 md:px-0 text-gray-600 text-sm/6 tracking-wide">
+          <div className="mb-1 md:my-14 mt-3 md:px-0 text-gray-600 text-sm/6 tracking-wide">
             {description}
-          </div>
-          <div className="flex justify-center">
-            <button onClick={toggleShowPlaces} className="bg-indigo-600 px-2 py-1 rounded-sm text-indigo-100 ">
-              show details
-            </button>
+            <div onClick={toggleShowPlaces} className="text-indigo-600 bg-indigo-100 border border-indigo-500 inline ml-2 py-[2px] px-2 text-xs rounded-md cursor-pointer text-nowrap">
+              show all
+            </div>
           </div>
         </div>
         <div className={`
             fixed bottom-0
-            overflow-auto 
+            
             bg-white
             w-full
             md:h-full
             top-0 absolute 
             transition-all duration-300 ease-in-out
             md:translate-y-0
-            py-5
-            pl-5
-            ${showPlaces ? "translate-y-0 md:translate-x-0" : "translate-y-full md:-translate-x-full"}`
+            ${showPlaces ? "md:pr-0 translate-y-0 md:translate-x-0" : "md:pr-5 translate-y-full md:-translate-x-full"}`
         }>
-          <div onClick={toggleShowPlaces} className="flex justify-end pr-5 cursor-pointer">
+          <div onClick={toggleShowPlaces} className="flex justify-end cursor-pointer">
             <BsXLg/>
           </div>
-          <SuggestionPlaces data={station} />
+          <SuggestionPlaces data={station} visible={showPlaces} />
         </div>
       </div>
     )
@@ -266,7 +262,7 @@ function App() {
         </div>
         :
 
-        <div className="flex flex-col justify-center h-full h-screen overflow-hidden bg-indigo-50">
+        <div className="flex flex-col justify-center h-full h-screen overflow-hidden bg-white">
           <div className="z-[10001]">
             <div className="w-full place-content-between flex items-center pt-3 pb-3 bg-indigo-500 px-5 h-14">
               <img src={logo} className="h-8 md:h-11 lg:h-12" />
@@ -309,23 +305,25 @@ function App() {
             {originalStations.length === 0 && !loading &&
               <div className="flex justify-center items-center h-full">
                 <div className="w-full lg:w-2/3 flex flex-col justify-center items-center">
+                  <div className="w-3/5 mb-20 flex items-center">
+                    <StationSearch
+                      sendDepartureStation={sendDepartureStation}
+                    />
+                    <div className="text-gray-600 ml-2"><BsSearch /></div>
+                  </div>
                   <blockquote class="flex flex-col justify-center w-3/4 lg:w-1/2 text-3xl font-semibold text-start mb-11 px-4 text-gray-900">
                     <div className="flex justify-center">
                       <div className="text-indigo-500 text-6xl item-end mr-4 content-end">„</div>
                       <div className="content-center">
-                        <p>Changing trains sucks!</p>
+                        <div className="text-center">
+                          Changing trains sucks!
+                          </div>
                       </div>
                       <div className="text-indigo-500 text-6xl item-end ml-4 content-start">“</div>
                     </div>
                     <footer class="mt-4 text-base font-normal text-end text-gray-400">- some guy with kids</footer>
                   </blockquote>
                   <div className="w-3/4 text-start text-gray-700">Use this tool to find interesting places in your area that are accessible by public transport without transfers.</div>
-                  <div className="w-3/5 mt-20 flex items-center">
-                    <StationSearch
-                      sendDepartureStation={sendDepartureStation}
-                    />
-                    <div className="text-gray-600 ml-2"><BsSearch /></div>
-                  </div>
                 </div>
               </div>
             }
@@ -337,7 +335,8 @@ function App() {
             {stations.length != 0 && !loading && !alert.show &&
               <div className="w-full h-full mx-auto">
                 <div className="w-full h-full flex flex-col md:flex-row">
-                  <div className="hidden md:block w-1/2 h-full bg-white z-[1001] shadow-[3px_-3px_9px_0px_rgba(0,0,0,0.2)]">
+                  <div className={`p-5 hidden md:block w-1/2 h-full bg-white z-[1001] shadow-[3px_-3px_9px_0px_rgba(0,0,0,0.2)]`}>
+                  {/* <div className={`p-5 ${showPlaces && " pr-0 "} hidden md:block w-1/2 h-full bg-white z-[1001] shadow-[3px_-3px_9px_0px_rgba(0,0,0,0.2)]`}> */}
                     {ContentBox()}
                   </div>
                   <div className="">
