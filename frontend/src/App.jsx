@@ -39,14 +39,18 @@ function App() {
   const station = stations[stationDisplayIndex]
 
   useEffect(() => {
-    originalStations.length !== 0 && showStations()
-    setDescription("")
-    generateDescriptions()
+    if (Object.keys(originalStations).length !== 0) {
+      showStations()
+      // setDescription("")
+      // generateDescriptions()
+    } 
   }, [originalStations])
 
+
   useEffect(() => {
-    generateDescriptions()
-  }, [stationDisplayIndex])
+    setDescription("")
+    Object.keys(originalStations).length !== 0 && generateDescriptions()
+  }, [stations])
 
 
   const sendDepartureStation = (stationId) => {
@@ -154,10 +158,10 @@ function App() {
   const generateDescriptions = async () => {
 
     const payload = {
-      stationName: station.name,
+      stationName: stations[stationDisplayIndex].name,
       // cityName: extractCityName(station.name),
       destinations: station.destinations,
-      language: "german"
+      language: "english"
     };
 
     const options = {
@@ -314,7 +318,7 @@ function App() {
                     />
                     <div className="text-gray-600 ml-2"><BsSearch /></div>
                   </div>
-                  <blockquote class="flex flex-col justify-center w-3/4 lg:w-1/2 text-3xl font-semibold text-start mb-11 px-4 text-gray-900">
+                  <blockquote className="flex flex-col justify-center w-3/4 lg:w-1/2 text-3xl font-semibold text-start mb-11 px-4 text-gray-900">
                     <div className="flex justify-center">
                       <div className="text-indigo-500 text-6xl item-end mr-4 content-end">„</div>
                       <div className="content-center">
@@ -324,7 +328,7 @@ function App() {
                       </div>
                       <div className="text-indigo-500 text-6xl item-end ml-4 content-start">“</div>
                     </div>
-                    <footer class="mt-4 text-base font-normal text-end text-gray-400">- some guy with kids</footer>
+                    <footer className="mt-4 text-base font-normal text-end text-gray-400">- some guy with kids</footer>
                   </blockquote>
                   <div className="w-3/4 text-start text-gray-700">Use this tool to find interesting places in your area that are accessible by public transport without transfers.</div>
                 </div>

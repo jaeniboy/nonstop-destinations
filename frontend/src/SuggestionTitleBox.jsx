@@ -30,7 +30,7 @@ const SuggestionTitleBox = ({
         <div className="flex flex-col w-full pb-4 bg-white" style={{ "zIndex": 1000 }}>
             <div className="flex w-full mb-2 mt-1">
                 <div className="w-1/5 flex content-start justify-start">
-                    <div onClick={previousStation} className={suggestionNumber === 1 && "invisible"} >
+                    <div onClick={previousStation} className={suggestionNumber === 1 ? "invisible" : undefined} >
                         <NavigationIcon>
                             <BsChevronLeft />
                         </NavigationIcon>

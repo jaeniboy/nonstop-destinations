@@ -1,4 +1,4 @@
 export const config = {
     "language": "en",
-    "llmDescriptions": false
+    "llmDescriptions": true
 }
