@@ -71,7 +71,7 @@ const StationSearch = ({ sendDepartureStation, displayValue = "" }) => {
         ">
           {suggestions.map(station => (
             <li
-              key={station.id}
+              key={station.rmvId}
               onClick={() => handleSelectStation(station)}
               className="
                 px-4 

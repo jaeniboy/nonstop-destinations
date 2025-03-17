@@ -38,11 +38,10 @@ function App() {
   const [showPlaces, setShowPlaces] = useState(false)
   const station = stations[stationDisplayIndex]
 
+  
   useEffect(() => {
     if (Object.keys(originalStations).length !== 0) {
       showStations()
-      // setDescription("")
-      // generateDescriptions()
     } 
   }, [originalStations])
 
@@ -80,7 +79,6 @@ function App() {
   }
 
   const fetchStationData = async (stationId) => {
-    console.log(stationId)
     setLoading(true)
     setAlert({ show: false, message: '', type: '' });
     try {
@@ -150,8 +148,6 @@ function App() {
         return acc + curr.rankingValue
       }, 0)
     })
-    console.log(data)
-
     return data.stations.sort((a, b) => b.rankingValue - a.rankingValue)
   }
 

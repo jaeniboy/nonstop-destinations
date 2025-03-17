@@ -17,27 +17,27 @@ const Options = ({ options, optionsChange, onSave, onClose }) => {
 
             <div className="fixed inset-0 flex items-center justify-center z-[2001]">
                 <div className="z-[2001] bg-white p-4 mx-4 rounded-md shadow-xl relative flex justify-center mt-3">
-                    <div className="flex flex-col sm:px-0 w-full sm:w-3/4 lg:w-1/2">
+                    <div className="flex flex-col sm:px-0 w-full">
                     <div onClick={onClose} className="flex justify-end cursor-pointer text-gray-500">
                         <BsXLg/>
                     </div>
                         <div className="flex">
                             <div className="flex-1">
-                                <Label for="mindist">What area do you already know well?</Label>
+                                <Label htmlFor="mindist">What area do you already know well?</Label>
                                 <input className="w-full" onChange={(e) => handleOptionChange("mindist", e.target.value)} value={mindist} type="range" id="mindist" name="mindist" min="0" max="100" step="10"></input>
                             </div>
                             <div className="w-20 flex pl-5 items-center text-md text-sm text-gray-700">{mindist} km</div>
                         </div>
                         <div className="flex">
                             <div className="flex-1">
-                                <Label for="maxtime">How long can your journey last?</Label>
+                                <Label htmlFor="maxtime">How long can your journey last?</Label>
                                 <input className="w-full" onChange={(e) => handleOptionChange("maxtime", e.target.value)} value={maxtime} type="range" id="maxtime" name="maxtime" min="20" max="120" step="10"></input>
                             </div>
                             <div className="w-20 flex pl-5 items-center text-md text-sm text-gray-700">{maxtime} min</div>
                         </div>
                         <div className="flex">
                             <div className="flex-1">
-                                <Label for="maxwalk">How far are you willing to walk?</Label>
+                                <Label htmlFor="maxwalk">How far are you willing to walk?</Label>
                                 <input className="w-full" onChange={(e) => handleOptionChange("maxwalk", e.target.value)} value={maxwalk} type="range" id="maxwalk" name="maxwalk" min="500" max="3000" step="500"></input>
                             </div>
                             <div className="w-20 flex pl-5 items-center text-md text-sm text-gray-700">{maxwalk} m</div>
@@ -53,7 +53,7 @@ const Options = ({ options, optionsChange, onSave, onClose }) => {
 }
 
 const Label = ({ children, forValue }) => {
-    return (<label for={forValue} className="text-xs text-gray-600">{children}</label>)
+    return (<label htmlFor={forValue} className="text-xs text-gray-600">{children}</label>)
 }
 
 export default Options;
