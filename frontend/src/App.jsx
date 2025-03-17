@@ -50,7 +50,7 @@ function App() {
   useEffect(() => {
     setDescription("")
     Object.keys(originalStations).length !== 0 && generateDescriptions()
-  }, [stations])
+  }, [stations, stationDisplayIndex])
 
 
   const sendDepartureStation = (stationId) => {
