@@ -38,7 +38,7 @@ function App() {
   const [showPlaces, setShowPlaces] = useState(false)
   const station = stations[stationDisplayIndex]
 
-  
+
   useEffect(() => {
     if (Object.keys(originalStations).length !== 0) {
       showStations()
@@ -225,8 +225,8 @@ function App() {
             />
           </div>
           <div className="mb-1 md:my-14 mt-3 md:px-0 text-gray-600 text-sm/6 tracking-wide">
-            {description}
-            <div onClick={toggleShowPlaces} className="text-indigo-600 bg-indigo-100 border border-indigo-500 inline ml-2 py-[2px] px-2 text-xs rounded-md cursor-pointer text-nowrap">
+            {description} 
+            <div onClick={toggleShowPlaces} className="ml-2 text-indigo-600 bg-indigo-100 border border-indigo-500 inline py-[2px] px-2 text-xs rounded-md cursor-pointer text-nowrap">
               show all
             </div>
           </div>
