@@ -10,7 +10,8 @@
     "build:backend": "cd backend && npm run build",
     "start:backend": "cd backend && npm run start",
     "build:cloudBackend": "docker build -t gcr.io/jani-projekt/backend-app .",
-    "push:cloudBackend": "docker push gcr.io/jani-projekt/backend-app"
+    "push:cloudBackend": "docker push gcr.io/jani-projekt/backend-app",
+    "deploy:backend": "cd backend && npm run deploy"
   },
   "workspaces": [
     "frontend",
