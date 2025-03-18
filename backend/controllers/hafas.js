@@ -62,7 +62,7 @@ export const getStationCoords = async (stationId = "8000191") => {
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) => {
-    console.log("Ermittle TripIds")
+    console.log("Fetching TripIds from vendo endpoint")
 
     const productFilter = ["nationalExpress", "bus"]
 

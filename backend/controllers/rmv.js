@@ -13,7 +13,7 @@ export const getStationCoords = async (stationId) => {
 }
 
 export const getDeparturesTripIds = async (stationId = "8000191", dateAndTime) => {
-    console.log("Fetching TripIds")
+    console.log("Fetching TripIds from rmv endpoint")
     const duration = 240
     const durationInHours = duration / 60
     const maxJourneys = -1
@@ -70,7 +70,7 @@ export const getStopovers = async (tripId, plannedWhen, connectionsPerHour) => {
 
     try {
 
-      const result = await fetch(url, { method: 'GET', retry: 3 })
+      const result = await fetch(url, { method: 'GET', retry: 3, pause: 1000, callback: retry => { console.log(`Trying: ${retry}`) } })
       if (!result.ok) {
         return `Error on fetching journey details`
       }

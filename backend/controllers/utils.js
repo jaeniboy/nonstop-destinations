@@ -1,5 +1,27 @@
 import { getDeparturesTripIds, getStopovers, getStationCoords } from "./rmv.js";
-import * as turf from '@turf/turf'; 
+import * as turf from '@turf/turf';
+
+async function fetchStopoversInBatches(trips, batchSize = 10) {
+    const totalBatches = Math.ceil(trips.length / batchSize);
+    const stopoversOfTrips = [];
+
+    for (let batchNumber = 0; batchNumber < totalBatches; batchNumber++) {
+        const startIndex = batchNumber * batchSize;
+        const endIndex = Math.min(startIndex + batchSize, trips.length);
+        const currentBatch = trips.slice(startIndex, endIndex);
+
+        console.log(`Processing batch ${batchNumber + 1} of ${totalBatches}`);
+
+        const stopovers = await Promise.all(
+            currentBatch.map(trip => getStopovers(trip.tripId, trip.plannedWhen, trip.connectionsPerHour))
+        );
+
+        stopoversOfTrips.push(...stopovers);
+    }
+
+    return stopoversOfTrips;
+}
+
 
 export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) => {
     console.log(`Fetching direct connections from station id ${stationId}`)
@@ -13,9 +35,13 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
 
         if (!trips || trips.length === 0) {
             throw new Error(`No trips found for Station ID: ${stationId}`);
+        } else {
+            console.log(`${trips.length} tripsIds found`)
         }
+
+        // const stopoversOfTrips = await Promise.all(trips.map(trip => getStopovers(trip.tripId, trip.plannedWhen, trip.connectionsPerHour)));
+        const stopoversOfTrips = await fetchStopoversInBatches(trips, 10);
         
-        const stopoversOfTrips = await Promise.all(trips.map(trip => getStopovers(trip.tripId, trip.plannedWhen, trip.connectionsPerHour)));
         const nonStopStations = {}
         for (const stopovers of stopoversOfTrips) {
             try {
@@ -54,7 +80,8 @@ export const getAllNonStopStations = async (stationId = "8000191", dateAndTime) 
             message: error.message,
             stationId,
             originalError: error
-    }}
+        }
+    }
 }
 
 export function getNextDayAt9AM() {
